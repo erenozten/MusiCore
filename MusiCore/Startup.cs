@@ -57,7 +57,7 @@ namespace MusiCore
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Gig}/{action=Index}/{id?}");
             });
         }
     }
