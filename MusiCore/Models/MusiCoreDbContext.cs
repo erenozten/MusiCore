@@ -14,6 +14,8 @@ namespace MusiCore.Models
             //constructor'u bu şekilde yazmalıyız.
         }
 
+        public DbSet<Gig> Gigs { get; set; }
+
         //public virtual DbSet<Book> Books { get; set; }
         //public virtual DbSet<Genre> Genres { get; set; }
         //public virtual DbSet<User> Users { get; set; }
