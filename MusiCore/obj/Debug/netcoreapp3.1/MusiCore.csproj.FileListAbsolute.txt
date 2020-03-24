@@ -60,8 +60,6 @@ C:\Users\Lord X\source\repos\MusiCore\MusiCore\bin\Debug\netcoreapp3.1\MusiCore.
 C:\Users\Lord X\source\repos\MusiCore\MusiCore\bin\Debug\netcoreapp3.1\MusiCore.Views.dll
 C:\Users\Lord X\source\repos\MusiCore\MusiCore\bin\Debug\netcoreapp3.1\MusiCore.Views.pdb
 C:\Users\Lord X\source\repos\MusiCore\MusiCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\Lord X\source\repos\MusiCore\MusiCore\obj\Debug\netcoreapp3.1\MusiCore.csproj.CoreCompileInputs.cache
-C:\Users\Lord X\source\repos\MusiCore\MusiCore\obj\Debug\netcoreapp3.1\MusiCore.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Lord X\source\repos\MusiCore\MusiCore\obj\Debug\netcoreapp3.1\MusiCore.Views.pdb
 C:\Users\Lord X\source\repos\MusiCore\MusiCore\obj\Debug\netcoreapp3.1\MusiCore.dll
 C:\Users\Lord X\source\repos\MusiCore\MusiCore\obj\Debug\netcoreapp3.1\MusiCore.pdb
