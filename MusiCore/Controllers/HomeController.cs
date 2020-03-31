@@ -13,24 +13,14 @@ namespace MusiCore.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        private MusiCoreDbContext _dbContext;
-
-        public HomeController(ILogger<HomeController> logger, MusiCoreDbContext dbContext)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _dbContext = dbContext;
         }
 
         public IActionResult Index()
         {
-            Gig gig = new Gig();
-            gig.Venue = "ss";
-            _dbContext.Gigs.Add(gig);
-            _dbContext.SaveChanges();
-            ViewBag.Bag = gig.Venue;
-
-            var list = _dbContext.Gigs.ToList();
-            return View(list);
+            return View();
         }
 
         public IActionResult Privacy()

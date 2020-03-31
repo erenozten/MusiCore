@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace MusiCore.Models
 {
-    public class AppRole : IdentityRole<int>
+    public class ApplicationUser: IdentityUser
     {
+        public int Yas { get; set; }
     }
 }

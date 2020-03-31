@@ -8,8 +8,6 @@ namespace MusiCore.Models
     public class Gig
     {
         public int Id { get; set; }
-
-        // Konserin verileceği yer
-        public string Venue { get; set; }
+        public string Name { get; set; }
     }
 }
