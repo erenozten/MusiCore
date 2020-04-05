@@ -12,5 +12,10 @@ namespace MusiCore.Data
             : base(options)
         {
         }
+        //ben ekledim
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 }
