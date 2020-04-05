@@ -191,3 +191,4 @@ C:\Users\Lord X\source\repos\MusiCore\MusiCore\MusiCore\obj\Debug\netcoreapp3.1\
 C:\Users\Lord X\source\repos\MusiCore\MusiCore\MusiCore\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 C:\Users\Lord X\source\repos\MusiCore\MusiCore\MusiCore\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Lord X\source\repos\MusiCore\MusiCore\MusiCore\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\Lord X\source\repos\MusiCore\MusiCore\MusiCore\obj\Debug\netcoreapp3.1\MusiCore.csprojAssemblyReference.cache
