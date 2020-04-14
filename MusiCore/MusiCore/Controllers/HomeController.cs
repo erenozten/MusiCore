@@ -14,6 +14,7 @@ namespace MusiCore.Controllers
 {
     public class HomeController : Controller
     {
+        //Identity Entegrasyonu tamamlandı. Time to start to the Project!
         private readonly ILogger<HomeController> _logger;
 
         private readonly ApplicationDbContext _context;
