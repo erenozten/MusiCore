@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MusiCore.Data;
 using MusiCore.Models;
 
 namespace MusiCore.Controllers 
@@ -14,6 +15,8 @@ namespace MusiCore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
+        private readonly ApplicationDbContext _context;
 
         //public HomeController(ILogger<HomeController> logger)
         //{
@@ -24,17 +27,29 @@ namespace MusiCore.Controllers
         private UserManager<ApplicationUser> _userManager;
 
         //class constructor
-        public HomeController(UserManager<ApplicationUser> userManager)
+        //public HomeController(UserManager<ApplicationUser> userManager)
+        //{
+        //    _userManager = userManager;
+        //}
+
+        //class constructor
+        public HomeController(ApplicationDbContext context)
         {
-            _userManager = userManager;
+            _context = context;
         }
 
-        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+        //private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         public IActionResult Index()
         {
-            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
-            var id = _userManager.GetUserId(User); // Get user id:
+            ApplicationUser user = new ApplicationUser();
+            user.CustomTag = "svveris";
+
+            _context.ApplicationUsers.Add(user);
+            _context.SaveChanges();
+
+            //System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            //var id = _userManager.GetUserId(User); // Get user id:
             return View();
         }
 
