@@ -8,9 +8,7 @@ namespace MusiCore.Models
     public class Concert
     {
         public ApplicationUser Artist { get; set; }
-
         public DateTime DateTime { get; set; }
-
         public string Venue { get; set; }
     }
 }
