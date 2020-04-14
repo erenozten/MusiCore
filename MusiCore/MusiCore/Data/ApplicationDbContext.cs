@@ -13,6 +13,9 @@ namespace MusiCore.Data
             : base(options)
         {
         }
+
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
         //ben ekledim
         //protected override void OnModelCreating(ModelBuilder builder)
         //{
