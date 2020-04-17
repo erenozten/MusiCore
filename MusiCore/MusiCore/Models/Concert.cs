@@ -18,6 +18,7 @@ namespace MusiCore.Models
         public string Venue { get; set; }
 
         // Bir konser, kesinlikle bir genre'ye sahip olmalıdır. Bu yüzden [Required] data-annotation'ı kullanıldı.
+        // Foreign key'leri değil, navigasyon property'leri required yapmış olduk.
         [Required]
         public Genre Genre { get; set; }
     }
