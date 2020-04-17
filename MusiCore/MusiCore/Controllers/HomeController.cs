@@ -46,6 +46,11 @@ namespace MusiCore.Controllers
             ApplicationUser user = new ApplicationUser();
             user.CustomTag = "svveris";
 
+            //Concert concert = new Concert();
+            //concert.Venue = "v";
+            //_context.Concerts.Add(concert);
+            _context.SaveChanges();
+
             _context.ApplicationUsers.Add(user);
             _context.SaveChanges();
 
