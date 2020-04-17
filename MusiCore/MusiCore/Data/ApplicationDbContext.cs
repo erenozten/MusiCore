@@ -15,6 +15,8 @@ namespace MusiCore.Data
         }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Concert> Concerts { get; set; }
+        public DbSet<Genre> Genres { get; set; }
 
         //ben ekledim
         //protected override void OnModelCreating(ModelBuilder builder)
