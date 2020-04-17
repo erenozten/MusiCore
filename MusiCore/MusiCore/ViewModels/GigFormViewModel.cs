@@ -7,6 +7,7 @@ namespace MusiCore.ViewModels
 {
     public class GigFormViewModel
     {
+        // property'leri string olarak oluşturduğumuza dikkat:
 
         public string Venue { get; set; }
         public string Date { get; set; }
