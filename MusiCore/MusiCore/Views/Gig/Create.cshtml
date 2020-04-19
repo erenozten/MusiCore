@@ -32,12 +32,13 @@
                 <span asp-validation-for="Time" class="text-danger"></span>
             </div>
 
-            @*<div class="form-group">
-                <label asp-for="SarkiciId" class="control-label textRenk"></label>
-                <select asp-for="SarkiciId" class="form-control" asp-items="ViewBag.SarkiciId"></select>
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label textRenk"></label>
+                <select asp-for="Genre" class="form-control" asp-items="ViewBag.GenreBag"></select>
+                <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="TurId" class="control-label textRenk"></label>
                 <select asp-for="TurId" class="form-control" asp-items="ViewBag.TurId"></select>
             </div>*@
