@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MusiCore.Data;
+using MusiCore.Models;
+using MusiCore.ViewModels;
 
 namespace MusiCore.Controllers
 {
@@ -25,6 +27,8 @@ namespace MusiCore.Controllers
         {
             List<SelectListItem> listGenre = new List<SelectListItem>();
 
+            var dbGenreList = _context.Genres.ToList();
+
             foreach (var item in _context.Genres)
             {
                 listGenre.Add(new SelectListItem()
@@ -34,9 +38,25 @@ namespace MusiCore.Controllers
                 });
             }
 
+            var viewModel = new GigFormViewModel
+            {
+                Genres = dbGenreList
+            };
+
+            //foreach (var item in dbGenreList)
+            //{
+            //    listGenre.Add(new SelectListItem()
+            //    {
+            //        Text = item.Name,
+            //        Value = item.Id.ToString()
+            //    });
+            //}
+
+            //Staff = new SelectList(staff, nameof(Person.Id), nameof(Person.Name), null, nameof(Person.Department));
+
             ViewData["GenreBag"] = new SelectList(listGenre, "Value", "Text");
 
-            return View();
+            return View(viewModel);
         }
     }
 }
