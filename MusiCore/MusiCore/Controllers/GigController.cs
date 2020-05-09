@@ -51,7 +51,7 @@ namespace MusiCore.Controllers
             //        Value = item.Id.ToString()
             //    });
             //}
-
+            //
             //Staff = new SelectList(staff, nameof(Person.Id), nameof(Person.Name), null, nameof(Person.Department));
 
             ViewData["GenreBag"] = new SelectList(listGenre, "Value", "Text");
