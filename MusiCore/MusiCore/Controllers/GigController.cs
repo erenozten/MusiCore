@@ -18,7 +18,7 @@ namespace MusiCore.Controllers
         private ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public GigController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
+        public GigController(UserManager<ApplicationUser> userManager, ApplicationDbContext context) //farklı iki constructor problem oluşturuyor. Tek contstructor ile userManager ve context alındı.
         {
             _context = context;
             _userManager = userManager;
@@ -82,10 +82,6 @@ namespace MusiCore.Controllers
         [HttpPost, Authorize]
         public async Task<IActionResult> Create(GigFormViewModel viewModel)
         {
-
-          
-
-
             return View();
         }
     }
