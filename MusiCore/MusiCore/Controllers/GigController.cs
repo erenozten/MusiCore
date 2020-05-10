@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MusiCore.Data;
@@ -23,6 +24,8 @@ namespace MusiCore.Controllers
         {
             return View();
         }
+
+        [Authorize]
         public IActionResult Create()
         {
             List<SelectListItem> listGenre = new List<SelectListItem>();
@@ -58,6 +61,12 @@ namespace MusiCore.Controllers
             //ViewData["GenreBag"] = new SelectList(listGenre, "Value", "Text");
 
             return View(viewModel);
+        }
+
+        [HttpPost, Authorize]
+        public IActionResult Create(GigFormViewModel viewModel)
+        {
+            return View();
         }
     }
 }
