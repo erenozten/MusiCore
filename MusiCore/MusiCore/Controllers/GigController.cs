@@ -67,6 +67,7 @@ namespace MusiCore.Controllers
         public IActionResult Create(GigFormViewModel viewModel)
         {
             return View();
+            return View();
         }
     }
 }
