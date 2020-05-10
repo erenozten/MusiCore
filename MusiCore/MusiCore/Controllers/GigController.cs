@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MusiCore.Data;
@@ -14,10 +16,13 @@ namespace MusiCore.Controllers
     public class GigController : Controller
     {
         private ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public GigController(ApplicationDbContext context)
+        public GigController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             _context = context;
+            _userManager = userManager;
+
         }
 
         public IActionResult Index()
@@ -26,11 +31,22 @@ namespace MusiCore.Controllers
         }
 
         [Authorize]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             List<SelectListItem> listGenre = new List<SelectListItem>();
 
             var dbGenreList = _context.Genres.ToList();
+
+
+            //var artist = _context.Users.Single(u => u.Id = User.Identity.GetUserId);
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
+            var userName = User.FindFirstValue(ClaimTypes.Name); // will give the user's userName
+
+            ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
+            string userEmail = applicationUser?.Email; // will give the user's Email
+
+            ApplicationUser asdf = new ApplicationUser();
 
             foreach (var item in _context.Genres)
             {
@@ -64,9 +80,12 @@ namespace MusiCore.Controllers
         }
 
         [HttpPost, Authorize]
-        public IActionResult Create(GigFormViewModel viewModel)
+        public async Task<IActionResult> Create(GigFormViewModel viewModel)
         {
-            return View();
+
+          
+
+
             return View();
         }
     }
