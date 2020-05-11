@@ -22,7 +22,6 @@ namespace MusiCore.Controllers
         {
             _context = context;
             _userManager = userManager;
-
         }
 
         public IActionResult Index()
@@ -62,6 +61,7 @@ namespace MusiCore.Controllers
                 Genres = dbGenreList
             };
 
+
             //foreach (var item in dbGenreList)
             //{
             //    listGenre.Add(new SelectListItem()
@@ -91,16 +91,16 @@ namespace MusiCore.Controllers
             ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
             string userEmail = applicationUser?.Email; // will give the user's Email
 
-            var genre = _context.Genres.Where(g => g.Id == viewModel.Genre).Single();
+            var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
 
             var concert = new Concert()
             {
                 Artist = applicationUser,
-                DateTime = Datetime.Parse(string.Format("{0} {1}", viewModel.Date, viewModel.Time)),
+                DateTime = DateTime.Parse(string.Format("{0} {1}", viewModel.Date, viewModel.Time)),
                 Genre = genre,
                 Venue = viewModel.Venue
 
-            }
+            };
 
             return View();
         }
