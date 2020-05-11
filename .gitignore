@@ -143,3 +143,5 @@ MusiCore/MusiCore/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.CSharp.
 MusiCore/MusiCore/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.resources.dll
 MusiCore/MusiCore/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
 MusiCore/MusiCore/obj/Debug/netcoreapp3.1/MusiCore.Views.dll
+*.cache
+*.cache
