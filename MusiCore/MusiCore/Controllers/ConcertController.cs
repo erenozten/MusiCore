@@ -91,6 +91,17 @@ namespace MusiCore.Controllers
             ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
             string userEmail = applicationUser?.Email; // will give the user's Email
 
+            var genre = _context.Genres.Where(g => g.Id == viewModel.Genre).Single();
+
+            var concert = new Concert()
+            {
+                Artist = applicationUser,
+                DateTime = Datetime.Parse(string.Format("{0} {1}", viewModel.Date, viewModel.Time)),
+                Genre = genre,
+                Venue = viewModel.Venue
+
+            }
+
             return View();
         }
     }
