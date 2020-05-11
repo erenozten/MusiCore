@@ -145,3 +145,4 @@ MusiCore/MusiCore/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.Workspa
 MusiCore/MusiCore/obj/Debug/netcoreapp3.1/MusiCore.Views.dll
 *.cache
 *.cache
+*.pdb
