@@ -102,7 +102,7 @@ namespace MusiCore.Controllers
 
             };
 
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
