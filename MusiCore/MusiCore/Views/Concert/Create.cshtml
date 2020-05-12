@@ -48,40 +48,6 @@
                 <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
 
-            @*<div class="form-group">
-                <label asp-for="TurId" class="control-label textRenk"></label>
-                <select asp-for="TurId" class="form-control" asp-items="ViewBag.TurId"></select>
-            </div>*@
-
-            @*puan*@
-            @*<div class="form-group">
-                <label asp-for="Puan" class="control-label textRenk"></label>
-                <select asp-for="Puan" class="form-control" asp-items="ViewBag.PuanData"></select>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Yorum" class="control-label textRenk"></label>
-                @Html.TextAreaFor(model => model.Yorum, new { style = "width: 350px; height:200px;", @class = "form-control" })
-                <span asp-validation-for="Yorum" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Hakkinda" class="control-label textRenk"></label>
-                @Html.TextAreaFor(model => model.Hakkinda, new { style = "width: 350px; height:200px;", @class = "form-control" })
-
-                <span asp-validation-for="Hakkinda" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label textRenk">
-                    <input class="form-check-input" asp-for="FavoriMi" /> @Html.DisplayNameFor(model => model.FavoriMi)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label textRenk">
-                    <input class="form-check-input" asp-for="DinlendiMi" /> @Html.DisplayNameFor(model => model.DinlendiMi)
-                </label>
-            </div>*@
-
             <div class="form-group">
                 <input type="submit" value="Add" class="btn btn-danger" />
             </div>
