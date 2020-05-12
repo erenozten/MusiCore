@@ -45,8 +45,6 @@ namespace MusiCore.Controllers
             ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
             string userEmail = applicationUser?.Email; // will give the user's Email
 
-            ApplicationUser asdf = new ApplicationUser();
-
             foreach (var item in _context.Genres)
             {
                 listGenre.Add(new SelectListItem()
@@ -61,19 +59,6 @@ namespace MusiCore.Controllers
                 Genres = dbGenreList
             };
 
-
-            //foreach (var item in dbGenreList)
-            //{
-            //    listGenre.Add(new SelectListItem()
-            //    {
-            //        Text = item.Name,
-            //        Value = item.Id.ToString()
-            //    });
-            //}
-            //
-            //////
-            //Staff = new SelectList(staff, nameof(Person.Id), nameof(Person.Name), null, nameof(Person.Department));
-
             //ViewData["GenreBag"] = new SelectList(listGenre, "Value", "Text");
 
             return View(viewModel);
@@ -82,8 +67,11 @@ namespace MusiCore.Controllers
         [HttpPost, Authorize]
         public async Task<IActionResult> Create(ConcertFormViewModel viewModel)
         {
-
-            //var artist = _context.Users.Single(u => u.Id = User.Identity.GetUserId);
+            if (!ModelState.IsValid)
+            {
+                viewModel.Genres = _context.Genres.ToList();
+                return View("Create", viewModel);
+            }
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
             var userName = User.FindFirstValue(ClaimTypes.Name); // will give the user's userName
@@ -95,14 +83,16 @@ namespace MusiCore.Controllers
 
             var concert = new Concert()
             {
-                Artist = applicationUser,
-                DateTime = DateTime.Parse(string.Format("{0} {1}", viewModel.Date, viewModel.Time)),
+                ArtistId = userId,
+                DateTime = viewModel.GetDateTime(),
                 Genre = genre,
-                Venue = viewModel.Venue
-
+                Venue = viewModel.Venue,
             };
 
-            return RedirectToAction("Index");
+            _context.Concerts.Add(concert);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
