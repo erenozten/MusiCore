@@ -19,6 +19,7 @@ namespace MusiCore.ViewModels
         public string Date { get; set; }
         
         [Required]
+        [FutureTime]
         public string Time { get; set; }
         
         [Required]
