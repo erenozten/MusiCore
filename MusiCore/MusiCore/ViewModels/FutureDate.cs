@@ -30,13 +30,24 @@ namespace MusiCore.ViewModels
 
 
             var isValid = DateTime.TryParseExact(Convert.ToString(arrivedDateOfDateTime),
-                "D MMM YYYY", 
+                "d MMM yyyy", 
                 CultureInfo.CurrentCulture, 
                 DateTimeStyles.None,
                 out newDateOfDateTime);
 
             return (isValid && newDateOfDateTime > DateTime.Now);
-
+            // Dikkat!
+            // Formatı belirtirken çok dikkatli olunmalı, sıkıntı çıkabiliyor.
+            // örneğin şunlar sıkıntı çıkarıyor:
+            // "D MMM yyyy" FALSE  (1 MAY 2055 değeri için) --> Sayıları küçük harfle belirtmek gerekiyor (gün ve yıl yani)
+            // "d MMM YYYY" FALSE  (1 MAY 2055 değeri için)
+            // "D MMm yyyy" FALSE  (1 MAY 2055 değeri için)
+            // "d mmm yyyy" FALSE  (1 may 2055 değeri için) --> mmm küçük harfle belirttiğimiz halde ve "may" değerini verdiğimiz halde false dönüyor.
+            
+            // "MMM" diye belirttiğimizde, ister büyük ister küçük harf verelim, true dönüyor. Görünene göre; girilen string'i toUpper gibi bir metotla büyük harfe çeviriyor ve bu yüzden MMM true dönüyor.
+            // Sonuç: sayılar küçük harfle, string (yani ay değeri) büyük harfle gösterilmeli. Şöyle:
+            
+            // "d MMM yyyy" TRUE
         }
     }
 }
