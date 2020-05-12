@@ -14,20 +14,16 @@ namespace MusiCore.ViewModels
         [Required]
         public string Venue { get; set; }
         
+        [Required]
         public string Date { get; set; }
         
+        [Required]
         public string Time { get; set; }
         
         [Required]
         public byte Genre { get; set; }
         
-        //[Required]
         public IEnumerable<Genre> Genres { get; set; } // db'deki tüm Genre'leri dropdownlist'e eklemek için kullanacağımız property
-
-        //public DateTime DateTime
-        //{
-        //    get { return DateTime.Parse(string.Format("{0} {1}", Date, Time)); }
-        //}
 
         public DateTime GetDateTime()
         {
