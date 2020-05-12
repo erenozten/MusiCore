@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MusiCore.ViewModels
 {
-    public class FutureDate: ValidationAttribute
+    public class FutureDate: ValidationAttribute  // ValidationAttribute'den kalıtım alarak; FutureDate class'ının bir data annotation olarak davranmasını sağlıyoruz.
     {
         public override bool IsValid(object arrivedDateOfDateTime)
         {
