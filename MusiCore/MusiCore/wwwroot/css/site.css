@@ -226,3 +226,27 @@ textarea > .form-control {
     width: 400px;
     height: 400px;
 }
+
+
+
+
+
+
+
+
+
+/* Bootstrap Overrides */
+
+.navbar-musicore {
+    background-color: #ff4342 !important; /* !important ile override edilmediği takdirde çalışmıyor. */
+    border-color: #ff4342 !important;
+    color: #fff !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+.navbar-light .navbar-brand {
+    color: #fff !important;
+}
