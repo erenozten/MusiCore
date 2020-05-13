@@ -250,3 +250,23 @@ textarea > .form-control {
 .navbar-light .navbar-brand {
     color: #fff !important;
 }
+
+body {
+    font-size: 18px !important;
+}
+
+.form-control {
+    font-size: 19px;
+    padding: 20px 15px;
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.btn {
+    font-size: 17px;
+    padding: 7px 20px;
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+}
+
+
