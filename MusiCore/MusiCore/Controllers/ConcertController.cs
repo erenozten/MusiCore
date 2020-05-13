@@ -64,7 +64,7 @@ namespace MusiCore.Controllers
             return View(viewModel);
         }
 
-        [HttpPost, Authorize]
+        [HttpPost, Authorize, ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ConcertFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
