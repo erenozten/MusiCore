@@ -1,0 +1,755 @@
+﻿body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    font-size: 17px;
+}
+/*test*/
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+span.field-validation-error {
+    color: red;
+    /*font-weight: bold;*/
+}
+
+
+/* Navbar Dropdown*/
+
+.dropbtn {
+    background-color: #ff4342;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    min-width: 189px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 188px;
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        background-color: white;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #f60808;
+            color: #fff;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #f60808;
+}
+
+.voffset {
+    margin-top: 2px;
+}
+
+.voffset1 {
+    margin-top: 5px;
+}
+
+.voffset2 {
+    margin-top: 10px;
+}
+
+.voffset3 {
+    margin-top: 20px;
+}
+
+.voffset4 {
+    margin-top: 40px;
+}
+
+.voffset5 {
+    margin-top: 80px;
+}
+
+button:disabled,
+button[disabled] {
+    background-color: whitesmoke !important;
+    color: black !important;
+}
+
+
+/*Listelenen Gig'lerin koordinat ve diğer style'ları Başlangıç'*/
+
+.gighub-goingButton {
+    position: absolute;
+    left: 40px;
+    top: 27px;
+}
+
+.gigHub-goingButtonActive {
+    background-color: #10ac10;
+    color: white;
+}
+
+
+.gigHub-goingButtonPassive {
+    border-color: gray;
+}
+
+.gigHub-artistLabel {
+    position: absolute;
+    left: 70px;
+    top: 4px;
+    font-weight: bold;
+}
+
+.gigHub-genreLabel {
+    position: absolute;
+    left: 70px;
+    top: 34px;
+    margin-top: -5px;
+}
+
+.gighub-canceledLabel {
+    position: absolute;
+    left: 43px;
+    top: 33px;
+}
+
+.gigHub-followLabel {
+    position: absolute;
+    left: 40px;
+    top: -4px;
+    font-size: 16px;
+    color: black;
+}
+
+.gigs > li .gigHub-yearLabel {
+    position: absolute;
+    left: 35px;
+    top: 50px;
+    color: black;
+    font-size: 10px;
+    font-style: italic;
+    color: darkred;
+    display: none;
+}
+
+/*li:hover .day:after{
+  content: 'Yeni';
+}  
+
+li:hover .day span{
+ display: none;
+}*/  
+
+
+.gigs > li:hover .gigHub-yearLabel {
+    display: block;
+}
+
+/*Listelenen Gig'lerin koordinatları Bitiş'*/
+
+/* Bootstrap Overrides Başlangıç --------------------------------------------------- */
+
+
+.input-group-addon {
+    /*padding: 6px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    text-align: center;*/
+    background-color: darkorange;
+    border: 1px solid darkorange;
+    /*border-radius: 4px;*/
+}
+
+.input-group-addon {
+    /*padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;*/
+    color: white;
+    /*text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;*/
+}
+
+
+.form-control:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.popover {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.navbar-inverse {
+    background-color: #ff4342;
+    border-color: #080808;
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #fff;
+    }
+
+    .navbar-inverse .navbar-brand {
+        color: #fff;
+    }
+
+    .navbar-inverse .notificationsClass {
+        position: relative;
+        right: 250px;
+    }
+
+        .navbar-inverse .notificationsClass .badge {
+            position: absolute;
+            top: 10px;
+            right: 1px;
+            background: #b20808;
+        }
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: Blinker, Lato, Helvetica, Arial, sans-serif;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    font-size: 17px;
+    height: 44px;
+    /*-ms-border-radius: 9px;*/
+    border-radius: 11px;
+}
+
+    .form-control:hover {
+        border-color: #2196f3;
+        -webkit-box-shadow: none;
+        /*-ms-box-shadow: none;*/
+        box-shadow: none;
+    }
+
+.btn {
+    /*font-size: 17px;
+    padding: 7px 20px;*/
+    /*-ms-border-radius: 9px;*/
+    border-radius: 9px;
+    border-radius: 7px;
+    height: 31px;
+    width: 102px;
+    font-size: 14px;
+}
+
+    .btn:hover {
+    }
+
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    color: #ffffff;
+    background-color: #1da51d;
+    border-color: #1da51d;
+}
+
+button:focus {
+    background-color: red;
+}
+
+.btnlg:focus {
+    background-color: red;
+}
+
+nav navbar-nav {
+    margin-top: -54px;
+}
+
+/* Bootstrap Overrides Bitiş --------------------------------------------------- */
+
+
+navbar-collapse collapse {
+    height: 0px !important;
+}
+navbar-collapse collapse {
+    margin-top: -56px;
+    background-color: blue !important;
+
+}
+
+
+/*Page-level Styles -Başlangıç --------------------------------------------------- */
+
+.input-group-addon:last-child {
+    border-radius: 4px;
+    margin-left: 1px;
+    width: 41px;
+    font-size: 16px;
+}
+
+
+.gigs {
+    list-style: none;
+}
+
+    .gigs > li {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+        .gigs > li .details {
+            position: absolute;
+            top: 0;
+            left: 70px;
+        }
+
+
+        .gigs > li .date {
+            color: white;
+            background: Red;
+            text-align: center;
+            width: 60px;
+            border-radius: 8px;
+        }
+
+            .gigs > li .date .month {
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: bold;
+                padding: 2px 6px;
+            }
+
+            .gigs > li .date .day {
+                background: #f7f7f7;
+                color: #333;
+                font-size: 20px;
+                padding: 6px 12px;
+            }
+
+        .gigs > li .details .artist {
+            display: block;
+            font-weight: bold;
+        }
+
+        .gigs > li .details .genre {
+            font-size: 15px;
+        }
+
+    .gigs .details {
+        width: 155px;
+    }
+
+.btnGoing {
+    float: right;
+}
+
+
+.gigs > li .actions {
+    font-size: 15px;
+    display: none;
+}
+
+.gigs > li:hover .actions {
+    display: block;
+}
+
+.DisplayInline {
+    display: inline;
+}
+
+.DisplayInlineStyled {
+    display: inline;
+    color: gray;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/*Page-level Styles -Bitiş --------------------------------------------------- */
+
+
+/* EREN CSS -BAŞLANGIÇ --------------------------------------------------- */
+
+.i-color-black {
+    color: black;
+}
+
+.i-text-align-right {
+    text-align: right;
+}
+
+.i-text-align-left {
+    text-align: left;
+}
+
+.i-font-weight-bold {
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+/* Dikey ortalama - iç içe taglar içinde -Bitiş */
+
+
+.i-display-table {
+    display: table;
+}
+/*parent olan tag'e Display:Table verilir. 
+        İçerdeki child'a ise Display:table-cell ve vertical-align:middle verilir'*/
+.i-display-table-cell {
+    display: table-cell;
+}
+
+.i-vertical-align-middle {
+    vertical-align: middle;
+}
+
+/* Dikey ortalama - iç içe taglar içinde -Bitiş */
+
+
+.i-vertical-align-bottom {
+    vertical-align: bottom;
+}
+
+.i-header-h1 {
+    font-size: 35px;
+}
+
+.i-header-h2 {
+    font-size: 30px;
+}
+
+.i-display-inline {
+    display: inline;
+}
+
+.i--smallGrayItalicText {
+    color: gray;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.i-float-right {
+    float: right;
+}
+
+.i-float-left {
+    float: left;
+}
+
+.i-display-inline-block {
+    display: inline-block;
+}
+
+.i-footer {
+    position: fixed; /* ekranın altında sabit durmasını sağlıyor. Aşağı scroll yapsan da sabit kalır*/
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: gold;
+    color: white;
+    text-align: center;
+    height: 55px;
+}
+
+.i-highlight-text-bold-black {
+    font-weight: bold;
+    color: black;
+}
+
+.i-highlight-text-bold-red {
+    font-weight: bold;
+    color: red;
+}
+
+.i-highlight-text-italic-gray {
+    font-style: italic;
+    color: gray;
+}
+
+.i-highlight-text-italic-black {
+    font-style: italic;
+    color: black;
+}
+/* EREN CSS -BİTİŞ --------------------------------------------------- */
+
+
+ul.notifications {
+    list-style: none;
+    padding-left: 0;
+}
+
+    ul.notifications > li {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+
+        ul.notifications > li:last-child {
+            border-bottom: none;
+        }
+
+.popover-notifications .popover-content {
+    padding: 0;
+}
+
+/*.popover-content .popover-notifications{
+    padding: 0;
+}*/
+
+#searchGigs {
+    width: 314px;
+}
+
+.showThisListSpan a {
+    color: blue;
+}
+
+.showThisListSpan > a {
+    color: darkorange;
+    /*color: black;*/
+}
+
+
+
+
+
+
+
+
+
+
+/*animasyon başlangıç*/
+
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.swing
+{
+        -webkit-animation: swing 1s ease;
+        animation: swing 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+}
+
+/*animasyon bitiş*/
+
+
+
+
+
+
+
+
+
+.ball {
+    background-color: rgba(230, 0, 0, 0);
+    border: 5px solid rgba(0,183,229,0.9);
+    opacity: .9;
+    border-top: 5px solid rgba(0,0,0,0);
+    border-left: 5px solid rgba(217, 23, 23, 0);
+    border-radius: 50px;
+    box-shadow: 0 0 35px #2187e7;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    -moz-animation: spin .5s infinite linear;
+    -webkit-animation: spin .5s infinite linear;
+}
+
+.ball1 {
+    background-color: rgba(232, 8, 8, 0);
+    border: 5px solid rgb(228, 9, 9);
+    opacity: .9;
+    border-top: 5px solid rgba(0,0,0,0);
+    border-left: 5px solid rgba(0,0,0,0);
+    border-radius: 50px;
+    box-shadow: 0 0 4px #e60505;
+    width: 24px;
+    height: 24px;
+    /*margin: 6px auto;*/
+    margin: 30px 155px;
+    /*position: relative;*/
+    top: -50px;
+    -moz-animation: spinoff .5s infinite linear;
+    -webkit-animation: spinoff .5s infinite linear;
+}
+
+@-moz-keyframes spin {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spinoff {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(-360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spinoff {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(-360deg);
+    }
+}   
+
+.newDiv{
+    color:red;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    color: #ffffff;
+    background-color: #1da51d;
+    /*border-color: #1da51d;*/
+}
+
+.glyphicon {
+     top: 5px;
+}
+
+.glyphicon-search {
+    top: 5px;
+}
+
+.page-footer {
+    margin-bottom: 55px;
+    margin-top: 55px;
+}
+
+.dropdown-content a {
+    padding: 12px 22px;
+}
