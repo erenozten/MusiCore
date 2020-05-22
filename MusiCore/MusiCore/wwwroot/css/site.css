@@ -383,3 +383,17 @@ h6,
 .dropdown:hover .dropbtn {
     background-color: #f60808;
 }*/
+
+.pseudoButton {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    color: black;
+    /*border is optional*/
+    /*border-bottom: 1px solid #444;*/
+}
+
+
+    .pseudoButton:hover {
+        color: white;
+    }
