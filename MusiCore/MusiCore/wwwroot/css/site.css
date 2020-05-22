@@ -398,3 +398,8 @@ h6,
         color: white;
     }
 
+.btn-green {
+    color: #fff;
+    background-color: #32b711;
+    border-color: #32b711;
+}
