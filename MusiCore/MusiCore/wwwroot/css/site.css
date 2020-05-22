@@ -1,5 +1,5 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿/* Please see documentat<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.3.0/css/all.css">
+
 
 a.navbar-brand {
     white-space: normal;
@@ -397,3 +397,4 @@ h6,
     .pseudoButton:hover {
         color: white;
     }
+
