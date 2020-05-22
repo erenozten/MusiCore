@@ -69,5 +69,12 @@ namespace MusiCore.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult FixLaterAndAboutProject()
+        {
+            // Projede sonradan geri dönülüp düzeltilecek olan şeyleri bu kısımda notlarla belirtelim.
+            // Ayrıca projede kullanılan teknolojiler de burada belirtilecek
+            return View();
+        }
     }
 }
