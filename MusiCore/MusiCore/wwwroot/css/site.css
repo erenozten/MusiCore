@@ -298,6 +298,9 @@ h6,
     font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+h1 {
+}
+
 .orangeBackgroundedText {
     background-color: #f60;
     border: none;
@@ -402,4 +405,9 @@ h6,
     color: #fff;
     background-color: #32b711;
     border-color: #32b711;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+    font-weight: 700;
 }
