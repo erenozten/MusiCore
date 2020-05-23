@@ -17,18 +17,19 @@ namespace MusiCore.Controllers
         public IActionResult Technologies()
         {
             // Projede kullanılan teknolojilerin, tekniklerin belirtilecek olduğu ActionResult.
+
+            // Proje .NET CORE 3.1 ile oluşturuldu.
+            // Entity Framework kullanıldı.
+            // Bootstrap kullanıldı.
+            // Code-First Yaklaşımı kullanıldı.
+            // Migration'lar kullanıldı.
+            // Data Validation (Client Side Validation)
+            // ASP.NET Identity (Sign Up, Login, Log out, Change Password etc.) 
+
+            // Security Issues
+            // Artistic UI
             return View();
         }
 
-        public IActionResult Logs()
-        {
-            // Projeye eklenen çıkarılan her şeyin log'landığı ActionResult.
-            return View();
-        }
-
-        public IActionResult Bosch()
-        {
-            return View();
-        }
     }
 }
