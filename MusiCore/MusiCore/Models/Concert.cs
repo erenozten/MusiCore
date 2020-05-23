@@ -18,6 +18,7 @@ namespace MusiCore.Models
         // Bir konser, kesinlikle bir venue'ye sahip olmalıdır. Bu yüzden [Required] data-annotation'ı kullanıldı.
         [Required]
         [StringLength(255)]
+        [Display(Name = "Mekan")]
         public string Venue { get; set; }
 
         // Bir konser, kesinlikle bir genre'ye sahip olmalıdır. Bu yüzden [Required] data-annotation'ı kullanıldı.
