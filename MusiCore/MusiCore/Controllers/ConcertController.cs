@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using MusiCore.Data;
 using MusiCore.Models;
 using MusiCore.ViewModels;
@@ -24,9 +25,18 @@ namespace MusiCore.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var upcomingConcerts = _context.Concerts
+                .Include(c => c.Artist)
+                .Where(c => c.DateTime > DateTime.Now);
+
+            // passedConcerts diye bir değişken oluşturup zamanı geçmiş olanları çağıralım. 
+
+            return View(await upcomingConcerts.ToListAsync());
+
+            //return View(await sarkicilar2.ToListAsync());
+
         }
 
         [Authorize]
