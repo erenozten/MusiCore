@@ -71,5 +71,19 @@ namespace MusiCore.Controllers
             return View();
         }
 
+        public IActionResult WillBeAdded()
+        {
+            // TextsController'da bulunan tüm actionresultlar için bir tablo oluşturalım, görev yapıldıysa true yapalım property'sini, değilse false.
+            // Yapılmış olan görevler yeşil, yapılmamışlar kırmızı renk ile gösterilsin.
+            // Buton ile bu görevleri "yapıldı" diye işaretleyebilelim. Ajax post yapılabilir bu noktada.
+            // Görevlerin Türkçe ve İngilizce diye property'leri olsun. İngilizceye çevirdiklerimizi ingilizce property'sinde tutacağız.
+            // Change Password
+            // Add a gig
+            // My Upcoming Gigs
+            // Edit a gig
+            // Remove a gig
+            // View All Upcoming Gigs
+            // Search Implementation
+        
     }
 }
