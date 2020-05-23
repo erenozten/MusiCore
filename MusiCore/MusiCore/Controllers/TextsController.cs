@@ -51,6 +51,15 @@ namespace MusiCore.Controllers
             // Entity Framework kuruldu.
             // Migration'lar aktive edildi.
             // ASP.NET Identity entegrasyonu sağlandı.
-        
+            // Concert class'ı oluşturuldu.
+            // Genre class'ı oluşturuldu.
+            // DbContext oluşturuldu.
+            // ApplicationUser, Concert, Genre arasındaki ilişkiler kuruldu.
+            // Her bir class'ta navigation property'ler oluşturuldu.
+            // Her Concert'in bir Genre'si olmalı. Dolayısıyla Concert'in GenreId ismindeki Foreign Key'i Required olarak belirlendi. [Required] data annotation'ı kullanıldı. İleride Fluent Api de kullanılacak bu gibi işlemler için.
+            // Genre tablosuna örnek müzik türü isimleri eklenerek (pop, rock, metal vb.) tablo populate edildi.
+            // ConcertController eklendi.
+            // Yeni Concert oluşturma sayfası eklendi.
+         
     }
 }
