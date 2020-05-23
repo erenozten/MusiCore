@@ -25,20 +25,6 @@ namespace MusiCore.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            var upcomingConcerts = _context.Concerts
-                .Include(c => c.Artist)
-                .Where(c => c.DateTime > DateTime.Now);
-
-            // passedConcerts diye bir değişken oluşturup zamanı geçmiş olanları çağıralım. 
-
-            return View(await upcomingConcerts.ToListAsync());
-
-            //return View(await sarkicilar2.ToListAsync());
-
-        }
-
         [Authorize]
         public async Task<IActionResult> Create()
         {
