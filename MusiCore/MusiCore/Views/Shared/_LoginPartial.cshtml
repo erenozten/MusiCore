@@ -13,10 +13,22 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Katılacağım Konserler</a> @*Concerts I'm Goings*@
                 <a class="dropdown-item" href="#">Takip Ettiğim Sanatçılar</a> @*Artists I'm Following*@
-                @*<a class="dropdown-item" href="#">Something else here</a>*@
 
-                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="FixLaterAndAboutProject">
+                @*<a class="dropdown-item" href="#">Proje Hakkında</a> 
+                <a class="dropdown-item" href="#">Kullanılan Teknolojiler</a> 
+                <a class="dropdown-item" href="#">Log'lar</a>*@ 
+
+
+                <a class="dropdown-item" asp-area="" asp-controller="Texts" asp-action="About">
                     Proje Hakkında
+                </a>
+
+                <a class="dropdown-item" asp-area="" asp-controller="Texts" asp-action="Technologies">
+                    Kullanılan Teknolojiler
+                </a>
+
+                <a class="dropdown-item" asp-area="" asp-controller="Texts" asp-action="Logs">
+                    Log'lar
                 </a>
 
                 <a class="dropdown-item" href="#" onmouseover="this.style.color='white'">
