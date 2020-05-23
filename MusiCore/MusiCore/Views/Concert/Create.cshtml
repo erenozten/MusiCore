@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>Ekle</h1>
 
-<h4>Create a Concert</h4>
+<h4>Yeni Konser Ekle</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,29 +15,30 @@
             @Html.AntiForgeryToken() @*Chrome'da formu incelediğinde; formun en sonunda token'i göreceksin. Önceden formun en başında görünüyordu.*@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+            @*Venue*@
             <div class="form-group">
                 <label asp-for="Venue" class="control-label textRenk"></label>
-                <input asp-for="Venue" class="form-control"/>
+                <input asp-for="Venue" class="form-control" value=""/>          @*Kadıköy*@
                 <span asp-validation-for="Venue" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="Date" class="control-label textRenk"></label>
-                <input asp-for="Date" class="form-control"/>
+                <input asp-for="Date" class="form-control" value=""/>          @*12 Jan 2023*@
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="Time" class="control-label textRenk"></label>
-                <input asp-for="Time" class="form-control"/>
+                <input asp-for="Time" class="form-control" value=""/>          @*13:00*@
                 <span asp-validation-for="Time" class="text-danger"></span>
             </div>
 
             @*<div class="form-group">
-                <label asp-for="Genre" class="control-label textRenk"></label>
-                <select asp-for="Genre" class="form-control" asp-items="ViewBag.GenreBag"></select>
-                <span asp-validation-for="Genre" class="text-danger"></span>
-            </div>*@
+            <label asp-for="Genre" class="control-label textRenk"></label>
+            <select asp-for="Genre" class="form-control" asp-items="ViewBag.GenreBag"></select>
+            <span asp-validation-for="Genre" class="text-danger"></span>
+        </div>*@
 
             <div class="form-group">
                 <label asp-for="Genre" class="control-label textRenk"></label>
@@ -50,14 +51,14 @@
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Add" class="btn btn-danger"/>
+                <input type="submit" value="Ekle!" class="btn btn-green" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Geri dön</a>
 </div>
 
 @section Scripts {
