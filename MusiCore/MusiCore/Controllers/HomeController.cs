@@ -6,11 +6,12 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MusiCore.Data;
 using MusiCore.Models;
 
-namespace MusiCore.Controllers 
+namespace MusiCore.Controllers
 {
     public class HomeController : Controller
     {
@@ -41,23 +42,37 @@ namespace MusiCore.Controllers
 
         //private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ApplicationUser user = new ApplicationUser();
-            user.CustomTag = "svveris";
+            var upcomingConcerts = _context.Concerts
+                .Include(c => c.Artist)
+                .Where(c => c.DateTime > DateTime.Now);
 
-            //Concert concert = new Concert();
-            //concert.Venue = "v";
-            //_context.Concerts.Add(concert);
-            _context.SaveChanges();
+            // passedConcerts diye bir değişken oluşturup zamanı geçmiş olanları çağıralım. 
 
-            _context.ApplicationUsers.Add(user);
-            _context.SaveChanges();
+            return View(await upcomingConcerts.ToListAsync());
 
-            //System.Security.Claims.ClaimsPrincipal currentUser = this.User;
-            //var id = _userManager.GetUserId(User); // Get user id:
-            return View();
+            //return View(await sarkicilar2.ToListAsync());
+
         }
+
+        //public IActionResult Index()
+        //{
+        //    //ApplicationUser user = new ApplicationUser();
+        //    //user.CustomTag = "svveris";
+
+        //    //Concert concert = new Concert();
+        //    //concert.Venue = "v";
+        //    //_context.Concerts.Add(concert);
+        //    //_context.SaveChanges();
+
+        //    //_context.ApplicationUsers.Add(user);
+        //    //_context.SaveChanges();
+
+        //    //System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+        //    //var id = _userManager.GetUserId(User); // Get user id:
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {
@@ -68,13 +83,6 @@ namespace MusiCore.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public IActionResult FixLaterAndAboutProject()
-        {
-            // Projede sonradan geri dönülüp düzeltilecek olan şeyleri bu kısımda notlarla belirtelim.
-            // Ayrıca projede kullanılan teknolojiler de burada belirtilecek
-            return View();
         }
     }
 }
