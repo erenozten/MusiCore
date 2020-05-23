@@ -411,3 +411,23 @@ h1 {
     color: #dc3545 !important;
     font-weight: 700;
 }
+
+nav-item dropdown:hover {
+    background-color: white;
+    color: red;
+}
+
+/*.dropdown:hover .dropdown-content {
+    display: block;
+}*/
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+
+
+
+
+
