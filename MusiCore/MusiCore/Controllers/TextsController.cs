@@ -31,5 +31,15 @@ namespace MusiCore.Controllers
             return View();
         }
 
+        public IActionResult Approaches()
+        {
+            // Projede benimsenen yaklaşımlarla ilgili kısa notların yazıldığı ActionResult.
+
+            // Migration'lar küçük parçalar halinde oluşturuldu. Dolayısıyla veritabanı problemlerinin yaşanma olasılığı azaltıldı.
+            // Proje bir müzik projesi olduğu için, yani gençlere hitap edeceği için tasarımda canlı renklere yer verildi.
+
+            return View();
+        }
+
     }
 }
