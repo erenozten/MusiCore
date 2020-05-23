@@ -41,5 +41,16 @@ namespace MusiCore.Controllers
             return View();
         }
 
+        public IActionResult Logs()
+        {
+            // Projeye eklenen çıkarılan her şeyin log'landığı ActionResult.
+
+            // Proje başlatıldı. Roket kalkışa hazırlanıyor.
+            // Proje GitHub'a eklendi.
+            // ConnectionString yazıldı.
+            // Entity Framework kuruldu.
+            // Migration'lar aktive edildi.
+            // ASP.NET Identity entegrasyonu sağlandı.
+        
     }
 }
