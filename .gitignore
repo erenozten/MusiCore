@@ -147,3 +147,10 @@ MusiCore/MusiCore/obj/Debug/netcoreapp3.1/MusiCore.Views.dll
 *.cache
 *.pdb
 *.v2
+MusiCore/MusiCore/bin/Debug/netcoreapp3.1/MusiCore.deps.json
+MusiCore/MusiCore/obj/Debug/netcoreapp3.1/MusiCore.csproj.FileListAbsolute.txt
+MusiCore/MusiCore/obj/Debug/netcoreapp3.1/Razor/Views/Concert/Create.cshtml.g.cs
+MusiCore/MusiCore/obj/Debug/netcoreapp3.1/Razor/Views/Concert/Index.cshtml.g.cs
+MusiCore/MusiCore/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
+MusiCore/MusiCore/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
+MusiCore/MusiCore/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_LoginPartial.cshtml.g.cs
