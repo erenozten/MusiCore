@@ -60,6 +60,16 @@ namespace MusiCore.Controllers
             // Genre tablosuna örnek müzik türü isimleri eklenerek (pop, rock, metal vb.) tablo populate edildi.
             // ConcertController eklendi.
             // Yeni Concert oluşturma sayfası eklendi.
-         
+            // Navbar'daki linkler düzenlendi, yeni linkler eklendi (Add a Concert bunlardan biri).
+            // Bazı bootstrap class'ları override edildi. Override edilen class'lar Site.cs dosyasına eklendi. Sitedeki tüm style'lar şu an Site.cs dosyasında bulunuyor.
+            // Concert class'ının DateTime property'si var. Fakat biz kullanıcıdan Date ve Time değerlerini ayrı ayrı alacağız. Date, yani Tarih değeri, örneğin 3 ocak 2021 değeri alınacak, time property'sinde ise saat değeri alınacak, örneğin 14:00. Bunu yapabilmek için ConcertViewModel oluşturuldu. Bu Viewmodel, Concert class'ının tüm değerlerine sahip, bunun yanında Date ve Time property'lerine sahip.
+            // ConcertViewModel'den gelen Date ve Time değerleri, Concert'in Datetime'sine parse ediliyor. Bu işlem gerçekleştirildi.
+            // Concert oluşturma sayfasında, genre seçimi için, tüm genre'lerin listelendiği bir dropdownlist oluşturuldu.
+            // Bootstrap Button'larının default style'ları, siteyle uyumlu olacak şekilde override edildi.
+            // Sisteme giriş yapmamış olan üyeler bazı ActionResult'lere ulaşamamalı. Bu yüzden bunlara [Authorize] attribute'ları eklendi.
+            // Create [HttpPost] ActionResult'ı oluşturuldu ve ilk Concert kaydı veritabanına eklenmiş oldu. Good job bruh.
+            return View();
+        }
+
     }
 }
