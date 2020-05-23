@@ -84,6 +84,23 @@ namespace MusiCore.Controllers
             // Remove a gig
             // View All Upcoming Gigs
             // Search Implementation
-        
+            // Paging Implementation
+            // View gig Details
+            // Add a Gig to Calendar
+            // Remove a Gig from Calendar
+            // View Gigs I'm Attending
+            // Follow an Artist
+            // Unfollow an Artist
+            // Who I'm Following
+            // Gig Feed
+            // CSS style ları
+            // Genre için CRUD işlemleri yapılmak üzere admin paneli oluşturulmalı
+            return View();
+        }
+
+        public IActionResult WillBeFixed()
+        {
+            return View();
+        }
     }
 }
