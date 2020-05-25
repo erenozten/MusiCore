@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MusiCore.TextModels.CampaignOfFixation>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("PartialViews/_PartialViewForCreateTextTop")
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th>
+                Modüller
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @if (item.IsDone)
+                {
+                    <td>
+                        <div class="check"></div>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <div class="close"></div>
+                    </td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.TextTurkish) &nbsp <a asp-action="Details" asp-route-id="@item.Id">Görüntüle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<p>
+    <a asp-action="Create">Yeni Hata Ekle</a>
+</p>
