@@ -428,6 +428,38 @@ nav-item dropdown:hover {
 
 
 
+textarea.form-control {
+    width: 450px !important;
+     height: 250px; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+textarea .form-control {
+    width: 450px !important;
+     height: 250px; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.table > tbody > tr:first-child > th {
+    border: none !important;
+}
+
+
+.table > tbody > tr:first-child > th {
+    border: none;
+}
+
+
+/*div > dl > tr:first-child > dt {
+    border: none;
+}*/
+
+/* div dl dt */
+
+
+
 
 
 
