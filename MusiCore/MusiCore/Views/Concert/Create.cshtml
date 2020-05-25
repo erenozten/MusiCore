@@ -6,9 +6,10 @@
 }
 
 <h1>Ekle</h1>
-
 <h4>Yeni Konser Ekle</h4>
 <hr />
+<br/>
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -53,13 +54,15 @@
             <div class="form-group">
                 <input type="submit" value="Ekle!" class="btn btn-green" />
             </div>
+
+            <div>
+                <a asp-action="Index">Geri Dön</a>
+            </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Geri dön</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
