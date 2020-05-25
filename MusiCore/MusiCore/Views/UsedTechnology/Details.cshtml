@@ -5,10 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <div>
     @Html.Partial("PartialViews/_PartialViewForCreateTextTop")
-    @*<hr />*@
 
     <dl class="row">
         <dt class="col-sm-2">
@@ -25,7 +23,9 @@
         </dd>
     </dl>
 </div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Düzenle</a> |
-    <a asp-action="Index">Geri dön</a>
+    <a asp-action="Delete" asp-route-id="@Model.Id">Sil</a> |
+    <a asp-action="Index">Geri Dön</a>
 </div>
