@@ -5,10 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+@Html.Partial("PartialViews/_PartialViewForCreateTextTop")
 
-<h4>LogOfEverything</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
@@ -16,22 +14,16 @@
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="TextTurkish" class="control-label"></label>
-                <input asp-for="TextTurkish" class="form-control" />
+                @Html.TextAreaFor(model => model.TextTurkish, new {@class = "form-control" })
                 <span asp-validation-for="TextTurkish" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="TextEnglish" class="control-label"></label>
-                <input asp-for="TextEnglish" class="form-control" />
+                @Html.TextAreaFor(model => model.TextEnglish, new {@class = "form-control" })
                 <span asp-validation-for="TextEnglish" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+            @Html.Partial("PartialViews/_PartialViewForCreateTextBottom")
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
