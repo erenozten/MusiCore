@@ -442,21 +442,50 @@ textarea .form-control {
     margin-bottom: 0px;
 }
 
-.table > tbody > tr:first-child > th {
+/*.table > tbody > tr:first-child > th {
     border: none !important;
-}
-
-
-.table > tbody > tr:first-child > th {
-    border: none;
-}
-
-
-/*div > dl > tr:first-child > dt {
-    border: none;
 }*/
 
-/* div dl dt */
+
+.table > tbody > tr:first-child > th {
+    border: none;
+}
+
+/*.table > thead > tr:first-child > th {
+    border: none !important;
+}*/
+
+
+.table > thead > tr:first-child > th {
+    border: none;
+}
+
+/* Yeşil tik başlangıç*/
+
+:root {
+    --borderWidth: 7px;
+    --height: 24px;
+    --width: 12px;
+    --borderColor: #78b13f;
+}
+
+/*body {
+    padding: 20px;
+    text-align: center;
+}*/
+
+.check {
+    display: inline-block;
+    transform: rotate(45deg);
+    height: var(--height);
+    width: var(--width);
+    border-bottom: var(--borderWidth) solid var(--borderColor);
+    border-right: var(--borderWidth) solid var(--borderColor);
+}
+
+/* Yeşil tik bitiş*/
+
+
 
 
 
