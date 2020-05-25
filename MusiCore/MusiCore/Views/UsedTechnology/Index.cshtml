@@ -7,13 +7,13 @@
 
 @Html.Partial("PartialViews/_PartialViewForCreateTextTop")
 
+
 <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TextTurkish)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TextEnglish)
+                Teknolojiler
             </th>
             <th></th>
         </tr>
@@ -22,15 +22,11 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TextTurkish)
+                    <div class="check"></div>
                 </td>
+               
                 <td>
-                    @Html.DisplayFor(modelItem => item.TextEnglish)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    @Html.DisplayFor(modelItem => item.TextTurkish) &nbsp <a asp-action="Details" asp-route-id="@item.Id">Görüntüle</a>
                 </td>
             </tr>
         }
