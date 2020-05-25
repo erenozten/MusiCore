@@ -485,6 +485,45 @@ textarea .form-control {
 
 /* Yeşil tik bitiş*/
 
+/*Kırmızı çarpı işareti başlangıç*/
+
+.close {
+    position: absolute;
+    /*right: 32px;
+    top: 32px;*/
+    left: 408px;
+    /*left: 400px;*/
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+    color: red;
+}
+
+.close:hover {
+    opacity: 1;
+    color: red;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: red;
+    color: red;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+/*Kırmızı çarpı işareti bitiş*/
+
 
 
 
