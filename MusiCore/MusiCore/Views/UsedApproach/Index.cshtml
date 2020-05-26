@@ -24,9 +24,9 @@
         {
             <tr>
                 <td>
-                    <div class="check"></div> 
+                    <div class="check"></div>
                 </td>
-               
+
                 <td>
                     @Html.DisplayFor(modelItem => item.TextTurkish) &nbsp <a asp-action="Details" asp-route-id="@item.Id">Görüntüle</a>
                 </td>
@@ -34,3 +34,7 @@
         }
     </tbody>
 </table>
+
+<p>
+    <a asp-action="Create">Yeni Yaklaşım Ekle</a>
+</p>
