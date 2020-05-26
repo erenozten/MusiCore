@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace MusiCore.ViewModels
 {
-    public class FutureDate: ValidationAttribute  // ValidationAttribute'den kalıtım alarak; FutureDate class'ının bir data annotation olarak davranmasını sağlıyoruz.
+    public class ValidDate: ValidationAttribute  // ValidationAttribute'den kalıtım almamız gerekiyor.
     {
-        public override bool IsValid(object arrivedDateOfDateTime)
+        public override bool IsValid(object arrivedDateOfDateTime) // IsValid metodunu override ediyoruz
         {
             DateTime newDateOfDateTime;
 
             // Tryparseexact -> bool sonuç döner. Burada yapılan şu:
             // istediğimiz formatı D MMM YYYY olarak girebilmek için TryParseExact'ı kullandık.
-            // TryParseExact, içinde bulunduğumuz IsValid metoduna gelen "Date" değerini,
-            // arrivedDateOfDateTime parametresine atıyor. Aşağıda ise, arrivedDateOfDateTime (elimize geçen "Date" değeri anlamında),
-            // değerinin valid bir değer olup olmadığını çözümlüyor ve valid ise return(true) yapmış oluyoruz.
+            // TryParseExact, arrivedDateOfDateTime değerini, yani metoda gelen değeri string'e çevirmeye çalışıyor.
+            // Çevirebilmişse true dönüyor, çevirememişse false.
+            // Şayet true dönmüşse, dönen sonucu newDateOfDateTime'a atıyor.
             // bu noktada yine bu metodun bool değer döndüğüne dikkat edelim. Zaten bu metodun işi; girilen "Date" değerinin valid mi değil mi onun anlaşılmasını sağlamaktı.
             // Peki valid bir Date değeri nasıl olmalı? 
-            // Öncelikle, elimize gelen Date değerinin (arrivedDateOfDateTime), istediğimiz formata uygun olması gerekir (DD MMM YYYY)
+            // Öncelikle, elimize gelen Date değerinin (arrivedDateOfDateTime), istediğimiz formata uygun olması gerekir (D MMM YYYY)
             // İkinci olarak, gelen Date değeri, günümüzden ileri bir tarihte olmalıdır (veya günümüze eşit).
             // Birinci durumu nasıl başardık, ona bakalım:
             // TryParseExact'ten gelen bool değeri "isvalid" değişkenine attık. Yani TryParseExact başarıyla sonuçlanmışsa, isvalid değeri True olarak dönmüş olacak.  Değilse False.

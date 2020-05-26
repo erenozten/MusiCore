@@ -1,0 +1,46 @@
+﻿@model MusiCore.TextModels.CampaignOfAddingNewModule
+
+@{
+    ViewData["Title"] = "Createzzz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Createzzz</h1>
+
+<h4>CampaignOfAddingNewModule</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Createzzz">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TextTurkish" class="control-label"></label>
+                <input asp-for="TextTurkish" class="form-control" />
+                <span asp-validation-for="TextTurkish" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TextEnglish" class="control-label"></label>
+                <input asp-for="TextEnglish" class="form-control" />
+                <span asp-validation-for="TextEnglish" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsDone" /> @Html.DisplayNameFor(model => model.IsDone)
+                </label>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="DateCompleted" class="control-label"></label>
+                <input asp-for="DateCompleted" class="form-control" />
+                <span asp-validation-for="DateCompleted" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
