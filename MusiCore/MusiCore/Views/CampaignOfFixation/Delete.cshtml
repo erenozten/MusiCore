@@ -1,0 +1,41 @@
+﻿@model MusiCore.TextModels.CampaignOfFixation
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sil</h1>
+
+<h4>Silmek istediğinizden emin misiniz?</h4>
+
+<div>
+    <br/>
+    <hr/>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TextTurkish)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TextTurkish)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TextEnglish)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TextEnglish)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsDone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsDone)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id"/>
+        <input type="submit" value="Sil" class="btn btn-danger"/> |
+        <a asp-action="Index">Geri Dön</a>
+    </form>
+</div>
