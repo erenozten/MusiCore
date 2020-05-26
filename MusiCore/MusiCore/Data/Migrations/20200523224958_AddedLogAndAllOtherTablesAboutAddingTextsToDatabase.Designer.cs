@@ -3,19 +3,21 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MusiCore.Data;
 
 namespace MusiCore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200523224958_AddedLogAndAllOtherTablesAboutAddingTextsToDatabase")]
+    partial class AddedLogAndAllOtherTablesAboutAddingTextsToDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.4")
+                .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -166,6 +168,9 @@ namespace MusiCore.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CustomTag")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
@@ -178,9 +183,6 @@ namespace MusiCore.Data.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(256)")
@@ -275,9 +277,6 @@ namespace MusiCore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
                     b.Property<bool>("IsDone")
                         .HasColumnType("bit");
 
@@ -290,27 +289,6 @@ namespace MusiCore.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CampaignOfAddingNewModules");
-                });
-
-            modelBuilder.Entity("MusiCore.TextModels.CampaignOfFixation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("IsDone")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("TextEnglish")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TextTurkish")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CampaignOfFixations");
                 });
 
             modelBuilder.Entity("MusiCore.TextModels.LogOfEverything", b =>
@@ -355,9 +333,6 @@ namespace MusiCore.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateCreatedAndCompleted")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("TextEnglish")
                         .HasColumnType("nvarchar(max)");
