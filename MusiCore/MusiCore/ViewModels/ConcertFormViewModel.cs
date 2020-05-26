@@ -26,14 +26,13 @@ namespace MusiCore.ViewModels
         public string Venue { get; set; }
 
         [Required(ErrorMessage = "Bu alan boş bırakılamaz")]
-        [FutureDate]
+        [ValidDate(ErrorMessage = "Lütfen geçerli bir Tarih değeri giriniz. Ör: 13 Jan 2023")]
         [Display(Name = "Tarih", Prompt = "13 Jan 2023")]
-
         public string Date { get; set; }
 
         [Required(ErrorMessage = "Bu alan boş bırakılamaz")]
-        [FutureTime]
-        [Display(Name = "Saat", Prompt = "13 Jan 2023")]
+        [ValidTime(ErrorMessage = "Lütfen geçerli bir Saat değeri giriniz. Ör: 22:15")]
+        [Display(Name = "Saat", Prompt = "16:30")]
         public string Time { get; set; }
 
         [Required(ErrorMessage = "Bu alan boş bırakılamaz")]
