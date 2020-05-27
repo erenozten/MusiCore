@@ -8,6 +8,6 @@ namespace MusiCore.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public string CustomTag { get; set; }
+        public string Name { get; set; }
     }
 }
