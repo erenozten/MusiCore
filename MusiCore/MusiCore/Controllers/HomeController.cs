@@ -20,27 +20,12 @@ namespace MusiCore.Controllers
 
         private readonly ApplicationDbContext _context;
 
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-
-        //    _logger = logger;
-        //}
-
         private UserManager<ApplicationUser> _userManager;
 
-        //class constructor
-        //public HomeController(UserManager<ApplicationUser> userManager)
-        //{
-        //    _userManager = userManager;
-        //}
-
-        //class constructor
         public HomeController(ApplicationDbContext context)
         {
             _context = context;
         }
-
-        //private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         public async Task<IActionResult> Index()
         {
@@ -48,7 +33,7 @@ namespace MusiCore.Controllers
                 .Include(c => c.Artist)
                 .Where(c => c.DateTime > DateTime.Now);
 
-            // passedConcerts diye bir değişken oluşturup zamanı geçmiş olanları çağıralım. 
+            // passedConcerts diye bir değişken oluşturup zamanı geçmiş olanları da çağıralım. 
 
             return View(await upcomingConcerts.ToListAsync());
 
@@ -56,23 +41,21 @@ namespace MusiCore.Controllers
 
         }
 
-        //public IActionResult Index()
-        //{
-        //    //ApplicationUser user = new ApplicationUser();
-        //    //user.CustomTag = "svveris";
+        public async Task<IActionResult> About()
+        {
+            //üst kısım için --> _PartialViewForCreateTextTop
+            //ViewData["ViewDataForClassName"] = "Teknoloji";
+            //ViewData["ViewDataForControllerNameForGeriDonLink"] = "UsedTechnology";
+            ViewData["ViewDataForFirstHeader"] = "Hakkında";
+            ViewData["ViewDataForSecondHeader"] = "Proje Ne İşe Yarıyor?";
 
-        //    //Concert concert = new Concert();
-        //    //concert.Venue = "v";
-        //    //_context.Concerts.Add(concert);
-        //    //_context.SaveChanges();
+            //alt kısım için --> _PartialViewForCreateTextBottom
+            ViewData["ViewDataForCSSClassForEkleButton"] = "btn btn-green";
+            ViewData["ViewDataForActionNameForGeriDonLink"] = "Index";
+            ViewData["ViewDataForSaveButtonsValue"] = "Kaydet!";
 
-        //    //_context.ApplicationUsers.Add(user);
-        //    //_context.SaveChanges();
-
-        //    //System.Security.Claims.ClaimsPrincipal currentUser = this.User;
-        //    //var id = _userManager.GetUserId(User); // Get user id:
-        //    return View();
-        //}
+            return View();
+        }
 
         public IActionResult Privacy()
         {
