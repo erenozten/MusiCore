@@ -25,11 +25,15 @@ namespace MusiCore.Controllers
             // ASP.NET Identity entegrasyonu yapıldı (Kaydol, Giriş Yap, Çıkış Yap, Şifre Değiştir) //db'ye eklendi
             // Partial View'lar kullanıldı //db'ye eklendi
             // Bootstrap kullanıldı //db'ye eklendi
+            // Proje .NET Core'da geliştirildiği için XSS saldırılarını bertaraf edebiliyor; JavaScript inputlarını default olarak reddediyor //db'ye eklendi
+            // Bundling yapısı kullanıldı (request load time'ı azaltmak için)
+            // EF Code-First yapısı kullanıldı //db'ye eklendi
+            // CSRF saldırıları AntiForgeryToken sayesinde kolaylıkla önlenebiliyor //db'ye eklendi
+            // SQL Injection casusluğu önleniyor. Projede Entity Framework kullanılıyor, dolayısıyla SQL sorguları Runtime'da değil, compile-time'da oluşturuluyor //db'ye eklendi
 
             // BURAYA KADAR OK!
 
-            // Bundling yapısı kullanıldı
-            // Data Annotations
+            // Data Annotations (bunu sonlara ekle)
 
             return View();
         }
@@ -38,15 +42,13 @@ namespace MusiCore.Controllers
         {
             // Projede benimsenen yaklaşımlarla ilgili kısa notların yazıldığı ActionResult.
 
-            // Migration'lar küçük parçalar halinde oluşturuldu. Dolayısıyla veritabanı problemleri yaşama olasılığı azaltıldı //db'ye eklendi
+            // Migration'lar küçük modüller halinde oluşturuldu. Dolayısıyla veritabanı problemleri yaşama olasılığı azaltıldı //db'ye eklendi
             // Proje bir müzik projesi olduğu için, yani gençlere hitap edeceği için tasarımda canlı renklere yer verildi //db'ye eklendi
             // Artistik tasarım uygulanmaya çalışıldı //db'ye eklendi
-            // EF Code-First Yaklaşımı kullanıldı //db'ye eklendi
 
             // BURAYA KADAR OK!
 
-            // Proje .NET Core'da geliştirildiği için XSS saldırılarını bertaraf edebiliyor; JavaScript inputlarını default olarak reddediyor.
-            // Güvenlik: CSRF saldırıları Anti-forgery Token yapısı sayesinde kolaylıkla bertaraf edilebiliyor. (@Html.AntiForgeryToken ve [ValidateAntiForgeryToken])
+            // One-to-many relationship kullanıldı
 
             //
             return View();
@@ -83,51 +85,59 @@ namespace MusiCore.Controllers
             // Log'lama, kullanılan teknolojiler vb için birer tablo oluşturuldu. Bu bilgiler veritabanına eklenmeye başlandı //db'ye eklendi
             // Partial view'lar eklendi //db'ye eklendi
             // Tasarım düzenlendi. Bol bol CSS, HTML Chore... //db'ye eklendi
-            // Db'ye yeni bir concert eklenirken navigation property'ler kullanıldığı için, ekleme işlemini tamamlayabilmek için 3 sorgu atmamız gerekiyordu. Biz de foreign key'ler kullandık, gereksiz olan 2 sorguyu böylelikle sildik. //db'ye eklendi
+            // Db'ye yeni bir concert eklenirken navigation property'ler kullanıldığı için, ekleme işlemini tamamlayabilmek için 3 sorgu atmamız gerekiyordu Biz de foreign key'ler kullandık, gereksiz olan 2 sorguyu böylelikle sildik. //db'ye eklendi
+            // Birkaç Google Fontu projeye eklendi (bunlardan birisi Lato) //db'ye eklendi
+            // ApplicationUser'a custom bir property eklendi, bu property'nin register sayfasında "görülmesi", form içinde veri doldurularak kaydın yapılması sağlandı //db'ye eklendi
+            // Concert'lerin listelendiği sayfada, yani index'te, her bir konseri listelerken, konseri, sanatçıyı, konser yerini ve tarihi gösteren ikonumsu bir yapı oluşturuldu. İlgili CSS dosyaları site.css sayfasına eklendi //db'ye eklendi
+            // Attendance class'ı oluşturuldu (Katılım). Bir Attendance-> Bir Concert ve bir ApplicationUser barındırır. Bunların foreign key'leri composite key'lerdir. Çünkü bir Attendance, özel olmalıdır: İki foreign key'in kombinasyonları özel olmalıdır, bundan bir tane daha olmamalıdır. Neden, çünkü bir katılım: bir konser ve bir katılımcıya aittir. Aynı konsere aynı katılımcı, ikinci kez katılım oluşturamaz; composite key bunun için oluşturuldu  //db'ye eklendi
+            // Bir konsere birçok user katılabilir. O halde konser, ICollection<Attendance> a sahip olabilir. Bir user da birçok konsere katılımda bulunabilir. O halde user'in de ICollection<Attendance> ı olmalıdır //db'ye eklendi
+            // Date ve Time property'leri için özel validasyon oluşturuldu //db'ye eklendi
+
             // BURAYA KADAR OK!
-            
-            // Birkaç Google Fontu projeye eklendi.
-            // .NET Core'da ApplicationUser işlemleri farklı çalışıyor. ApplicationUser'a custom bir property eklendi, bu property'nin register sayfasında "görülmesi", form içinde veri doldurularak kaydın yapılması sağlandı.
+
+            //
             return View();
         }
 
         public IActionResult CampaignOfAddingNewModule()
         {
-            // TextController'da bulunan tüm actionresultlar için bir tablo oluşturalım, görev yapıldıysa true yapalım property'sini, değilse false //db'ye eklendi
+            // TextController'da bulunan tüm ActionResult'lar için bir tablo oluşturalım, görev yapıldıysa true yapalım property'sini, değilse false //db'ye eklendi
             // Yapılmış olan görevler yeşil, yapılmamışlar kırmızı renk ile gösterilsin, bu iki işlemi göstermek için icon'lar kullanalım //db'ye eklendi
             // Buton ile bu görevleri "yapıldı" diye işaretleyebilelim //db'ye eklendi
             // Görevleri "yapıldı, yapılmadı" olarak işaretleyebilme olayı Ajax post yapılabilir, belki de overkill olur bu, ileride düşünürüz
             // Görevlerin Türkçe ve İngilizce diye property'leri olsun. İngilizceye çevirdiklerimizi ingilizce property'sinde tutacağız
             // Sisteme konserler eklensin // db'ye eklendi
             // Kullanıcı, "katılacağım" diye belirttiği konserleri bir sayfa üzerinden takip edebilsin // db'ye eklendi
-            // Kullanıcı, konserleri düzenleyebilsin
-            // Date ve Time property'leri için özel validasyon oluşturuldu
+            // Kullanıcı, konserleri düzenleyebilsin // db'ye eklendi
+            // Date ve Time property'leri için özel validasyon oluşturulsun // db'ye eklendi
+            // Log'ların vb, ne zaman oluşturulduğunu index'te gösterelim. Örneğin: 5 ay önce // db'ye eklendi
+            // Konser silme özelliği eklenecek // db'ye eklendi
+            // Tarihi geçmemiş olan konserler anasayfada listelensin // db'ye eklendi
+            // Tarihi geçmiş olan konserler, anasayfada listelensin ama tarihi geçmiş olanlardan sonra listelensin veya bir butona tıklanınca, tarihi geçmiş olanlara yönlendirilsin. // db'ye eklendi
+            // Arama özelliği eklensin (Search) // db'ye eklendi
+            // Paging özelliği eklensin // db'ye eklendi
+            // Konser detaylarını görüntüleme özelliği eklensin // db'ye eklendi
+            // Kullanıcı, katılacak olduğu konserleri özel bir sayfada görüntüleyebilsin // db'ye eklendi
+            // Sanatçı, konser ekleyebilsin // db'ye eklendi
+            // Sanatçı, konser silebilsin // db'ye eklendi
+            // Kullanıcı, sanatçıyı takip edebilsin // db'ye eklendi
+            // Kullanıcı, sanatçıyı takipten çıkarabilsin // db'ye eklendi
+            // Kullanıcı, takip ettiği sanatçıları özel bir sayfada görebilsin // db'ye eklendi
+            // Kullanıcının takip ve takipten çıkarma işlemleri tek tıkla halledilsin (jQuery ile) // db'ye eklendi
+            // Sisteme müzik türü eklenebilsin (Genre) // db'ye eklendi
+            // Sistemden müzik türü silinebilsin (Genre) // db'ye eklendi
+            // Sistemdeki müzik türü görüntülenebilsin (Genre) // db'ye eklendi
+            // Sistemdeki müzik türü güncellenebilsin (Genre) // db'ye eklendi
+            // Kullanıcı, bir modülü sisteme eklediğinde, yani "tamamlandı" olarak işaretlediğinde, bunun tarihini görebilsin. Index sayfasında da "3 ay önce tamamlandı" şeklinde belirtebiliriz // db'ye eklendi
+            // Sistem temiz bir mimariye sahip olsun; refaktörler yapılsın // db'ye eklendi
+            // Test işlemleri yapılsın (Automated testing) // db'ye eklendi
+            
+            // BURAYA KADAR OK!
 
-
-            // Remove a gig
-            // View All Upcoming Gigs
-            // Search Implementation
-            // Paging Implementation
-            // View gig Details
-            // View All upcoming gigs
-            // View my upcoming gigs
-            // Add a Gig to Calendar
-            // Remove a Gig from Calendar
-            // View Gigs I'm Attending
-            // Follow an Artist
-            // Unfollow an Artist
-            // Who I'm Following
-            // Takip ettiklerimi görüntüle
-            // sanatçıları görüntüle
-            // Gig Feed
-            // CSS style ları
-            // Genre için CRUD işlemleri yapılmak üzere admin paneli oluşturulmalı
-            // Security Issues (XSS falan, bunları ekleyelim)
-            // Kullanıcı, bir modülü sisteme eklediğinde, yani "tamamlandı" olarak işaretlediğinde, bunun tarihini görebilsin. Index sayfasında da "3 ay önce tamamlandı" şeklinde belirtebiliriz.
-            // clean architecture
-            // automated testing
-            // Object-oriented Design
-            // Restful APIs
+            //
+            //
+            //
+            //
             return View();
         }
 
@@ -135,18 +145,26 @@ namespace MusiCore.Controllers
         {
             // Index sayfalarında tablo çok genişleyebiliyor property'lerin uzunluğuna göre. Bunlar düzenlenmeli. Trim metotları kullanılmalı //db'ye eklendi
             // Create Concert sayfasıdaki dropdown çalışmasına çalışıyor lakin görsel olarak dropdown'un içinde seçilen şey görünmüyor, dropdown'ın içi boş görünüyor //db'ye eklendi
-            
-            // Client side validation yapısında hata var. Normalde çalışıyor, ama Date ve Time değerleri bozuk girildiğinde çalışmıyor.
+
+            // Client side validation yapısında hata var. Normalde çalışıyor, ama Date ve Time değerleri bozuk girildiğinde çalışmıyor //db'ye eklendi
             // buton hover olunca text'i siyah oluyor. bunu silelim, kötü görünüyor
             // Google fontlarında türkçe karakter sıkıntısı var. Yeni fontlar bulunmalı
-            // nav-bar da giriş yapan kişinin maili değil, ismi yazsın. Lakin yazamadık.
+            // nav-bar da giriş yapan kişinin maili değil, ismi yazsın
+            // User register olayında: user ismini required yapalım
+            
+            // BURAYA KADAR OK!
+
+            //
+            //
+            //
             return View();
         }
 
         public IActionResult DigerHicbirYereEklenmemis()
         {
             //View Model Pattern kullanmışız
-            // Security olayları: SQL Injection casusluğuna mahal verilmiyor; Entity Framework kullanılıyor, dolayısıyla SQL sorguları Runtime'da oluşturulmuyor.
+            // Object-oriented Design
+            // Restful APIs
             return View();
         }
 
