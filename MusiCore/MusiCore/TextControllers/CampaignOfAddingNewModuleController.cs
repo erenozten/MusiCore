@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Razor.Language.CodeGeneration;
 using Microsoft.EntityFrameworkCore;
 using MusiCore.Data;
 using MusiCore.TextModels;
@@ -26,7 +27,7 @@ namespace MusiCore.TextControllers
             //ViewData["ViewDataForClassName"] = "Teknoloji";
             //ViewData["ViewDataForControllerNameForGeriDonLink"] = "UsedTechnology";
             ViewData["ViewDataForFirstHeader"] = "Modüller";
-            ViewData["ViewDataForSecondHeader"] = "Projeye Entegre Edilen/Edilecek Modüller";
+            ViewData["ViewDataForSecondHeader"] = "Projeye Entegre Edilecek Modüller";
 
             //alt kısım için --> _PartialViewForCreateTextBottom
             ViewData["ViewDataForCSSClassForEkleButton"] = "btn btn-green";
@@ -68,8 +69,6 @@ namespace MusiCore.TextControllers
         // GET: CampaignOfAddingNewModule/Create
         public IActionResult Create()
         {
-            var dts = DateTime.Now;
-
             //üst kısım için --> _PartialViewForCreateTextTop
             //ViewData["ViewDataForClassName"] = "Teknoloji";
             ViewData["ViewDataForFirstHeader"] = "Ekle";
@@ -87,12 +86,19 @@ namespace MusiCore.TextControllers
         // POST: CampaignOfAddingNewModule/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TextTurkish,TextEnglish,IsDone,DateCompleted,DateCreated")] CampaignOfAddingNewModule campaignOfAddingNewModule)
+        public async Task<IActionResult> Create([Bind("Id,TextTurkish,TextEnglish,IsDone")] CampaignOfAddingNewModule campaignOfAddingNewModule)
         {
             var dts = DateTime.Now;
 
             if (ModelState.IsValid)
             {
+                if (campaignOfAddingNewModule.DateCompleted == null)
+                {
+                    if (campaignOfAddingNewModule.IsDone)
+                    {
+                        campaignOfAddingNewModule.DateCompleted = DateTime.Now;
+                    }
+                }
                 _context.Add(campaignOfAddingNewModule);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -142,6 +148,14 @@ namespace MusiCore.TextControllers
                 try
                 {
                     _context.Update(campaignOfAddingNewModule);
+
+                    if (campaignOfAddingNewModule.DateCompleted == null)
+                    {
+                        if (campaignOfAddingNewModule.IsDone) 
+                        { 
+                            campaignOfAddingNewModule.DateCompleted = DateTime.Now;
+                        }
+                    }
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
