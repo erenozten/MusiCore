@@ -25,6 +25,27 @@ namespace MusiCore.Controllers
             _userManager = userManager;
         }
 
+        public ActionResult Index()
+        {
+            //üst kısım için --> _PartialViewForCreateTextTop
+            //ViewData["ViewDataForClassName"] = "Teknoloji";
+            //ViewData["ViewDataForControllerNameForGeriDonLink"] = "UsedTechnology";
+            ViewData["ViewDataForFirstHeader"] = "Konserler";
+            ViewData["ViewDataForSecondHeader"] = "Bir konsere katıl!";
+
+            //alt kısım için --> _PartialViewForCreateTextBottom
+            ViewData["ViewDataForCSSClassForEkleButton"] = "btn btn-green";
+            ViewData["ViewDataForActionNameForGeriDonLink"] = "Index";
+            ViewData["ViewDataForSaveButtonsValue"] = "Kaydet!";
+
+            var upcomingsConcerts = _context.Concerts
+                .Include(c=>c.Artist)
+                .Include(c=>c.Genre)
+                .Where(c => c.DateTime > DateTime.Now);
+
+            return View(upcomingsConcerts);
+        }
+
         [Authorize]
         public async Task<IActionResult> Create()
         {
@@ -81,14 +102,34 @@ namespace MusiCore.Controllers
             {
                 ArtistId = userId,
                 DateTime = viewModel.GetDateTime(),
-                Genre = genre,
+                Genre = genre, //Genre = genre yerine GenreId = genreId olarak düzenleyelim.
+                //GenreId = genre.Id,
                 Venue = viewModel.Venue,
             };
 
             _context.Concerts.Add(concert);
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Concert");
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
