@@ -590,6 +590,42 @@ textarea .form-control {
 }
 /* Ekledi */
 
+.gigs > li .details .artist {
+    display: block;
+    font-weight: bold;
+}
+
+.gigs > li .details .genre {
+    font-size: 15px;
+}
+
+.gigs .details {
+    width: 155px;
+}
+
+.btnGoing {
+    float: right;
+}
+
+.gigs > li .actions {
+    font-size: 15px;
+    display: none;
+}
+
+.gigs > li:hover .actions {
+    display: block;
+}
+
+.DisplayInline {
+    display: inline;
+}
+
+.DisplayInlineStyled {
+    display: inline;
+    color: gray;
+    font-style: italic;
+    font-size: 14px;
+}
 
 /*Takvim ikonu bitiş*/
 /*Page-level Styles -Bitiş --------------------------------------------------- */
