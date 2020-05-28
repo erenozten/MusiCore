@@ -40,26 +40,6 @@ namespace MusiCore.TextControllers
             return View(await _context.UsedTechnologies.ToListAsync());
         }
 
-        public async Task<IActionResult> AddSampleData()
-        {
-            //sampleUsedTechnologiesList
-            var sampleUsedTechnologiesList = new List<UsedTechnology>()
-            {
-                new UsedTechnology()
-                {
-                    TextEnglish = "asdf",
-                },
-                new UsedTechnology()
-                {
-                    TextEnglish = "asdf",
-                },
-            };
-
-        _context.UsedTechnologies.AddRange(sampleUsedTechnologiesList);
-        _context.SaveChanges();
-            return View();
-        }
-
         public async Task<IActionResult> Details(int? id)
         {
             //üst kısım için --> _PartialViewForCreateTextTop
