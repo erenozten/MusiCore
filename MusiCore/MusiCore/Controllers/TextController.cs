@@ -16,7 +16,7 @@ namespace MusiCore.Controllers
 
         public IActionResult UsedTechnology() //ok
         {
-            // Projede kullanılan teknolojilerin, tekniklerin belirtilecek olduğu ActionResult.
+            // Projede kullanılan teknolojilerin, tekniklerin belirtilecek olduğu ActionResult
 
             // Proje .NET CORE 3.1 ile oluşturuldu //db'ye eklendi
             // Entity Framework kullanıldı //db'ye eklendi
@@ -40,7 +40,7 @@ namespace MusiCore.Controllers
 
         public IActionResult UsedApproach() //ok
         {
-            // Projede benimsenen yaklaşımlarla ilgili kısa notların yazıldığı ActionResult.
+            // Projede benimsenen yaklaşımlarla ilgili kısa notların yazıldığı ActionResult
 
             // Migration'lar küçük modüller halinde oluşturuldu. Dolayısıyla veritabanı problemleri yaşama olasılığı azaltıldı //db'ye eklendi
             // Proje bir müzik projesi olduğu için, yani gençlere hitap edeceği için tasarımda canlı renklere yer verildi //db'ye eklendi
@@ -56,17 +56,17 @@ namespace MusiCore.Controllers
 
         public IActionResult LogOfEverything() //ok
         {
-            // Projeye eklenen çıkarılan her şeyin log'landığı ActionResult.
+            // Projeye eklenen çıkarılan her şeyin log'landığı ActionResult
 
             // Proje başlatıldı. Roket kalkışa hazırlanıyor //db'ye eklendi
             // Proje GitHub'a eklendi //db'ye eklendi
             // ConnectionString oluşturuldu //db'ye eklendi
             // Entity Framework kuruldu //db'ye eklendi
             // Migration'lar aktive edildi //db'ye eklendi
-            // ASP.NET Identity entegrasyonu sağlandı. //db'ye eklendi
-            // Concert class'ı oluşturuldu. //db'ye eklendi
-            // Genre class'ı oluşturuldu. //db'ye eklendi
-            // DbContext oluşturuldu. //db'ye eklendi
+            // ASP.NET Identity entegrasyonu sağlandı //db'ye eklendi
+            // Concert class'ı oluşturuldu //db'ye eklendi
+            // Genre class'ı oluşturuldu //db'ye eklendi
+            // DbContext oluşturuldu //db'ye eklendi
             // ApplicationUser, Concert, Genre arasındaki ilişkiler kuruldu //db'ye eklendi
             // Her bir class'ta navigation property'ler oluşturuldu //db'ye eklendi
             // Her Concert'in bir Genre'si olmalı. Dolayısıyla Concert'in GenreId ismindeki Foreign Key'i Required olarak belirlendi. [Required] data annotation'ı kullanıldı. İleride Fluent Api de kullanılacak bu gibi işlemler için //db'ye eklendi
@@ -79,7 +79,7 @@ namespace MusiCore.Controllers
             // ConcertViewModel'den gelen Date ve Time değerlerinin, Concert'in Datetime'sine parse edilmesi işlemi gerçekleştirildi //db'ye eklendi
             // Concert oluşturma sayfasında, genre seçimi için, tüm genre'lerin listelendiği bir dropdownlist oluşturuldu //db'ye eklendi
             // Bootstrap Button'larının default style'ları, siteyle uyumlu olacak şekilde override edildi //db'ye eklendi
-            // Sisteme giriş yapmamış olan üyeler bazı ActionResult'lere ulaşamamalı. Bu yüzden bunlara [Authorize] attribute'ları eklendi //db'ye eklendi
+            // Sisteme giriş yapmamış olan üyeler bazı ActionResult'lara ulaşamamalı. Bu yüzden bunlara [Authorize] attribute'ları eklendi //db'ye eklendi
             // Create [HttpPost] ActionResult'ı oluşturuldu ve ilk Concert kaydı veritabanına eklenmiş oldu. Good job bruh //db'ye eklendi
             // Create sayfası için client side validation oluşturuldu. Bunun için jQueryVal kullanıldı //db'ye eklendi
             // Log'lama, kullanılan teknolojiler vb için birer tablo oluşturuldu. Bu bilgiler veritabanına eklenmeye başlandı //db'ye eklendi
@@ -92,9 +92,15 @@ namespace MusiCore.Controllers
             // Attendance class'ı oluşturuldu (Katılım). Bir Attendance-> Bir Concert ve bir ApplicationUser barındırır. Bunların foreign key'leri composite key'lerdir. Çünkü bir Attendance, özel olmalıdır: İki foreign key'in kombinasyonları özel olmalıdır, bundan bir tane daha olmamalıdır. Neden, çünkü bir katılım: bir konser ve bir katılımcıya aittir. Aynı konsere aynı katılımcı, ikinci kez katılım oluşturamaz; composite key bunun için oluşturuldu  //db'ye eklendi
             // Bir konsere birçok user katılabilir. O halde konser, ICollection<Attendance> a sahip olabilir. Bir user da birçok konsere katılımda bulunabilir. O halde user'in de ICollection<Attendance> ı olmalıdır //db'ye eklendi
             // Date ve Time property'leri için özel validasyon oluşturuldu //db'ye eklendi
+            // one-to-many ilişkiler için fluent api oluşturuldu //db'ye eklendi
+            // Concert ve Attendance arasındaki one-to-many ilişki için Fluent API oluşturuldu
 
+            // BURAYA KADAR OLANLAR MODÜLLER SAYFASINA EKLENDİ KOPY PASTE İLE.
             // BURAYA KADAR OK!
 
+            // Composite Key'ler için fluent api oluşturulsun
+            // 
+            //
             //
             return View();
         }
@@ -131,9 +137,34 @@ namespace MusiCore.Controllers
             // Kullanıcı, bir modülü sisteme eklediğinde, yani "tamamlandı" olarak işaretlediğinde, bunun tarihini görebilsin. Index sayfasında da "3 ay önce tamamlandı" şeklinde belirtebiliriz // db'ye eklendi
             // Sistem temiz bir mimariye sahip olsun; refaktörler yapılsın // db'ye eklendi
             // Test işlemleri yapılsın (Automated testing) // db'ye eklendi
-            
-            // BURAYA KADAR OK!
+            // Entity Framework sisteme entegre edilsin // db'ye eklendi
+            // ASP.NET Identity entegrasyonu sağlansın // db'ye eklendi
+            // Concert class'ı oluşturulsun // db'ye eklendi
+            // Genre class'ı oluşturulsun // db'ye eklendi
+            // DbContext oluşturulsun // db'ye eklendi
+            // ApplicationUser, Concert, Genre arasındaki ilişkiler kurulsun // db'ye eklendi
+            // Her bir class'ta navigation property'ler oluşturulsun // db'ye eklendi
+            // Her Concert'in bir Genre'si olmalı. Dolayısıyla Concert'in GenreId ismindeki Foreign Key'i Required olarak belirlensin // db'ye eklendi
+            // Genre tablosuna örnek müzik türü isimleri eklenerek (pop, rock, metal vb.) tablo populate edilsin (Genre için yönetim sistemi de daha sonra eklensin) // db'ye eklendi
+            // ConcertController oluşturulsun ilgili ActionResult'lar oluşturulsun // db'ye eklendi
+            // Navbar'daki linkler düzenlensin, yeni linkler eklensin (Add a Concert gibi) // db'ye eklendi
+            // Bazı bootstrap class'ları override edilsin isteğe göre, istenen tasarıma göre. Override edilen class'lar Site.cs dosyasına eklensin. Sitedeki tüm style'lar şu an Site.cs dosyasında bulunuyor // db'ye eklendi
+            // Concert class'ının DateTime property'si var. Fakat biz kullanıcıdan Date ve Time değerlerini ayrı ayrı alacağız. Date, yani Tarih değeri, örneğin 3 ocak 2021 değeri alınacak, time property'sinde ise saat değeri alınacak, örneğin 14:00. Bunu yapabilmek için ConcertViewModel oluşturulsun. Bu Viewmodel, Concert class'ının tüm değerlerine sahip olsun, bunun yanında Date ve Time property'lerine sahip olsun // db'ye eklendi
+            // ConcertViewModel'den gelen Date ve Time değerlerinin, Concert'in Datetime'sine parse edilmesi işlemi gerçekleştirilsin // db'ye eklendi
+            // Concert oluşturma sayfasında, genre seçimi için, tüm genre'lerin listelendiği bir dropdownlist oluşturulsun, genre buradan seçilsin ve kaydedilsin //db'ye eklendi
+            // Bootstrap Button'larının default style'ları, siteyle uyumlu olacak şekilde override edilsin //db'ye eklendi
+            // Sisteme giriş yapmamış olan üyeler bazı ActionResult'lara ulaşamamalı. Bu yüzden bunlara [Authorize] attribute'ları eklensin //db'ye eklendi
+            // Create sayfası için client side validation oluşturulsun. Bunun için jQueryVal kullanılsın //db'ye eklendi
+            // Log'lama, kullanılan teknolojiler vb için birer tablo oluşturulsun. Bu bilgiler veritabanına eklenmeye başlansın //db'ye eklendi
+            // Kolay yönetim için Partial view'lar oluşturulsun //db'ye eklendi
+            // Tasarım düzenlensin, çok sade, katı, ciddi bir görünüme sahip. Bunlar tersine çevrilsin //db'ye eklendi
+            // Concert ile Genre, Concert ile artist arasında foreign key'ler oluşturulsun ve daha az sorgu ile veritabanına veri eklenebilsin //db'ye eklendi
+            // Varsayılan fontu değiştirilsin, gençlere hitap eden canlı bir font bulunsun //db'ye eklendi
+            // Identity'ye özel property'ler eklenebilsin, msdn'deki instruction takip edilsin //db'ye eklendi
+            // Concert'lerin listelendiği sayfada, yani index'te, her bir konseri listelerken, konseri, sanatçıyı, konser yerini ve tarihi gösteren ikonumsu bir yapı oluşturulsun. İlgili CSS dosyaları site.css sayfasına eklensin //db'ye eklendi
+            // one-to-many ilişkiler için fluent api kullanılsın //db'ye eklendi
 
+            // BURAYA KADAR OK!
             //
             //
             //
