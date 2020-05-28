@@ -33,6 +33,10 @@ namespace MusiCore.TextControllers
             ViewData["ViewDataForActionNameForGeriDonLink"] = "Index";
             ViewData["ViewDataForSaveButtonsValue"] = "Kaydet!";
 
+            //DateTime start = new DateTime(2020, 9, 1);
+            //DateTime end = usedTechnology.da;
+            //var diffMonths = (end.Month + end.Year * 12) - (start.Month + start.Year * 12);
+
             return View(await _context.UsedTechnologies.ToListAsync());
         }
 
@@ -69,6 +73,7 @@ namespace MusiCore.TextControllers
             //ViewData["ViewDataForActionNameForGeriDonLink"] = "Index";
             //ViewData["ViewDataForSaveButtonsValue"] = "Ekle!";
 
+            
             if (id == null)
             {
                 return NotFound();

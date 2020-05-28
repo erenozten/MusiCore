@@ -8,6 +8,10 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20200526205411_DateC.cs" />
     <Compile Remove="Data\Migrations\20200526205411_DateC.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200527132538_DeletedUnnecessaryPropertiesAndAddedDateProperty.cs" />
+    <Compile Remove="Data\Migrations\20200527132538_DeletedUnnecessaryPropertiesAndAddedDateProperty.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200527133114_DeletedUnnecessaryPropertiesAndAddedDateProperty.cs" />
+    <Compile Remove="Data\Migrations\20200527133114_DeletedUnnecessaryPropertiesAndAddedDateProperty.Designer.cs" />
   </ItemGroup>
 
 
