@@ -275,7 +275,7 @@ namespace MusiCore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCompleted")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDone")
@@ -299,6 +299,9 @@ namespace MusiCore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("DateCompleted")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("IsDone")
                         .HasColumnType("bit");
 
@@ -319,6 +322,9 @@ namespace MusiCore.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("TextEnglish")
                         .HasColumnType("nvarchar(max)");
@@ -355,9 +361,6 @@ namespace MusiCore.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateCreatedAndCompleted")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("TextEnglish")
                         .HasColumnType("nvarchar(max)");
