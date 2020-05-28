@@ -16,11 +16,11 @@ namespace MusiCore.Controllers
     public class HomeController : Controller
     {
         //Identity Entegrasyonu tamamlandı. Time to start to the Project!
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
         private readonly ApplicationDbContext _context;
 
-        private UserManager<ApplicationUser> _userManager;
+        //private UserManager<ApplicationUser> _userManager;
 
         public HomeController(ApplicationDbContext context)
         {
@@ -54,7 +54,9 @@ namespace MusiCore.Controllers
             ViewData["ViewDataForActionNameForGeriDonLink"] = "Index";
             ViewData["ViewDataForSaveButtonsValue"] = "Kaydet!";
 
-            return View();
+            //return View(); yazarsak asyncronous programming olmuyor. Async ve await beraber kullanılmalı.
+            return await Task.Run(() => View());
+
         }
 
         public IActionResult Privacy()
