@@ -14,15 +14,18 @@
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="TextTurkish" class="control-label"></label>
-                @Html.TextAreaFor(model => model.TextTurkish, new {@class = "form-control" })
+                @Html.TextAreaFor(model => model.TextTurkish, new { @class = "form-control" })
                 <span asp-validation-for="TextTurkish" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="TextEnglish" class="control-label"></label>
-                @Html.TextAreaFor(model => model.TextEnglish, new {@class = "form-control" })
+                @Html.TextAreaFor(model => model.TextEnglish, new { @class = "form-control" })
                 <span asp-validation-for="TextEnglish" class="text-danger"></span>
             </div>
-            @Html.Partial("PartialViews/_PartialViewForCreateTextBottom")
+            @await Html.PartialAsync("PartialViews/_PartialViewForCreateTextBottom")
+
+            @*<partial name="PartialViews/_PartialViewForCreateTextBottom"/>*@
+
         </form>
     </div>
 </div>
