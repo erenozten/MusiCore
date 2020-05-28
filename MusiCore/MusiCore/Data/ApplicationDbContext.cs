@@ -40,12 +40,9 @@ namespace MusiCore.Data
                 .HasOne(e => e.Concert)
                 .WithMany(c => c.Attendances);
 
+            //Attendance class'ındaki Composite Key'leri oluşturduk (.NET Core'da data annotation'lar yeterli değilmiş bu işlem için; Fluent API gerekiyormuş)
             modelBuilder.Entity<Attendance>()
                 .HasKey(c => new { c.ConcertId, c.AttendeeId });
-
-            //modelBuilder.Entity<Concert>()
-            //    .HasOne(p => p.Relationship)
-            //    .IsRequired(); 
 
             //ModelBuilder.Entity<Attendance>().has
             base.OnModelCreating(modelBuilder);
