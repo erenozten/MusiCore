@@ -19,6 +19,7 @@ namespace MusiCore.Data
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Concert> Concerts { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Attendance> Attendances { get; set; }
 
         public DbSet<CampaignOfAddingNewModule> CampaignOfAddingNewModules { get; set; }
         public DbSet<LogOfEverything> LogOfEverythings { get; set; }
@@ -29,7 +30,7 @@ namespace MusiCore.Data
         //ben ekledim
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            // cascading delete disable
             // google'dan: If you want to change the delete behavior for all relationships, then you can use this code in OnModelCreating(...) to bulk set it for all relationships in your model.
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
