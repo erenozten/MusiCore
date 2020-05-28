@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MusiCore.Models
@@ -28,5 +30,9 @@ namespace MusiCore.Models
 
        [Required]
         public byte GenreId { get; set; }
+
+        // ben ekledim
+        // Attendance'ların içinden ConcertId'si Concert'in Id değerine eşit olan tüm attendance'ları aşağıdaki property sayesinde çekebiliyoruz sorguyla.
+        public ICollection<Attendance> Attendances { get; set; }
     }
 }
