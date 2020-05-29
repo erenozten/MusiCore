@@ -48,7 +48,6 @@ namespace MusiCore.Controllers
 
             // BURAYA KADAR OK!
 
-            // One-to-many relationship kullanıldı
 
             //
             return View();
@@ -98,10 +97,15 @@ namespace MusiCore.Controllers
             // BURAYA KADAR OLANLAR MODÜLLER SAYFASINA EKLENDİ KOPY PASTE İLE.
             // BURAYA KADAR OK!
 
-            // Composite Key'ler için fluent api oluşturulsun
-            // 
-            //
-            //
+            // Composite Key'ler için fluent api oluşturuldu
+            // Warning giderildi
+            // Cascade delete disable edildi
+            // Attendance oluşturmak için API Controller oluşturuldu (AttendanceController)
+            // Warning giderildi
+            // Warning giderildi
+            // Warning giderildi
+            // Database adı değiştirildi, işler bozuldu. Eski veriler tekrar kaydedildi
+            
             return View();
         }
 
@@ -117,9 +121,9 @@ namespace MusiCore.Controllers
             // Kullanıcı, konserleri düzenleyebilsin // db'ye eklendi
             // Date ve Time property'leri için özel validasyon oluşturulsun // db'ye eklendi
             // Log'ların vb, ne zaman oluşturulduğunu index'te gösterelim. Örneğin: 5 ay önce // db'ye eklendi
-            // Konser silme özelliği eklenecek // db'ye eklendi
+            // Konser silme özelliği eklensin // db'ye eklendi
             // Tarihi geçmemiş olan konserler anasayfada listelensin // db'ye eklendi
-            // Tarihi geçmiş olan konserler, anasayfada listelensin ama tarihi geçmiş olanlardan sonra listelensin veya bir butona tıklanınca, tarihi geçmiş olanlara yönlendirilsin. // db'ye eklendi
+            // Tarihi geçmiş olan konserler, anasayfada listelensin ama tarihi geçmiş olanlardan sonra listelensin veya bir butona tıklanınca, tarihi geçmiş olanlara yönlendirilsin // db'ye eklendi
             // Arama özelliği eklensin (Search) // db'ye eklendi
             // Paging özelliği eklensin // db'ye eklendi
             // Konser detaylarını görüntüleme özelliği eklensin // db'ye eklendi
@@ -152,21 +156,20 @@ namespace MusiCore.Controllers
             // Concert class'ının DateTime property'si var. Fakat biz kullanıcıdan Date ve Time değerlerini ayrı ayrı alacağız. Date, yani Tarih değeri, örneğin 3 ocak 2021 değeri alınacak, time property'sinde ise saat değeri alınacak, örneğin 14:00. Bunu yapabilmek için ConcertViewModel oluşturulsun. Bu Viewmodel, Concert class'ının tüm değerlerine sahip olsun, bunun yanında Date ve Time property'lerine sahip olsun // db'ye eklendi
             // ConcertViewModel'den gelen Date ve Time değerlerinin, Concert'in Datetime'sine parse edilmesi işlemi gerçekleştirilsin // db'ye eklendi
             // Concert oluşturma sayfasında, genre seçimi için, tüm genre'lerin listelendiği bir dropdownlist oluşturulsun, genre buradan seçilsin ve kaydedilsin //db'ye eklendi
-            // Bootstrap Button'larının default style'ları, siteyle uyumlu olacak şekilde override edilsin //db'ye eklendi
             // Sisteme giriş yapmamış olan üyeler bazı ActionResult'lara ulaşamamalı. Bu yüzden bunlara [Authorize] attribute'ları eklensin //db'ye eklendi
             // Create sayfası için client side validation oluşturulsun. Bunun için jQueryVal kullanılsın //db'ye eklendi
             // Log'lama, kullanılan teknolojiler vb için birer tablo oluşturulsun. Bu bilgiler veritabanına eklenmeye başlansın //db'ye eklendi
             // Kolay yönetim için Partial view'lar oluşturulsun //db'ye eklendi
             // Tasarım düzenlensin, çok sade, katı, ciddi bir görünüme sahip. Bunlar tersine çevrilsin //db'ye eklendi
             // Concert ile Genre, Concert ile artist arasında foreign key'ler oluşturulsun ve daha az sorgu ile veritabanına veri eklenebilsin //db'ye eklendi
-            // Varsayılan fontu değiştirilsin, gençlere hitap eden canlı bir font bulunsun //db'ye eklendi
+            // Varsayılan font değiştirilsin, gençlere hitap eden canlı bir font bulunsun //db'ye eklendi
             // Identity'ye özel property'ler eklenebilsin, msdn'deki instruction takip edilsin //db'ye eklendi
             // Concert'lerin listelendiği sayfada, yani index'te, her bir konseri listelerken, konseri, sanatçıyı, konser yerini ve tarihi gösteren ikonumsu bir yapı oluşturulsun. İlgili CSS dosyaları site.css sayfasına eklensin //db'ye eklendi
-            // one-to-many ilişkiler için fluent api kullanılsın //db'ye eklendi
+            // One-to-many ilişkiler için fluent api kullanılsın //db'ye eklendi
+            // Sadece tamamlanmış görevleri göster, sadece tamamlanmamış görevleri göster gibi paging işlemleri eklensin
+            // Görevlere önem sırası koyalım. Enum yapabiliriz. 1,2 ve 3 ten oluşan önem sırası... 3 en önemsizi olsun. 1 en önemlisi. Index'te öneme göre sıralayalım. Ayrıca eklenme zamanına göre de sıralayabilelim
 
             // BURAYA KADAR OK!
-            //
-            //
             //
             //
             return View();
