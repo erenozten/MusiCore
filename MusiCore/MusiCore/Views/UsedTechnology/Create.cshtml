@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.Partial("PartialViews/_PartialViewForCreateTextTop")
+@*@Html.Partial("PartialViews/_PartialViewForCreateTextTop")*@
+@await Html.PartialAsync("PartialViews/_PartialViewForCreateTextTop")
 
 <div class="row">
     <div class="col-md-4">
@@ -26,7 +27,8 @@
                 <input asp-for="DateCreatedAndCompleted" class="form-control" />
                 <span asp-validation-for="DateCreatedAndCompleted" class="text-danger"></span>
             </div>*@
-            @Html.Partial("PartialViews/_PartialViewForCreateTextBottom")
+            @*@Html.Partial("PartialViews/_PartialViewForCreateTextBottom")*@
+            @await Html.PartialAsync("PartialViews/_PartialViewForCreateTextBottom")
         </form>
     </div>
 </div>
