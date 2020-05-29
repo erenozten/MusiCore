@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.Partial("PartialViews/_PartialViewForCreateTextTop")
+@*@Html.Partial("PartialViews/_PartialViewForCreateTextTop")*@
+@await Html.PartialAsync("PartialViews/_PartialViewForCreateTextTop")
 
 <style>
     .close {
