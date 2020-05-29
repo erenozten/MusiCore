@@ -6,7 +6,9 @@
 }
 
 <div>
-    @Html.Partial("PartialViews/_PartialViewForCreateTextTop")
+    @*@Html.Partial("PartialViews/_PartialViewForCreateTextTop")*@
+    @await Html.PartialAsync("PartialViews/_PartialViewForCreateTextTop")
+
 
     <dl class="row">
         <dt class="col-sm-2">

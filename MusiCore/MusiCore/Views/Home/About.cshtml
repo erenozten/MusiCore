@@ -5,7 +5,9 @@
 
 
 <div>
-    @Html.Partial("PartialViews/_PartialViewForCreateTextTop")
+    @*@Html.Partial("PartialViews/_PartialViewForCreateTextTop")*@
+    @await Html.PartialAsync("PartialViews/_PartialViewForCreateTextTop")
+
     @*<hr />*@
     Müzik Merkezi, sanatçıların üye olup konser verebildiği, üyelerin ise sanatçıların bu konserlere katılıp katılmayacaklarını belirlelidiği, katılmak istedikleri konserleri bir listeden görüntüleyebildiği, istedikleri sanatçıları takip edebildiği bir sistemdir.
     @*<dl class="row">
