@@ -88,16 +88,11 @@ namespace MusiCore.TextControllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,TextTurkish,TextEnglish,IsDone")] CampaignOfAddingNewModule campaignOfAddingNewModule)
         {
-            var dts = DateTime.Now;
-
             if (ModelState.IsValid)
             {
-                if (campaignOfAddingNewModule.DateCompleted == null)
+                if (campaignOfAddingNewModule.IsDone)
                 {
-                    if (campaignOfAddingNewModule.IsDone)
-                    {
-                        campaignOfAddingNewModule.DateCompleted = DateTime.Now;
-                    }
+                    campaignOfAddingNewModule.DateCompleted = DateTime.Now;
                 }
                 _context.Add(campaignOfAddingNewModule);
                 await _context.SaveChangesAsync();
@@ -151,8 +146,8 @@ namespace MusiCore.TextControllers
 
                     if (campaignOfAddingNewModule.DateCompleted == null)
                     {
-                        if (campaignOfAddingNewModule.IsDone) 
-                        { 
+                        if (campaignOfAddingNewModule.IsDone)
+                        {
                             campaignOfAddingNewModule.DateCompleted = DateTime.Now;
                         }
                     }
