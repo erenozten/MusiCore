@@ -31,6 +31,7 @@ namespace MusiCore.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // cascading delete disable
+            // Hata çıkarabilir ileride
             // google'dan: If you want to change the delete behavior for all relationships, then you can use this code in OnModelCreating(...) to bulk set it for all relationships in your model.
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
