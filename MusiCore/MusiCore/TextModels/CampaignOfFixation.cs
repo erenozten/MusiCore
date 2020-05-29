@@ -10,7 +10,7 @@ namespace MusiCore.TextModels
     {
         public CampaignOfFixation()
         {
-            DateCompleted = DateTime.Now;
+            //DateCompleted = DateTime.Now; //tamamlandı olarak işaretlenmediyse: null olmalı DateCompleted
         }
         public int Id { get; set; }
 
@@ -25,7 +25,7 @@ namespace MusiCore.TextModels
 
         // private set'i kaldırabilirsin diyo intellisense. Lakin EntityFramework kolonu düşürüyor, eğer setter'i silersen.
         // private set yaptık, çünkü dışarıdan şunun yapılmasını istemiyoruz: usedTechnology.DateCreatedAndCompleted = bla bla...  -> Bu yapılamamalı. Çünkü bu mantıksız bi işlem. Bu property zaten verinin oluştuğu anki tarihi tutuyor. Neden başka bir değer, bu değere set edilebilsin. O yüzden private set yaptık. Private yaptığımızdan ötürü ctor içinde Datetime.Now'a eşitleyebildik. Easy.
-        public DateTime? DateCompleted { get; private set; }
+        public DateTime? DateCompleted { get; set; }
 
         public string GetMonth
         {
