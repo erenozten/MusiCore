@@ -12,6 +12,12 @@
     <Compile Remove="Data\Migrations\20200527132538_DeletedUnnecessaryPropertiesAndAddedDateProperty.Designer.cs" />
     <Compile Remove="Data\Migrations\20200527133114_DeletedUnnecessaryPropertiesAndAddedDateProperty.cs" />
     <Compile Remove="Data\Migrations\20200527133114_DeletedUnnecessaryPropertiesAndAddedDateProperty.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200528114404_CascadeDelete.cs" />
+    <Compile Remove="Data\Migrations\20200528114404_CascadeDelete.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200528123130_we.cs" />
+    <Compile Remove="Data\Migrations\20200528123130_we.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200529143758_NewDatabaseName.cs" />
+    <Compile Remove="Data\Migrations\20200529143758_NewDatabaseName.Designer.cs" />
   </ItemGroup>
 
 

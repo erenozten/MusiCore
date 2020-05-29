@@ -47,8 +47,8 @@ namespace MusiCore.Controllers
             // Artistik tasarım uygulanmaya çalışıldı //db'ye eklendi
 
             // BURAYA KADAR OK!
-
-
+            //
+            //
             //
             return View();
         }
@@ -98,12 +98,12 @@ namespace MusiCore.Controllers
             // BURAYA KADAR OK!
 
             // Composite Key'ler için fluent api oluşturuldu
-            // Warning giderildi
+            // Warning giderildi 1
             // Cascade delete disable edildi
             // Attendance oluşturmak için API Controller oluşturuldu (AttendanceController)
-            // Warning giderildi
-            // Warning giderildi
-            // Warning giderildi
+            // Warning giderildi 2
+            // Warning giderildi 3
+            // Warning giderildi 4
             // Database adı değiştirildi, işler bozuldu. Eski veriler tekrar kaydedildi
             
             return View();
@@ -170,7 +170,7 @@ namespace MusiCore.Controllers
             // Görevlere önem sırası koyalım. Enum yapabiliriz. 1,2 ve 3 ten oluşan önem sırası... 3 en önemsizi olsun. 1 en önemlisi. Index'te öneme göre sıralayalım. Ayrıca eklenme zamanına göre de sıralayabilelim
 
             // BURAYA KADAR OK!
-            //
+            //Bootstrap bazı sayfalarda bozuk çalışıyor, görev sayfalarının indexlerinde problem var, let them be fixed!
             //
             return View();
         }
