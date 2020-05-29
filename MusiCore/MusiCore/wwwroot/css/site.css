@@ -496,18 +496,19 @@ textarea .form-control {
     position: absolute;
     /*right: 32px;
     top: 32px;*/
-    left: 408px;
+    left: 414px;
     /*left: 400px;*/
     width: 32px;
     height: 32px;
-    opacity: 1;
+    opacity: 1 !important;
     color: red;
+    cursor: default !important;
 }
 
-.close:hover {
+/*.close:hover {
     opacity: 1;
     color: red;
-}
+}*/
 
 .close:before, .close:after {
     position: absolute;
@@ -630,3 +631,36 @@ textarea .form-control {
 /*Takvim ikonu bitiş*/
 /*Page-level Styles -Bitiş --------------------------------------------------- */
 /* Yeni Siteye Alınan Bitiş*/
+
+.crossMarkForNotCompleted {
+    position: absolute;
+    /*right: 32px;
+    top: 32px;*/
+    /*left: 408px;*/
+    width: 32px;
+    height: 32px;
+    cursor: default !important;
+    opacity: 1;
+    color: red;
+}
+
+.crossMarkForNotCompleted:hover {
+    opacity: 1;
+}
+
+    .crossMarkForNotCompleted:before, .crossMarkForNotCompleted:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #ffc107;
+    }
+
+.crossMarkForNotCompleted:before {
+    transform: rotate(45deg);
+}
+
+.crossMarkForNotCompleted:after {
+    transform: rotate(-45deg);
+}
