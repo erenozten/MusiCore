@@ -28,7 +28,17 @@ namespace MusiCore.TextModels
         {
             get
             {
-                return "(" + ((DateTime.Now.Month + DateTime.Now.Year * 12) - (DateCreated.Month + DateCreated.Year * 12)).ToString() + " ay önce) ";
+                {
+                    return
+                        "("
+                        +
+                        ((DateTime.Now.Month + DateTime.Now.Year * 12)
+                         -
+                         (DateCreated.Month + DateCreated.Year * 12))
+                        .ToString()
+                        +
+                        " ay önce)";
+                }
             }
         }
     }
