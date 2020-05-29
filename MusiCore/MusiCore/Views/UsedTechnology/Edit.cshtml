@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.Partial("PartialViews/_PartialViewForCreateTextTop")
+@*@Html.Partial("PartialViews/_PartialViewForCreateTextTop")*@
+@await Html.PartialAsync("PartialViews/_PartialViewForCreateTextTop")
 
 <div class="row">
     <div class="col-md-4">
@@ -23,9 +24,6 @@
                 <span asp-validation-for="TextEnglish" class="text-danger"></span>
             </div>
             @await Html.PartialAsync("PartialViews/_PartialViewForCreateTextBottom")
-
-            @*<partial name="PartialViews/_PartialViewForCreateTextBottom"/>*@
-
         </form>
     </div>
 </div>
