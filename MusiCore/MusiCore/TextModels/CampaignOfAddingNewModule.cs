@@ -50,7 +50,6 @@ namespace MusiCore.TextModels
                     else
                     {
                         return "Tamamlandı, fakat zamanı belirlenmedi";
-
                     }
                 }
                 else

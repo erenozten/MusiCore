@@ -95,6 +95,10 @@ namespace MusiCore.TextControllers
         {
             if (ModelState.IsValid)
             {
+                if (campaignOfFixation.IsDone)
+                {
+                    campaignOfFixation.DateCompleted = DateTime.Now;
+                }
                 _context.Add(campaignOfFixation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -146,6 +150,13 @@ namespace MusiCore.TextControllers
                 try
                 {
                     _context.Update(campaignOfFixation);
+                    if (campaignOfFixation.DateCompleted == null)
+                    {
+                        if (campaignOfFixation.IsDone)
+                        {
+                            campaignOfFixation.DateCompleted = DateTime.Now;
+                        }
+                    }
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
