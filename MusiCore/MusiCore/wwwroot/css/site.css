@@ -276,8 +276,8 @@ body {
 
 
 .btn {
-    font-size: 17px;
-    padding: 7px 20px;
+    /*font-size: 17px;
+    padding: 7px 20px;*/
     -ms-border-radius: 9px;
     border-radius: 6px;
 }
@@ -663,4 +663,14 @@ textarea .form-control {
 
 .crossMarkForNotCompleted:after {
     transform: rotate(-45deg);
+}
+
+.btn {
+    border-color: #80808078;
+}
+
+.btn-sm:hover {
+    color: white;
+    background: #82cc11;
+    text-decoration: none;
 }
