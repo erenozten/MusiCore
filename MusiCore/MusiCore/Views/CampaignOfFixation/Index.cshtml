@@ -8,48 +8,106 @@
 @*@Html.Partial("PartialViews/_PartialViewForCreateTextTop")*@
 @await Html.PartialAsync("PartialViews/_PartialViewForCreateTextTop")
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-            </th>
-            <th>
-                Modüller
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                @if (item.IsDone)
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr class="">
+                    <th class="">
+                    </th>
+                    <th class="">
+                        Modüller
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
                 {
-                    <td>
-                        <div class="check"></div>
-                    </td>
+                    <tr>
+                        @if (item.IsDone)
+                        {
+                            <td class="">
+                                <div class="check"></div>
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="">
+                                <div class="close"></div>
+                            </td>
+                        }
+                        <td class="col-sm-11">
+                            @if (item.IsDone)
+                            {
+                                @Html.DisplayFor(modelItem => item.TextTurkish) <span style="font-style: italic; color: #00bfff">@item.GetMonth </span> <a asp-action="Details" asp-route-id="@item.Id">Görüntüle</a>
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.TextTurkish) <span style="font-style: italic; color: #fb7575"> @item.GetMonth </span> <a asp-action="Details" asp-route-id="@item.Id">Görüntüle</a>
+                            }
+                        </td>
+                    </tr>
                 }
-                else
-                {
-                    <td>
-                        <div class="close"></div>
-                    </td>
-                }
-                <td>
-                    @if (item.IsDone)
-                    {
-                        @Html.DisplayFor(modelItem => item.TextTurkish) <span style="font-style: italic; color: #00bfff">@item.GetMonth </span> <a asp-action="Details" asp-route-id="@item.Id">Görüntüle</a>
-                    }
-                    else
-                    {
-                        @Html.DisplayFor(modelItem => item.TextTurkish) <span style="font-style: italic; color: #fb7575"> @item.GetMonth </span> <a asp-action="Details" asp-route-id="@item.Id">Görüntüle</a>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
+            </tbody>
+        </table>
+    </div>
 
 <p>
     <a asp-action="Create">Yeni Hata Ekle</a>
 </p>
+
+
+@*<div class="container">
+    <table>
+        <tr class="row">
+            <td class="col-md-6">asd</td>
+            <td class="col-md-6">asd</td>
+            <td class="col-md-6">asd</td>
+        </tr>
+    </table>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1">
+            One of three columns
+        </div>
+        <div class="col-sm-1">
+            One of three columns
+        </div>
+        <div class="col-sm-1">
+            One of three columns
+        </div>
+        <div class="col-sm-1">
+            One of three columns
+        </div>
+    </div>
+</div>*@
+
+
+
+@*<table class="table table-bordered"> 
+    <tr>
+        <td class="field-label col-xs-3 active">
+            <label>Field 1:</label>
+        </td>
+        <td class="col-md-9">
+            Value 1
+        </td>
+    </tr>
+    <tr>
+        <td class="field-label col-xs-3 active">
+            <label>Field 2:</label>
+        </td>
+        <td class="col-md-9">
+            Value 2
+        </td>
+    </tr>
+    <tr>
+        <td class="field-label col-xs-3 active">
+            <label>Field 3:</label>
+        </td>
+        <td class="col-md-9">
+            Value 3
+        </td>
+    </tr>
+</table>*@
