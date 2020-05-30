@@ -12,36 +12,30 @@ using MusiCore.Models;
 
 namespace MusiCore.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     [ApiController]
     [Authorize]
+    [Route("[controller]")]
     public class AttendanceController : ControllerBase
     {
         private ApplicationDbContext _context;
-        //private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         public AttendanceController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        //private ApplicationDbContext _context;
-        //private readonly UserManager<ApplicationUser> _userManager;
-
-        //public AttendanceController(UserManager<ApplicationUser> userManager, ApplicationDbContext context) //farklı iki constructor problem oluşturuyor. Tek contstructor ile userManager ve context alındı.
-        //{
-        //    _context = context;
-        //    _userManager = userManager;
-        //}
-
         [HttpPost]
+        //actionresult'ın içine [FromBody] yazınca çalışmadı. Halbuki .net core öncesinde çalışıyordu.
         public async Task<ActionResult> Attend(int concertId)
         {
-            // currentUser, concertId'ye sahip olan konsere katılıyor.
-            // getUserId ile currentUser'in Id'si alınır.
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
 
-            // var attendance = new attendance
+            if (_context.Attendances.Any(a => a.AttendeeId == userId && a.ConcertId == concertId))
+            {
+                return BadRequest("Zaten katılıyorsunuz!");
+            }
             Attendance attendance = new Attendance();
 
             // attendance.userId = currentUserId
@@ -57,16 +51,11 @@ namespace MusiCore.Controllers
             return Ok();
         }
 
-        // POST: api/TodoItems
-        //[HttpPost]
-        //public async Task<ActionResult> PostTodoItem(TodoItem todoItem)
-        //{
-        //    _context.TodoItems.Add(todoItem);
-        //    await _context.SaveChangesAsync();
-
-        //    //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
-        //    return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
-        //}
+        [HttpGet]
+        public IEnumerable<Concert> Get()
+        {
+            return _context.Concerts.ToList();
+        }
     }
 
 
