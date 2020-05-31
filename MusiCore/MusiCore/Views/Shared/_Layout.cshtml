@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Http
+@using MusiCore.Data
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -50,18 +53,122 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    @*<div class="container">
+        &copy; 2020 - MusiCore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>*@
+
+    <div class="footer-copyright text-center py-3" style="margin-bottom: 54px; margin-top: -11px;">
+        © 2020 - My ASP.NET Application
+    </div>
+</footer>
+
+<div class="footer i-footer" style="display:table">
+
+    <div class="i-color-black i-text-align-left i-font-weight-bold
+                     i-vertical-align-middle i-display-table-cell">
+
+        @{
+
+            //var username = HttpContext.Current.User.Identity.Name;
+
+            var username = Context.User.Identity.Name;
+
+
+            ViewBag.bagForUserName = "";
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
+
+            if (userId == null)
+            {
+                ViewBag.bagForUserName = "Kullanıcı Giriş Yapmadı ";
+                ViewBag.userId = userId;
+
+            }
+
+            else
+            {
+                //var user = _context.Users.Single(u => u.Id == userId);
+                //User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+                ViewBag.bagForUserName = username;
+                //ViewBag.bagForUserMail = "(" + user.Email + ")";
+            }
+        }
+        &nbsp;
+
+        @ViewBag.bagForUserName &nbsp; @ViewBag.bagForUserMail
+
+        &nbsp;
+        <div class="i-color-black i-text-align-left i-font-weight-bold
+                     i-vertical-align-bottom i-display-table-cell">
+            @{
+                ViewBag.bagForUserId = "";
+                if (userId == null)
+                {
+                    ViewBag.bagForUserName = "Kullanıcı Giriş Yapmadı";
+
+                }
+
+                else
+                {
+                    //var user = _context.Users.Single(u => u.Id == userId);
+                    ViewBag.bagForUserId = userId;
+                }
+            }
+            &nbsp;
+            @ViewBag.bagForUserId
+            &nbsp;
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - MusiCore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <div class="i-color-black i-text-align-right i-font-weight-bold i-display-table-cell i-vertical-align" style="display: table-cell; vertical-align: middle; transform: translate(70%, 1%); -ms-transform: translate(70%, 1%)">
+        @*@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()*@
+        @*@if (ViewContext.RouteData.Values["controller"].ToString() == null)
+        {
+        }
+        else
+        {
+            @ViewContext.RouteData.Values["controller"].ToString()
+        }*@
+
+        @try
+        {
+            @ViewContext.RouteData.Values["controller"].ToString()
+            @*@:/ &nbsp*@
+            @:/
+            @ViewContext.RouteData.Values["action"].ToString()
+        }
+        catch
+        {
+
+        }
+
+        @try
+        {
+            if ((ViewContext.RouteData.Values["view"]) != null)
+            {
+                @:/ (ViewContext.RouteData.Values["view"])
+            }
+        }
+        catch
+        {
+
+        }
+
+        @*@ViewContext.RouteData.GetRequiredString("action")*@
+        @*@Url.RequestContext.RouteData.Values["id"]*@
+        @*@Request.Url.OriginalString*@
+    </div>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
