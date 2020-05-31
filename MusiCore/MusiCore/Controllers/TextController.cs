@@ -177,6 +177,8 @@ namespace MusiCore.Controllers
             // BURAYA KADAR OK!
             //Bootstrap bazı sayfalarda bozuk çalışıyor, görev sayfalarının indexlerinde problem var, let them be fixed!
             // Bir konsere katıldığında, sağ altta bildirim çıksın. Bunun için AlertifyJs kullanılabilir
+            // AlertifyJs projeye eklendi. Katılım eklenmesi ve silinmesi sürecinde ekranın sağ altında bildirim beliriyor. Başarılı, başarısız işlem şeklinde
+            // AlertifyJs CSS class'ları override edildi, override'ler Site.css dosyasına eklendi
             return View();
         }
 
