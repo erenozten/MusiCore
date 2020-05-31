@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MusiCore.Models;
@@ -11,10 +12,18 @@ namespace MusiCore.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        private IHttpContextAccessor _httpContextAccessor;
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
+
+        //public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IHttpContextAccessor httpContextAccessor)
+        //    : base(options)
+        //{
+        //    _httpContextAccessor = httpContextAccessor;
+        //}
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Concert> Concerts { get; set; }

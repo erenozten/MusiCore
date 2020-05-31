@@ -36,7 +36,6 @@ namespace MusiCore.TextControllers
             return View(await _context.LogOfEverythings.ToListAsync());
         }
 
-
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
