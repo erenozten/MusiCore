@@ -105,6 +105,11 @@ namespace MusiCore.Controllers
             // Warning giderildi 3
             // Warning giderildi 4
             // Database adı değiştirildi, işler bozuldu. Eski veriler tekrar kaydedildi
+
+            // Sadece JsonResult action'larına sahip olan bir Controller oluşturuldu. Ajax Post ile yapılan tüm işlemleri şimdilik bu Controller'da tutuyoruz
+            // Concert'a katılırken loading animasyonu için ilgili css class'ları eklendi
+            // Attendance gerçekleştiğinde butonun adı "Katılıyorum!" şeklinde değiştirilme işlemi tamamlandı
+            // Attendance'a zaten katılıyorsa kullanıcı, bu durumda butona tıkladığında katılım iptal ediliyor, işlem Ajax Post ile gerçekleştiriliyor
             
             return View();
         }
@@ -171,7 +176,7 @@ namespace MusiCore.Controllers
 
             // BURAYA KADAR OK!
             //Bootstrap bazı sayfalarda bozuk çalışıyor, görev sayfalarının indexlerinde problem var, let them be fixed!
-            //
+            // Bir konsere katıldığında, sağ altta bildirim çıksın. Bunun için AlertifyJs kullanılabilir
             return View();
         }
 
