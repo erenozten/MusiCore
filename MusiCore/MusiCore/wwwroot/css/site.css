@@ -1,4 +1,5 @@
-﻿/* Please see documentat<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.3.0/css/all.css">
+﻿/*  site.css
+    Please see documentat<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.3.0/css/all.css">
 
 
 a.navbar-brand {
@@ -70,7 +71,7 @@ body {
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
+    line-height: 32px; /* Vertically center the text there */
 }
 
 
@@ -141,13 +142,13 @@ body {
     margin-bottom: 60px;
 }
 
-.footer {
+/*.footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
-}
+}*/
 
 
 
@@ -871,3 +872,72 @@ textarea .form-control {
 }
 
 /*Alertify Js renkler bitiş*/
+
+
+.i-footer {
+    position: fixed; /* ekranın altında sabit durmasını sağlıyor. Aşağı scroll yapsan da sabit kalır*/
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: gold;
+    color: white;
+    /*text-align: center;*/
+    height: 55px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Dikey ortalama - iç içe taglar içinde -Bitiş */
+
+.i-vertical-align-bottom {
+    vertical-align: bottom;
+}
+
+.i-header-h1 {
+    font-size: 35px;
+}
+
+.i-header-h2 {
+    font-size: 30px;
+}
+
+.i-display-inline {
+    display: inline;
+}
+
+.i--smallGrayItalicText {
+    color: gray;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.i-float-right {
+    float: right;
+}
+
+.i-float-left {
+    float: left;
+}
+
+.i-display-inline-block {
+    display: inline-block;
+}
+
+.i-highlight-text-bold-black {
+    font-weight: bold;
+    color: black;
+}
+
+.i-highlight-text-bold-red {
+    font-weight: bold;
+    color: red;
+}
+
+.i-highlight-text-italic-gray {
+    font-style: italic;
+    color: gray;
+}
+
+.i-highlight-text-italic-black {
+    font-style: italic;
+    color: black;
