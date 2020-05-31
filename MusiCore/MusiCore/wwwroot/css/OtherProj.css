@@ -490,16 +490,19 @@ navbar-collapse collapse {
     display: inline-block;
 }
 
+/*position: fixed; /* ekranın altında sabit durmasını sağlıyor. Aşağı scroll yapsan da sabit kalır*/*/
+/*
 .i-footer {
-    position: fixed; /* ekranın altında sabit durmasını sağlıyor. Aşağı scroll yapsan da sabit kalır*/
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: gold;
-    color: white;
-    text-align: center;
-    height: 55px;
+    position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: gold;
+color: white;
+text-align: center;
+height: 55px;
 }
+*/
 
 .i-highlight-text-bold-black {
     font-weight: bold;
