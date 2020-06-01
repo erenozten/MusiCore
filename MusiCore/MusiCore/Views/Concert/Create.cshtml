@@ -50,6 +50,15 @@
                 </select>
                 <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
+            
+            @*<select asp-for="Genre"   
+                    class="form-control"   
+                    asp-items="@(new SelectList(Model.Genres, "Id", "Name"))">  
+            </select>*@  
+
+            @*<select asp-for="Genre"
+                    asp-items="Model.States"
+                    class="form-control" />*@
 
             <div class="form-group">
                 <input type="submit" value="Ekle!" class="btn btn-green" />
