@@ -29,6 +29,7 @@ namespace MusiCore.Data
         public DbSet<Concert> Concerts { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
+        public DbSet<Following> Followings { get; set; }
 
         public DbSet<CampaignOfAddingNewModule> CampaignOfAddingNewModules { get; set; }
         public DbSet<LogOfEverything> LogOfEverythings { get; set; }
@@ -47,9 +48,22 @@ namespace MusiCore.Data
                 relationship.DeleteBehavior = DeleteBehavior.Restrict;
             }
 
+            // Concert ile Attendances arası one-to-many ilişki
             modelBuilder.Entity<Attendance>()
                 .HasOne(e => e.Concert)
                 .WithMany(c => c.Attendances);
+
+            //
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(a => a.Followers)
+                .WithOne(f => f.Followee);
+            //
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(a => a.Followees)
+                .WithOne(f => f.Follower);
+
+            modelBuilder.Entity<Following>()
+                .HasKey(f=> new{f.FollowerId, f.FolloweeId});
 
             //Attendance class'ındaki Composite Key'leri oluşturduk (.NET Core'da data annotation'lar yeterli değilmiş bu işlem için; Fluent API gerekiyormuş)
             modelBuilder.Entity<Attendance>()
