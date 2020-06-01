@@ -21,13 +21,7 @@ namespace MusiCore.Controllers
             _context = context;
             _userManager = userManager;
         }
-
-        public JsonResult NewJsonPost(int dto2)
-        {
-           return Json(new { attendanceAdded = true});
-           //return Json(new { attendanceAdded = true, JsonRequestBehavior.AllowGet });
-        }
-
+        
         [HttpPost]
         //Iactionresult da oluyor
         //parametrelerde [FromBody] kullanılabilr.
