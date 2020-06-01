@@ -106,11 +106,15 @@ namespace MusiCore.Controllers
             // Warning giderildi 4
             // Database adı değiştirildi, işler bozuldu. Eski veriler tekrar kaydedildi
 
+            // Web API entegrasyonu sağlandı
             // Sadece JsonResult action'larına sahip olan bir Controller oluşturuldu. Ajax Post ile yapılan tüm işlemleri şimdilik bu Controller'da tutuyoruz
             // Concert'a katılırken loading animasyonu için ilgili css class'ları eklendi
             // Attendance gerçekleştiğinde butonun adı "Katılıyorum!" şeklinde değiştirilme işlemi tamamlandı
             // Attendance'a zaten katılıyorsa kullanıcı, bu durumda butona tıkladığında katılım iptal ediliyor, işlem Ajax Post ile gerçekleştiriliyor
-            
+            // Footer eklendi, css class'ları oluşturuldu. Buradan mevcut kullanıcının mail adresini, Id'sini alabiliyoruz ve güncel controller ve actionresult'ın adını sağ tarafta yazdırabiliyoruz.
+            // Attendance ile ilgili CSS style'ları yazıldı
+            // Katıl, takip et butonları eklendi ve css style ları eklendi, hizalandı
+            // Kullanıcıların birbirini takip edebileceği bir sistem oluşturuluyor, bunun için Following.cs class'ı oluşturuldu. Veritabanında tablosu da oluşturuldu.
             return View();
         }
 
@@ -192,6 +196,7 @@ namespace MusiCore.Controllers
             // Google fontlarında türkçe karakter sıkıntısı var. Yeni fontlar bulunmalı
             // nav-bar da giriş yapan kişinin maili değil, ismi yazsın
             // User register olayında: user ismini required yapalım
+            // sağ üstteki dropdown'a ait olan üçgen şekli silinmeli
             
             // BURAYA KADAR OK!
 
