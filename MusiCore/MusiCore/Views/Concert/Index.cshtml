@@ -95,7 +95,7 @@
                 $.ajax(
                     {
                         type: "POST",
-                        url: "Json/CreateWithJson",
+                        url: "Json/Attend",
                         datatype: "json", //bunu stackover..dan aldım
                         //data: JSON.stringify({
                         //    //bu data kısmını server'a yolluyoruz. Server'ın beklediği parametreler solda yazılı (GigId, doIWannaGoInJQuery). Sağdakiler de html'den çektiğimiz değerler (firstMidName, lastName, enrollmentDate. Yani html'deki değereleri server'a değişkenler üzerinden yolluyoruz.
@@ -106,27 +106,10 @@
                         data: {
                             gigIdInActionResult: gigIdFromButton,
                             doIWannaGoInActionResult: doIWannaGoInJQuery,
-                            artistIdInActionResult: artistIdInJQuery
+                            //artistIdInActionResult: artistIdInJQuery
                         },
 
-                        //contentType: "application/json",
-                        //yukardaki contenttype ı yazmazsan çalışmayabilir
-                        //contentType: "application/json; charset=utf-8",
-                        //processData: true,
-                        //cache: false,
-
                         success: function (data) {
-                            //Console.log("success");
-
-                            //json'dan dönen obje --> buradaki data'ya atanmış oldu.
-                            //Bunu controller'dan dönen json objesi gibi kullanabilir, propertylerini çekebiliriz
-                            //örneğin: data.resultOfGoing, data.kafadanAtmaText gibi...
-                            //hatta kullanalım:
-
-                            //var datadakiVeri1 = data.resultOfGoing;
-                            //var datadakiVeri2 = data.kafadanAtmaText;
-                            //var datadakiVeri3 = data.success;
-
 
                             $(basilanButton).prop("disabled", false);
 
@@ -140,8 +123,6 @@
                                 $(basilanButton).attr("value", "Katılıyorum!");
                                 $(basilanButton).addClass("gigHub-goingButtonActive");
 
-                                //var datadakiVeri1 = data.kafadanAtmaText;
-                                //var datadakiVeri3 = data.resultOfGoing;
                                 //debugger;
                                 //alertify.success("<span><font size='5'>✓</font>    Katılımınız kaydedildi!</span><br/>Konser yeri: " + data.concertVenue + "</span > <br />Sanatçı: " + data.concertArtistName);
                                 alertify.success("<span><font size='5'>✓</font>    Katılımınız başarıyla kaydedildi!</span>");
@@ -176,139 +157,5 @@
                     });
             }, 1300);
         };
-
-                    //function createJsonFunc(basilanButton) {
-                    //    alert("basilanButtonAlert");
-                    //    var goingDiv = $(basilanButton).parent("#goingDiv");
-                    //}
-
-                    //$(document).ready(function() {
-
-                    //    console.log("ready");
-
-                    //    function createJsonFunc(basilanButton) {
-                    //        alert("gg");
-                    //        var goingDiv = $(basilanButton).parent("#goingDiv");
-
-                    //        $(goingDiv).append("<div id='ball1id' class='ball1'></div>");
-
-                    //        $(basilanButton).prop("disabled", true);
-                    //        setTimeout(function() {
-
-                    //                var doIWannaGoInJQuery;
-                    //                var gigIdFromButton = $(basilanButton).attr('data-gig-id');
-
-                    //                if (basilanButton.value == "Katılıyorum!") {
-                    //                    doIWannaGoInJQuery = false;
-                    //                }
-
-                    //                if (basilanButton.value == "Katıl") {
-                    //                    doIWannaGoInJQuery = true;
-                    //                }
-
-                    //                $.ajax(
-                    //                    {
-                    //                        type: "POST",
-                    //                        url: "Sample/CreateWithJson",
-                    //                        data: JSON.stringify({
-                    //                            //bu data kısmını server'a yolluyoruz. Server'ın beklediği parametreler solda yazılı (GigId, doIWannaGoInJQuery). Sağdakiler de html'den çektiğimiz değerler (firstMidName, lastName, enrollmentDate. Yani html'deki değereleri server'a değişkenler üzerinden yolluyoruz.
-                    //                            gigIdInActionResult: gigIdFromButton,
-                    //                            doIWannaGoInActionResult: doIWannaGoInJQuery
-                    //                        }),
-
-                    //                        contentType: "application/json",
-                    //                        //yukardaki contenttype ı yazmazsan çalışmayabilir
-
-                    //                        success: function(data) {
-
-                    //                            //json'dan dönen obje --> buradaki data'ya atanmış oldu.
-                    //                            //Bunu controller'dan dönen json objesi gibi kullanabilir, propertylerini çekebiliriz
-                    //                            //örneğin: data.resultOfGoing, data.kafadanAtmaText gibi...
-                    //                            //hatta kullanalım:
-
-                    //                            var datadakiVeri1 = data.resultOfGoing;
-                    //                            var datadakiVeri2 = data.kafadanAtmaText;
-                    //                            var datadakiVeri3 = data.success;
-                    //                            //debugger;
-
-                    //                            $(basilanButton).prop("disabled", false);
-
-                    //                            setTimeout(createJsonFunc,
-                    //                                1000); //güya işlem yapılıyor... Loading animasyonunu görmek için de bu delay'ı koymak gerekiyor. Real time app gibi yani...
-                    //                            $("#ball1id")
-                    //                                .remove(); //Loading animasyonunu delay bittikten sonra kaldırmış olduk.
-
-                    //                            if (data.resultOfGoing == true) {
-                    //                                $(basilanButton).text('Katılıyorum!');
-                    //                                $(basilanButton).attr("value", "Katılıyorum!");
-                    //                                $(basilanButton).addClass("gigHub-goingButtonActive");
-
-                    //                                var datadakiVeri1 = data.kafadanAtmaText;
-                    //                                var datadakiVeri3 = data.resultOfGoing;
-                    //                                debugger;
-                    //                            }
-
-                    //                            if (data.resultOfGoing == false) {
-                    //                                $(basilanButton).text('Katıl');
-                    //                                $(basilanButton).attr("value", "Katıl");
-                    //                                $(basilanButton).removeClass("gigHub-goingButtonActive");
-
-                    //                                var datadakiVeri1 = data.kafadanAtmaText;
-                    //                                var datadakiVeri3 = data.resultOfGoing;
-                    //                                debugger;
-                    //                            }
-                    //                        },
-
-                    //                        error: function(data) {
-                    //                            $(basilanButton)
-                    //                                .prop("disabled",
-                    //                                    false); // işlem fail olmuşsa butonu disable yapmanın bi mantığı yok, o yüzden disabled özelliğini burada iptal ettik.
-                    //                        }
-                    //                    });
-                    //            },
-                    //            1300);
-                    //    };
-
-
-                    //});
-
-                    //$(document).ready(function() {
-                    //    $.ajax(
-                    //        {
-                    //            type: "POST",
-                    //            url: "/Json/NewJsonPost",
-                    //            data: JSON.stringify({
-                    //                //bu data kısmını server'a yolluyoruz. Server'ın beklediği parametreler solda yazılı (FirstMidName, LastName, EnrollmentDate). Sağdakiler de html'den çektiğimiz değerler (firstMidName, lastName, enrollmentDate. Yani html'deki değereleri server'a değişkenler üzerinden yolluyoruz.
-                    //                FirstMidName: firstMidName,
-                    //            }),
-                    //            contentType: "application/json",
-                    //            //yukardaki contenttype ı yazmazsan çalışmıyor. Json actionresult'una ulaşamıyor. 500 internal server hatası veriyor.
-                    //            success: function(result) {
-                    //                //json'dan dönen obje --> buradaki result değişkenine atanmış oldu. Bunu controller'dan dönen json objesi gibi kullanabilir, propertylerini çekebiliriz örneğin: data.FirstName, data.LastName gibi...
-                    //                alert("hi");
-                    //            },
-                    //            fail: function() {
-                    //                alert("yen2");
-                    //            }
-                    //        });
-                    //});
-
-                    ////readyOther323123
-                    //$(document).ready(function() {
-                    //    alert("readyOther323123");
-                    //    $(".js-toggle-attendance").click(function(e) {
-                    //        var goingButton = $(e.target);
-                    //        $.post("/Json/attend", goingButton.attr("data-gig-id"))
-                    //            .done(function() {
-                    //                goingButton
-                    //                    .removeClass("btn-default")
-                    //                    .addClass("btn-info")
-                    //                    .text("Going!");
-                    //            })
-                    //            .fail(function() {
-                    //                alert("Bir şeyler ters gitti!");
-                    //            });
-                    //    });
-                    //})
     </script>
 }
