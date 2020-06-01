@@ -675,17 +675,6 @@ textarea .form-control {
 
 
 
-.gigHub-goingButtonActive {
-    background-color: #10ac10;
-    color: white;
-}
-
-
-.gigHub-goingButtonPassive {
-    border-color: gray;
-}
-
-
 
 
 /*animasyon başlangıç*/
@@ -764,6 +753,112 @@ textarea .form-control {
 /*animasyon bitiş*/
 
 
+
+/* EREN CSS -BAŞLANGIÇ --------------------------------------------------- */
+
+.i-color-black {
+    color: black;
+}
+
+.i-text-align-right {
+    text-align: right;
+}
+
+.i-text-align-left {
+    text-align: left;
+}
+
+.i-font-weight-bold {
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+/* Dikey ortalama - iç içe taglar içinde -Bitiş */
+
+
+.i-display-table {
+    display: table;
+}
+/*parent olan tag'e Display:Table verilir. 
+        İçerdeki child'a ise Display:table-cell ve vertical-align:middle verilir'*/
+.i-display-table-cell {
+    display: table-cell;
+}
+
+.i-vertical-align-middle {
+    vertical-align: middle;
+}
+
+/* Dikey ortalama - iç içe taglar içinde -Bitiş */
+
+
+.i-vertical-align-bottom {
+    vertical-align: bottom;
+}
+
+.i-header-h1 {
+    font-size: 35px;
+}
+
+.i-header-h2 {
+    font-size: 30px;
+}
+
+.i-display-inline {
+    display: inline;
+}
+
+.i--smallGrayItalicText {
+    color: gray;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.i-float-right {
+    float: right;
+}
+
+.i-float-left {
+    float: left;
+}
+
+.i-display-inline-block {
+    display: inline-block;
+}
+
+/*position: fixed; /* ekranın altında sabit durmasını sağlıyor. Aşağı scroll yapsan da sabit kalır*/ */
+/*
+.i-footer {
+    position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: gold;
+color: white;
+text-align: center;
+height: 55px;
+}
+*/
+.i-highlight-text-bold-black {
+    font-weight: bold;
+    color: black;
+}
+
+.i-highlight-text-bold-red {
+    font-weight: bold;
+    color: red;
+}
+
+.i-highlight-text-italic-gray {
+    font-style: italic;
+    color: gray;
+}
+
+.i-highlight-text-italic-black {
+    font-style: italic;
+    color: black;
+}
+/* EREN CSS -BİTİŞ --------------------------------------------------- */
 
 
 
@@ -941,3 +1036,58 @@ textarea .form-control {
 .i-highlight-text-italic-black {
     font-style: italic;
     color: black;
+}
+
+/*.gigHub-followLabel {
+    position: absolute;
+    left: 33px;
+    top: -4px;
+    font-size: 16px;
+    color: black;
+}*/
+
+/*.gigHub-followLabel {
+    position: absolute;
+    left: 15px;
+    top: -2px;
+    font-size: 16px;
+    color: black;
+}*/
+
+.gigHub-followLabel {
+    position: absolute;
+    left: 15px;
+    top: 2px;
+    width: 74px;
+    border: none;
+}
+
+    .gigHub-followLabel:hover {
+        background-color: white;
+        color: #007bff;
+    }
+
+
+/*.gighub-goingButton {
+    position: absolute;
+    left: 40px;
+    top: 27px;
+}*/
+
+
+.gighub-goingButton {
+    position: absolute;
+    left: 1px;
+    top: 33px;
+    width: 109px;
+}
+
+.gigHub-goingButtonActive {
+    background-color: #10ac10;
+    color: white;
+}
+
+
+.gigHub-goingButtonPassive {
+    border-color: gray;
+}
