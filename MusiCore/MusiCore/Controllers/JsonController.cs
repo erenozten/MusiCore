@@ -21,24 +21,22 @@ namespace MusiCore.Controllers
             _context = context;
             _userManager = userManager;
         }
-        
-        [HttpPost]
-        //Iactionresult da oluyor
-        //parametrelerde [FromBody] kullanılabilr.
-        //public JsonResult CreateWithJson(int gigIdInActionResult, bool doIWannaGoInActionResult, string artistIdInActionResult) //// artistIdInActionResult'ı sildik. Çünkü zaten Include metodu ekledik aşağıdaki sorguya; yani oradan artistId'sine zaten ulaşabiliyoruz.
-        public JsonResult CreateWithJson(int gigIdInActionResult, bool doIWannaGoInActionResult)
 
+
+        [HttpPost]
+        //public JsonResult CreateWithJson(int gigIdInActionResult, bool doIWannaGoInActionResult, string artistIdInActionResult) //// artistIdInActionResult'ı sildik. Çünkü zaten Include metodu ekledik aşağıdaki sorguya; yani oradan artistId'sine zaten ulaşabiliyoruz.
+        public JsonResult Attend(int gigIdInActionResult, bool doIWannaGoInActionResult)
         {
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
 
-            var concert = _context.Concerts.Where(c=>c.Id == gigIdInActionResult).Include(c => c.Artist).Single();
+            var concert = _context.Concerts.Where(c => c.Id == gigIdInActionResult).Include(c => c.Artist).Single();
 
             var concertArtistId = concert.Artist.Id;
 
             var exists = _context.Attendances.Any(a => a.ConcertId == gigIdInActionResult && a.AttendeeId == currentUserId);
 
             //konsere gitmek istiyorsa:
-            if (doIWannaGoInActionResult == true)
+            if (doIWannaGoInActionResult)
             {
                 //konseri veren kişinin id'si, giriş yapmış olan kullanıcının id'sine eşit ise:
                 if (concertArtistId == currentUserId)
@@ -48,7 +46,7 @@ namespace MusiCore.Controllers
 
                 if (exists)
                 {
-                    return Json(new { resultOfGoing = false, showThisToUser = "Bu konsere zaten katılıyorsunuz!"});
+                    return Json(new { resultOfGoing = false, showThisToUser = "Bu konsere zaten katılıyorsunuz!" });
                 }
 
                 try
@@ -60,11 +58,10 @@ namespace MusiCore.Controllers
                     _context.SaveChanges();
                     return Json(new
                     {
-                        resultOfGoing = true, 
+                        resultOfGoing = true,
                         concertArtistName = concert.Artist.Name,
                         concertVenue = concert.Venue
                     });
-
                 }
                 catch (Exception e)
                 {
@@ -74,7 +71,8 @@ namespace MusiCore.Controllers
                 }
             }
 
-            if (doIWannaGoInActionResult == false) //expression always true diyor. Ama öyle değil. Test edildi.
+            // It's not always true goddamit.
+            if (!doIWannaGoInActionResult) //expression always true diyor. Ama öyle değil. Test edildi.
             {
                 try
                 {
@@ -82,7 +80,6 @@ namespace MusiCore.Controllers
                     _context.Attendances.Remove(attendance);
                     _context.SaveChanges();
                     return Json(new { resultOfGoing = false, kafadanAtmaText = "İkinci işe yaramayan Text." });
-
                 }
                 catch (Exception e)
                 {
@@ -96,50 +93,55 @@ namespace MusiCore.Controllers
 
 
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
+        public JsonResult FollowOrUnfollow(int gigIdInJsonResult, string followedOrUnfollowedUserId, bool wannaFollowInJsonResult, bool wannaUnfollowInJsonResult, bool wannaUnfollow)
+        {
+            //var concert = _context.Concerts.FirstOrDefault(c => c.Id == gigIdInJsonResult);
+            var concert = _context.Concerts.Where(c => c.Id == gigIdInJsonResult).Include(c=>c.Artist).Single();
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
+           
+            var exists = _context.Followings.Any(f =>
+                f.FollowerId == currentUserId && f.FolloweeId == concert.ArtistId);
 
-        //[HttpPost]
-        //public JsonResult NewJsonPost(int dto2)
-        //{
-        //    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
+            if (!exists)
+            {
+                if (wannaFollowInJsonResult)
+                {
+                    Following following = new Following()
+                    {
+                        FollowerId = currentUserId,
+                        FolloweeId = concert.ArtistId
+                    };
+                    _context.Followings.Add(following);
+                    _context.SaveChanges();
 
-        //    /*db'ye fazladan sorgu atmamak için, db'ye bir kez bağlanıp 
-        //    buradan gelen değeri UserId değişkenine attık.
-        //    */
+                    return Json(new { resultOfFollowing = true, resultOfUnfollowing = false, followedOrUnfollowedArtistName = concert.Artist.Name});
+                }
+            }
 
-        //    var theAttendance = _context.Attendances.Where(a => a.AttendeeId == userId && a.GigId == dto2).SingleOrDefault();
-        //    //var sayi = theAttendance.Count();
+            if (exists)
+            {
+                // Takibi bırakmak istiyorsa:
+                if (wannaUnfollowInJsonResult)
+                {
+                    try
+                    {
+                        var followingToDelete = _context.Followings
+                            .Single(f => f.FollowerId == currentUserId && f.FolloweeId == concert.ArtistId);
 
-        //    //var exists = _context.Attendances. //exists: bool değişken
-        //    //    Any(a => a.AttendeeId == userId
-        //    //    &&
-        //    //    a.GigId == dto.GigId);
-
-        //    /*Yeni bir Attendance eklenebilmesi için 
-        //    elimizdeki iki Primary Key kombinasyonunun (AttendeeId, GigId) 
-        //    özel olması gerekir.
-        //    */
-
-        //    if (theAttendance != null)
-        //    {
-        //        //return BadRequest("Bu attendance'a zaten katılıyorsunuz!");
-        //        _context.Attendances.Remove(theAttendance);
-        //        _context.SaveChanges();
-        //        return Json(new { attendanceDeleted = true, JsonRequestBehavior.AllowGet });
-        //    }
-        //    var attendance = new Attendance
-        //    {
-        //        GigId = dto2,
-        //        AttendeeId = userId
-        //    };
-        //    _context.Attendances.Add(attendance);
-        //    _context.SaveChanges();
-        //    return Json(new { attendanceAdded = true, JsonRequestBehavior.AllowGet });
-        //}
-
+                        _context.Followings.Remove(followingToDelete);
+                        _context.SaveChanges();
+                        return Json(new { resultOfUnfollowing = true, resultOfFollowing = false, followedOrUnfollowedArtistName = concert.Artist.Name });
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        return Json(new { showToUser = "Bir şeyler ters gitti!" });
+                    }
+                }
+                return Json(new { resultOfFollowing = false, showToUser = "Bu kişiyi zaten takip ediyorsunuz!" });
+            }
+            return Json(new { showToUser = "Bir şeyler ters gitti!" });
+        }
 
     }
 }
