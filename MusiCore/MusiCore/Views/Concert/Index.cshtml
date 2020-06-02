@@ -32,14 +32,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="thirdDiv i-display-inline-block" style="position: absolute; left: 206px; top: 1px;">
+                <div id="followOrUnfollowDiv" class="thirdDiv i-display-inline-block" style="position: absolute; left: 206px; top: 1px;">
                     <div>
-                        <button class="btn btn-link btn-sm js-toggle-follow gigHub-followLabel" style="" data-artist-id=@item.Artist.Id>
+                        <button onclick="followOrUnfollow(this)" class="btn btn-link btn-sm js-toggle-follow gigHub-followLabel" style="" data-gig-id=@item.Id value="Takip et">
                             Takip Et
                         </button>
                     </div>
                     <div id="goingDiv">
-                        <button onclick="createJsonFunc(this)" id="goingButtonId" data-gig-id=@item.Id data-artist-id=@item.Artist.Id value="Katıl" style="position: absolute; left: 1px; top: 29px; width: 109px;" class="gigHub-goingButton btn btn-default btn-sm pull-right btnGoing gigHub-goingButtonPassive" data-artist-id="d3aa7f47-959e-414a-a467-2da769a92cc6">
+                        <button onclick="attendToConcertFunc(this)" id="goingButtonId" data-gig-id=@item.Id data-artist-id=@item.Artist.Id value="Katıl" style="position: absolute; left: 1px; top: 29px; width: 109px;" class="gigHub-goingButton btn btn-default btn-sm pull-right btnGoing gigHub-goingButtonPassive" data-artist-id="d3aa7f47-959e-414a-a467-2da769a92cc6">
                             Katıl
                         </button>
                     </div>
@@ -62,7 +62,6 @@
             </div>
         </li>
     }
-
 </ul>
 
 @section scripts
@@ -70,7 +69,7 @@
     <script>
 
         //çalıştı GİgHub'da
-        function createJsonFunc(basilanButton) {
+        function attendToConcertFunc(basilanButton) {
             //alertify.myAlert("Browser dialogs made easy!");
             //Console.log("s232323");
 
@@ -113,7 +112,7 @@
 
                             $(basilanButton).prop("disabled", false);
 
-                            setTimeout(createJsonFunc, 1000); //güya işlem yapılıyor... Loading animasyonunu görmek için de bu delay'ı koymak gerekiyor. Real time app gibi yani...
+                            setTimeout(attendToConcertFunc, 1000); //güya işlem yapılıyor... Loading animasyonunu görmek için de bu delay'ı koymak gerekiyor. Real time app gibi yani...
                             $("#ball1id").remove(); //Loading animasyonunu delay bittikten sonra kaldırmış olduk.
 
                             //debugger;
@@ -157,5 +156,99 @@
                     });
             }, 1300);
         };
+
+        function followOrUnfollow(basilanButton) {
+            //alertify.myAlert("Browser dialogs made easy!");
+            //Console.log("s232323");
+
+            //var followOrUnfollowDiv = $(basilanButton).parent("#followOrUnfollowDiv");
+            //$(followOrUnfollowDiv).append("<div id='ball1id' class='ball1'></div>");
+
+            var followOrUnfollowDiv = $(basilanButton).parent("#goingDiv");
+            $(followOrUnfollowDiv).append("<div id='ball1id' class='ball1'></div>");
+
+            $(basilanButton).prop("disabled", true);
+            setTimeout(function () {
+
+                var wannaFollow;
+                var wannaUnfollow;
+                var gigIdFromButton = $(basilanButton).attr('data-gig-id');
+                //var artistIdInJQuery = $(basilanButton).attr('data-artist-id');
+
+                if (basilanButton.value == "Takip et") {
+                    wannaFollow = true;
+                }
+                if (basilanButton.value == "Takiptesin!") {
+                    wannaUnfollow = true;
+                }
+                debugger;
+
+                $.ajax(
+                    {
+                        type: "POST",
+                        url: "Json/FollowOrUnfollow",
+                        datatype: "json", //bunu stackover..dan aldım
+                        //data: JSON.stringify({
+                        //    //bu data kısmını server'a yolluyoruz. Server'ın beklediği parametreler solda yazılı (GigId, doIWannaGoInJQuery). Sağdakiler de html'den çektiğimiz değerler (firstMidName, lastName, enrollmentDate. Yani html'deki değereleri server'a değişkenler üzerinden yolluyoruz.
+                        //    gigIdInActionResult: gigIdFromButton,
+                        //    doIWannaGoInActionResult: doIWannaGoInJQuery,
+                        //    artistIdInActionResult: artistIdInJQuery
+                        //}),
+                        data: {
+                            gigIdInJsonResult: gigIdFromButton,
+                            wannaFollowInJsonResult: wannaFollow,
+                            wannaUnfollowInJsonResult: wannaUnfollow,
+                            //artistIdInActionResult: artistIdInJQuery,
+                            //followedOrUnfollowedUserId
+                        },
+
+                        success: function (data) {
+
+                            $(basilanButton).prop("disabled", false);
+
+                            setTimeout(attendToConcertFunc, 1000); //güya işlem yapılıyor... Loading animasyonunu görmek için de bu delay'ı koymak gerekiyor. Real time app gibi yani...
+                            $("#ball1id").remove(); //Loading animasyonunu delay bittikten sonra kaldırmış olduk.
+
+                            debugger;  /*1*/
+
+                            if (data.resultOfFollowing == true) {
+                                $(basilanButton).text('Takiptesin!');
+                                $(basilanButton).attr("value", "Takiptesin!");
+                                //$(basilanButton).addClass("gigHub-goingButtonActive");
+
+                                debugger; /*2*/
+                                //alertify.success("<span><font size='5'>✓</font>    Katılımınız kaydedildi!</span><br/>Konser yeri: " + data.concertVenue + "</span > <br />Sanatçı: " + data.concertArtistName);
+                                alertify.success("<span><font size='5'>✓</font>     Şu sanatçıyı takip ediyorsunuz: </span>" + data.followedOrUnfollowedArtistName);
+                            }
+
+                            if (data.resultOfFollowing == false) {
+
+                                if (data.isItMyGig) {
+                                    $("#ball1id").remove();
+
+                                    //alert("Bu konseri siz veriyorsunuz");
+                                    alertify.success("<span><font size='5'>✓</font>    Bu konser sizin!</span>");
+                                    debugger; /*3*/
+                                    return;
+                                }
+                                debugger; /*4*/
+
+                                $(basilanButton).text('Takip et');
+                                $(basilanButton).attr("value", "Takip et");
+                                //$(basilanButton).removeClass("gigHub-goingButtonActive");
+                                //alertify.success("<span><font size='5'>✓</font>    Katılımınız başarıyla silindi!</span>");
+                                alertify.success("<span><font size='5'>✓</font>     Şu sanatçıyı takibi bıraktınız: </span>" + data.followedOrUnfollowedArtistName);
+                                debugger; /*5*/
+                            }
+                        },
+
+                        error: function (data) {
+                            $(basilanButton).prop("disabled", false); // işlem fail olmuşsa butonu disable yapmanın bi mantığı yok, o yüzden disabled özelliğini burada iptal ettik.
+                            debugger; /*6*/
+                        }
+                    });
+            }, 1300);
+        };
+
     </script>
 }
