@@ -111,10 +111,12 @@ namespace MusiCore.Controllers
             // Concert'a katılırken loading animasyonu için ilgili css class'ları eklendi
             // Attendance gerçekleştiğinde butonun adı "Katılıyorum!" şeklinde değiştirilme işlemi tamamlandı
             // Attendance'a zaten katılıyorsa kullanıcı, bu durumda butona tıkladığında katılım iptal ediliyor, işlem Ajax Post ile gerçekleştiriliyor
-            // Footer eklendi, css class'ları oluşturuldu. Buradan mevcut kullanıcının mail adresini, Id'sini alabiliyoruz ve güncel controller ve actionresult'ın adını sağ tarafta yazdırabiliyoruz.
+            // Footer eklendi, css class'ları oluşturuldu. Buradan mevcut kullanıcının mail adresini, Id'sini alabiliyoruz ve güncel controller ve actionresult'ın adını sağ tarafta yazdırabiliyoruz
             // Attendance ile ilgili CSS style'ları yazıldı
             // Katıl, takip et butonları eklendi ve css style ları eklendi, hizalandı
-            // Kullanıcıların birbirini takip edebileceği bir sistem oluşturuluyor, bunun için Following.cs class'ı oluşturuldu. Veritabanında tablosu da oluşturuldu.
+            // Kullanıcıların birbirini takip edebileceği bir sistem oluşturuluyor, bunun için Following.cs class'ı oluşturuldu. Veritabanında tablosu da oluşturuldu
+            // Takip etme, takibi bırakma işlemlerini gerçekleştirebilmek için FollowOrUnfollow JsonResult'ı oluşturuldu
+            // Takip etme, takibi bırakma işlemi için script yazılıyor, allah kabul etsin.
             return View();
         }
 

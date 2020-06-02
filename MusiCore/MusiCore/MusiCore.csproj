@@ -18,6 +18,13 @@
     <Compile Remove="Data\Migrations\20200528123130_we.Designer.cs" />
     <Compile Remove="Data\Migrations\20200529143758_NewDatabaseName.cs" />
     <Compile Remove="Data\Migrations\20200529143758_NewDatabaseName.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200601165509_AddedFollowingSystem.cs" />
+    <Compile Remove="Data\Migrations\20200601165509_AddedFollowingSystem.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\alertifyjs\alertify.js" />
+    <None Include="wwwroot\lib\alertifyjs\alertify.min.js" />
   </ItemGroup>
 
 
