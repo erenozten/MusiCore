@@ -369,6 +369,32 @@
                                     data.followedOrUnfollowedArtistName);
                                 debugger; /*5*/
 
+                                $('#ulId li').each(function (index, value) {
+
+                                    console.log($(this)); //'this' ile 'value' galiba aynı şeye işaret ediyor. Görünene göre öyle (sonuç incelendi). Fark var mı bilmiyorum.
+                                    console.log($(value)); //'this' ile 'value' galiba aynı şeye işaret ediyor. Görünene göre öyle (sonuç incelendi). Fark var mı bilmiyorum.
+
+                                    $(this).find(".artistNameDiv").val();
+                                    $(value).find(".artistNameDiv").val();
+
+                                    //var qwez = $(this).find(".artistNameDiv").val();
+                                    //var wqewewe = $(value).find(".artistNameDiv").val();
+
+                                    //var qwezcxc = $(this).find("#artistNameDiv").val();
+                                    //var wqewecxcwwe = $(value).find("#artistNameDiv").val();
+
+                                    //var qweqwezdsdcxc = $(this).find('div.artistNameDiv').val();
+                                    //var wqeweescxcwwe = $(value).find('div#artistNameDiv').val();
+
+                                    var w22e = $(value).find('div#artistNameDiv').text();
+
+                                    if (w22e == data.followedOrUnfollowedArtistName) {
+                                        debugger;
+                                        $(this).find(".followOrUnfollowButton").text('Takip et');
+                                        $(this).find(".followOrUnfollowButton").attr("value", "Takip et");
+                                        debugger;
+                                    }
+                                });
 
                             }
                         },
