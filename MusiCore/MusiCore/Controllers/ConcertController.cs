@@ -38,12 +38,20 @@ namespace MusiCore.Controllers
             ViewData["ViewDataForActionNameForGeriDonLink"] = "Index";
             ViewData["ViewDataForSaveButtonsValue"] = "Kaydet!";
 
-            var upcomingsConcerts = _context.Concerts
-                .Include(c=>c.Artist)
-                .Include(c=>c.Genre)
-                .Where(c => c.DateTime > DateTime.Now);
+            var concertsViewModel = new ConcertsViewModel()
+            {
+               UpcomingConcerts = _context.Concerts
+                    .Include(c => c.Artist)
+                    .Include(c => c.Genre)
+                    .Where(c => c.DateTime > DateTime.Now),
 
-            return View(upcomingsConcerts);
+               ShowActions = User.Identity.IsAuthenticated
+        };
+
+            
+
+
+            return View(concertsViewModel);
         }
 
         [Authorize]
