@@ -24,7 +24,6 @@ namespace MusiCore.Controllers
 
 
         [HttpPost]
-        //public JsonResult CreateWithJson(int gigIdInActionResult, bool doIWannaGoInActionResult, string artistIdInActionResult) //// artistIdInActionResult'ı sildik. Çünkü zaten Include metodu ekledik aşağıdaki sorguya; yani oradan artistId'sine zaten ulaşabiliyoruz.
         public JsonResult Attend(int gigIdInActionResult, bool doIWannaGoInActionResult)
         {
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
@@ -95,15 +94,16 @@ namespace MusiCore.Controllers
 
         public JsonResult FollowOrUnfollow(int gigIdInJsonResult, string followedOrUnfollowedUserId, bool wannaFollowInJsonResult, bool wannaUnfollowInJsonResult, bool wannaUnfollow)
         {
-            //var concert = _context.Concerts.FirstOrDefault(c => c.Id == gigIdInJsonResult);
             var concert = _context.Concerts.Where(c => c.Id == gigIdInJsonResult).Include(c=>c.Artist).Single();
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
            
             var exists = _context.Followings.Any(f =>
                 f.FollowerId == currentUserId && f.FolloweeId == concert.ArtistId);
 
+            //kayıt db'de bulunamamış ise:
             if (!exists)
             {
+                // kayıt db'de bulunamamış ise; kullanıcı wannaFollowInJsonResult'ı true olarak döndermiş olmalıdır, o halde yeni db'ye yeni kayıt eklenmelidir:
                 if (wannaFollowInJsonResult)
                 {
                     Following following = new Following()
@@ -116,6 +116,14 @@ namespace MusiCore.Controllers
 
                     return Json(new { resultOfFollowing = true, resultOfUnfollowing = false, followedOrUnfollowedArtistName = concert.Artist.Name});
                 }
+
+                // kayıt db'de bulunamamış ise; wannaFollowInJsonResult'ı true olarak döndermiş olmalıdır, fakat öyle olmamış da wannaUnfollowInJsonResult true dönmüş ise ortada bir mantıksızlık var demektir. Özet: Db'de bir kayıt bulunamamışsa, bu kayıt unfollow da edilemez.. -->
+                if (wannaUnfollowInJsonResult)
+                {
+                    //return edidlen wannaFollowInJsonResult ve wannaUnfollowInJsonResult değerleri sıkıntı çıkarabilir.
+                    //açıklaması: kullanıcı unfollow etmek istiyordu; başarılı olsaydı; resultoffo.....
+                    return Json(new { resultOfFollowing = wannaUnfollowInJsonResult, resultOfUnfollowing = wannaFollowInJsonResult, followedOrUnfollowedArtistName = concert.Artist.Name });
+                }
             }
 
             if (exists)
@@ -123,7 +131,6 @@ namespace MusiCore.Controllers
                 // Takibi bırakmak istiyorsa:
                 if (wannaUnfollowInJsonResult)
                 {
-
                     var followingToDelete = _context.Followings
                         .FirstOrDefault(f => f.FollowerId == currentUserId && f.FolloweeId == concert.ArtistId);
                     try
