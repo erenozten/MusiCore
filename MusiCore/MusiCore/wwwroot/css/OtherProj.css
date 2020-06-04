@@ -144,13 +144,13 @@ button[disabled] {
     top: 33px;
 }
 
-.gigHub-followLabel {
+/*.gigHub-followLabel {
     position: absolute;
     left: 40px;
     top: -4px;
     font-size: 16px;
     color: black;
-}
+}*/
 
 .gigs > li .gigHub-yearLabel {
     position: absolute;
