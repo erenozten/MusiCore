@@ -24,8 +24,13 @@ namespace MusiCore.Controllers
 
 
         [HttpPost]
-        public JsonResult Attend(int gigIdInActionResult, bool doIWannaGoInActionResult)
+        //parametre int nullable olarak değiştirildi. Problem çıkabilir ileride. Attention!
+        public JsonResult Attend(int? gigIdInActionResult, bool doIWannaGoInActionResult)
         {
+            if (gigIdInActionResult == null)
+            {
+                return Json(new{message = "Hata! Konserin Id'si bulunamadı."});
+            }
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
 
             var concert = _context.Concerts.Where(c => c.Id == gigIdInActionResult).Include(c => c.Artist).Single();
@@ -51,7 +56,8 @@ namespace MusiCore.Controllers
                 try
                 {
                     var newAttendance = new Attendance();
-                    newAttendance.ConcertId = gigIdInActionResult;
+                    //newAttendance.ConcertId = gigIdInActionResult;
+                    newAttendance.ConcertId = (int)gigIdInActionResult;
                     newAttendance.AttendeeId = currentUserId;
                     _context.Attendances.Add(newAttendance);
                     _context.SaveChanges();
@@ -91,10 +97,17 @@ namespace MusiCore.Controllers
         }
 
 
-
-        public JsonResult FollowOrUnfollow(int gigIdInJsonResult, string followedOrUnfollowedUserId, bool wannaFollowInJsonResult, bool wannaUnfollowInJsonResult, bool wannaUnfollow)
+        //parametre int nullable olarak değiştirildi. Problem çıkabilir ileride. Attention!
+        //public JsonResult FollowOrUnfollow(int? gigIdInJsonResult, string followedOrUnfollowedUserId, bool wannaFollowInJsonResult, bool wannaUnfollowInJsonResult, bool wannaUnfollow)
+        //parametre wannaFollow silindi.
+        public JsonResult FollowOrUnfollow(int? gigIdInJsonResult, string followedOrUnfollowedUserId, bool wannaFollowInJsonResult, bool wannaUnfollowInJsonResult)
         {
-            var concert = _context.Concerts.Where(c => c.Id == gigIdInJsonResult).Include(c=>c.Artist).Single();
+            if (gigIdInJsonResult == null)
+            {
+                return Json(new { message = "Hata! Id değeri bulunamadı."});
+            }
+            //var concert = _context.Concerts.Where(c => c.Id == gigIdInJsonResult).Include(c=>c.Artist).Single();
+            var concert = _context.Concerts.Include(c=>c.Artist).FirstOrDefault(c => c.Id == gigIdInJsonResult);
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
            
             var exists = _context.Followings.Any(f =>
