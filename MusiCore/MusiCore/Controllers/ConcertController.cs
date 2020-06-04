@@ -47,10 +47,6 @@ namespace MusiCore.Controllers
 
                ShowActions = User.Identity.IsAuthenticated
         };
-
-            
-
-
             return View(concertsViewModel);
         }
 
@@ -58,17 +54,6 @@ namespace MusiCore.Controllers
         public async Task<IActionResult> Create()
         {
             List<SelectListItem> listGenre = new List<SelectListItem>();
-
-            var dbGenreList = _context.Genres.ToList();
-
-
-            //var artist = _context.Users.Single(u => u.Id = User.Identity.GetUserId);
-
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
-            var userName = User.FindFirstValue(ClaimTypes.Name); // will give the user's userName
-
-            ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
-            string userEmail = applicationUser?.Email; // will give the user's Email
 
             foreach (var item in _context.Genres)
             {
@@ -81,10 +66,8 @@ namespace MusiCore.Controllers
 
             var viewModel = new ConcertFormViewModel()
             {
-                Genres = dbGenreList
+                Genres =  _context.Genres.ToList()
             };
-
-            //ViewData["GenreBag"] = new SelectList(listGenre, "Value", "Text");
 
             return View(viewModel);
         }
@@ -94,17 +77,13 @@ namespace MusiCore.Controllers
         {
             if (!ModelState.IsValid)
             {
+                //model valid değilse, View'a dönüyoruz. Fakat bu durumda Genre için oluşturulmuş olan dropdownlist boş oluyor. Bunu tekrar populate etmemiz ve View'a yollamamız gerek:
                 viewModel.Genres = _context.Genres.ToList();
                 return View("Create", viewModel);
             }
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
-            var userName = User.FindFirstValue(ClaimTypes.Name); // will give the user's userName
-
-            ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
-            string userEmail = applicationUser?.Email; // will give the user's Email
-
-            var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
+            var genre = _context.Genres.First(g => g.Id == viewModel.Genre);
 
             var concert = new Concert()
             {
