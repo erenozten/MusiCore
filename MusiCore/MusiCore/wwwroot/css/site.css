@@ -148,10 +148,9 @@ body {
     width: 100%;
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
-}*/
+}
 
-
-
+*/
 /* ------------------------------------------------------------eren*/
 body {
     /*color: #0057f6;*/
@@ -264,13 +263,13 @@ body {
 }
 
 
-.form-control:focus {
+    .form-control:focus {
         color: #495057;
         background-color: #fff;
         border-color: red;
         outline: 0;
         box-shadow: 0 0 0 0.2rem rgba(255, 34, 2, 0.68);
-}
+    }
 
 
 .btn {
@@ -319,12 +318,12 @@ h1 {
     padding: 15px 20px !important;
 }
 
-.dropdown-item:focus, .dropdown-item:hover {
-    text-decoration: none;
-    background-color: red;
-    font-weight: bold;
-    color: white;
-}
+    .dropdown-item:focus, .dropdown-item:hover {
+        text-decoration: none;
+        background-color: red;
+        font-weight: bold;
+        color: white;
+    }
 
 .btnUseless {
     font-size: 16px;
@@ -404,6 +403,7 @@ h1 {
     background-color: #32b711;
     border-color: #32b711;
 }
+
     .btn-green:hover {
         color: #fff;
         background-color: #239e01;
@@ -433,14 +433,14 @@ nav-item dropdown:hover {
 
 textarea.form-control {
     width: 450px !important;
-     height: 250px; 
+    height: 250px;
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
 textarea .form-control {
     width: 450px !important;
-     height: 250px; 
+    height: 250px;
     margin-top: 0px;
     margin-bottom: 0px;
 }
@@ -503,28 +503,28 @@ textarea .form-control {
     cursor: default !important;
 }
 
-/*.close:hover {
+    /*.close:hover {
     opacity: 1;
     color: red;
 }*/
 
-.close:before, .close:after {
-    position: absolute;
-    left: 15px;
-    content: ' ';
-    height: 33px;
-    width: 2px;
-    background-color: red;
-    color: red;
-}
+    .close:before, .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: red;
+        color: red;
+    }
 
-.close:before {
-    transform: rotate(45deg);
-}
+    .close:before {
+        transform: rotate(45deg);
+    }
 
-.close:after {
-    transform: rotate(-45deg);
-}
+    .close:after {
+        transform: rotate(-45deg);
+    }
 
 /*Kırmızı çarpı işareti bitiş*/
 
@@ -544,63 +544,63 @@ textarea .form-control {
 .gigs {
     list-style: none;
 }
-/* Ekledi */
+    /* Ekledi */
 
-/* Ekledi */
-.gigs > li {
-    position: relative;
-    margin-bottom: 30px;
-}
-/* Ekledi */
+    /* Ekledi */
+    .gigs > li {
+        position: relative;
+        margin-bottom: 30px;
+    }
+        /* Ekledi */
 
-/* Ekledi */
-.gigs > li .date {
-    background: Red;
-    color: white;
-    text-align: center;
-    width: 60px;
-    border-radius: 8px;
-}
-/* Ekledi */
+        /* Ekledi */
+        .gigs > li .date {
+            background: Red;
+            color: white;
+            text-align: center;
+            width: 60px;
+            border-radius: 8px;
+        }
+            /* Ekledi */
 
-/* Ekledi */
-.gigs > li .date .month {
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 2px 6px;
-}
-/* Ekledi */
+            /* Ekledi */
+            .gigs > li .date .month {
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: bold;
+                padding: 2px 6px;
+            }
+            /* Ekledi */
 
-/* Ekledi */
-.gigs > li .date .day {
-    background: #f7f7f7;
-    color: #333;
-    font-size: 20px;
-    padding: 6px 12px;
-}
-/* Ekledi */
+            /* Ekledi */
+            .gigs > li .date .day {
+                background: #f7f7f7;
+                color: #333;
+                font-size: 20px;
+                padding: 6px 12px;
+            }
+        /* Ekledi */
 
-/* Ekledi */
-.gigs > li .details {
-    position: absolute;
-    top: 0;
-    left: 70px;
-}
-/* Ekledi */
+        /* Ekledi */
+        .gigs > li .details {
+            position: absolute;
+            top: 0;
+            left: 70px;
+        }
+            /* Ekledi */
 
-.gigs > li .details .artist {
-    display: block;
-    font-weight: bold;
-}
+            .gigs > li .details .artist {
+                display: block;
+                font-weight: bold;
+            }
 
-.gigs > li .details .genre {
-    font-size: 15px;
-}
+            .gigs > li .details .genre {
+                font-size: 15px;
+            }
 
-.gigs .details {
-    width: 155px;
-}
+    .gigs .details {
+        width: 155px;
+    }
 
 .btnGoing {
     float: right;
@@ -642,9 +642,9 @@ textarea .form-control {
     color: red;
 }
 
-.crossMarkForNotCompleted:hover {
-    opacity: 1;
-}
+    .crossMarkForNotCompleted:hover {
+        opacity: 1;
+    }
 
     .crossMarkForNotCompleted:before, .crossMarkForNotCompleted:after {
         position: absolute;
@@ -655,13 +655,13 @@ textarea .form-control {
         background-color: #ffc107;
     }
 
-.crossMarkForNotCompleted:before {
-    transform: rotate(45deg);
-}
+    .crossMarkForNotCompleted:before {
+        transform: rotate(45deg);
+    }
 
-.crossMarkForNotCompleted:after {
-    transform: rotate(-45deg);
-}
+    .crossMarkForNotCompleted:after {
+        transform: rotate(-45deg);
+    }
 
 .btn {
     border-color: #80808078;
@@ -673,6 +673,16 @@ textarea .form-control {
     text-decoration: none;
 }
 
+.btn-sm-for-follow {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+}
+
+.btn-sm-for-follow:hover {
+    text-decoration: none;
+}
 
 
 
@@ -945,13 +955,13 @@ height: 55px;
     border-radius: 2px;*/
 }
 
-.alertify-notifier .ajs-message.ajs-success {
-    /*color: deepskyblue;
+    .alertify-notifier .ajs-message.ajs-success {
+        /*color: deepskyblue;
         background: rgba(91, 189, 114, 0.95);
         text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);*/
-    background-color: deepskyblue !important;
-    color: white !important;
-}
+        background-color: deepskyblue !important;
+        color: white !important;
+    }
 
     .alertify-notifier .ajs-message.ajs-error {
         /*color: deepskyblue;
@@ -961,10 +971,10 @@ height: 55px;
         color: white !important;
     }
 
-.alertify-notifier .ajs-message.ajs-warning {
-    /*background: rgba(252, 248, 215, 0.95);
+    .alertify-notifier .ajs-message.ajs-warning {
+        /*background: rgba(252, 248, 215, 0.95);
         border-color: deepskyblue;*/
-}
+    }
 
 /*Alertify Js renkler bitiş*/
 
@@ -1046,26 +1056,45 @@ height: 55px;
     color: black;
 }*/
 
-/*.gigHub-followLabel {
-    position: absolute;
-    left: 15px;
-    top: -2px;
-    font-size: 16px;
-    color: black;
-}*/
 
-.gigHub-followLabel {
+/*position: absolute;
+left: 15px;
+top: 2px;
+width: 74px;
+border: none;*/
+
+.gigHub-followLabelFollowing {
     position: absolute;
     left: 15px;
     top: 2px;
     width: 74px;
     border: none;
+    font-weight: bold;
+    color: #e060d6;
 }
 
-    .gigHub-followLabel:hover {
+.gigHub-followLabelFollowing:hover {
+    color: #e060d6;
+}
+
+.gigHub-followLabelNotFollowing {
+    position: absolute;
+    left: 15px;
+    top: 2px;
+    width: 74px;
+    border: none;
+    font-weight: normal;
+    color: #007bff;
+}
+
+.gigHub-followLabelNotFollowing:hover {
+    color: #007bff;
+}
+
+/*.gigHub-followLabel:hover {
         background-color: white;
         color: #007bff;
-    }
+    }*/
 
 
 /*.gighub-goingButton {
