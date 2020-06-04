@@ -123,11 +123,11 @@ namespace MusiCore.Controllers
                 // Takibi bırakmak istiyorsa:
                 if (wannaUnfollowInJsonResult)
                 {
+
+                    var followingToDelete = _context.Followings
+                        .FirstOrDefault(f => f.FollowerId == currentUserId && f.FolloweeId == concert.ArtistId);
                     try
                     {
-                        var followingToDelete = _context.Followings
-                            .Single(f => f.FollowerId == currentUserId && f.FolloweeId == concert.ArtistId);
-
                         _context.Followings.Remove(followingToDelete);
                         _context.SaveChanges();
                         return Json(new { resultOfUnfollowing = true, resultOfFollowing = false, followedOrUnfollowedArtistName = concert.Artist.Name });
@@ -135,12 +135,12 @@ namespace MusiCore.Controllers
                     catch (Exception e)
                     {
                         Console.WriteLine(e);
-                        return Json(new { showToUser = "Bir şeyler ters gitti!" });
+                        return Json(new { message = "Bir şeyler ters gitti!" });
                     }
                 }
-                return Json(new { resultOfFollowing = false, showToUser = "Bu kişiyi zaten takip ediyorsunuz!" });
+                return Json(new { resultOfFollowing = false, message = "Bu kişiyi zaten takip ediyorsunuz!" });
             }
-            return Json(new { showToUser = "Bir şeyler ters gitti!" });
+            return Json(new { message = "Bir şeyler ters gitti!" });
         }
 
     }
