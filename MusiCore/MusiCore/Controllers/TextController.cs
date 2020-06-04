@@ -105,6 +105,7 @@ namespace MusiCore.Controllers
             // Warning giderildi 3
             // Warning giderildi 4
             // Database adı değiştirildi, işler bozuldu. Eski veriler tekrar kaydedildi
+            // Refaktör yapıldı (JsonController)
 
             // Web API entegrasyonu sağlandı
             // Sadece JsonResult action'larına sahip olan bir Controller oluşturuldu. Ajax Post ile yapılan tüm işlemleri şimdilik bu Controller'da tutuyoruz
