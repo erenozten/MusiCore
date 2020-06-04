@@ -116,7 +116,8 @@ namespace MusiCore.Controllers
             // Katıl, takip et butonları eklendi ve css style ları eklendi, hizalandı
             // Kullanıcıların birbirini takip edebileceği bir sistem oluşturuluyor, bunun için Following.cs class'ı oluşturuldu. Veritabanında tablosu da oluşturuldu
             // Takip etme, takibi bırakma işlemlerini gerçekleştirebilmek için FollowOrUnfollow JsonResult'ı oluşturuldu
-            // Takip etme, takibi bırakma işlemi için script yazılıyor, allah kabul etsin.
+            // Takip etme, takibi bırakma işlemi için script yazılıyor
+            // ConcertsViewModel isminde bir viewmodel oluşturduk. Anasayfada listelenen concert'leri bu viewmodel aracılığıyla gösteriyoruz. Bunu kullandık çünkü view'a yollanan modelin içerisinde, kullanıcının giriş yapıp yapmadığı bilgisini de bulundurmamız gerekiyordu (User.Identity.IsAuthenticated)
             return View();
         }
 
@@ -202,7 +203,7 @@ namespace MusiCore.Controllers
             
             // BURAYA KADAR OK!
 
-            //
+            // Takip takibi bırak olayında sıkıntı var. Ayrıca Michael Jackson takip edilmeye başlandıysa, ekrandaki diğer konserlerin "takip et" linkleri de "takiptesin!" şeklinde değişmeli.
             //
             //
             return View();
