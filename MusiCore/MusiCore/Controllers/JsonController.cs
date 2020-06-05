@@ -31,6 +31,7 @@ namespace MusiCore.Controllers
             {
                 return Json(new{message = "Hata! Konserin Id'si bulunamadı."});
             }
+
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
 
             var concert = _context.Concerts.Where(c => c.Id == gigIdInActionResult).Include(c => c.Artist).Single();

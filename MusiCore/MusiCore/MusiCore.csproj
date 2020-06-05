@@ -23,6 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Other\silinenEskiScriptler.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Other\silinenEskiScriptler.cshtml" />
     <None Include="wwwroot\lib\alertifyjs\alertify.js" />
     <None Include="wwwroot\lib\alertifyjs\alertify.min.js" />
   </ItemGroup>
