@@ -51,6 +51,16 @@ namespace MusiCore.Controllers
         }
 
         [Authorize]
+        public ActionResult Mine()
+        {
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
+            var concerts = _context.Concerts
+                .Where(c => c.ArtistId == currentUserId && c.DateTime > DateTime.Now)
+                .ToList();
+            return View();
+        }
+
+        [Authorize]
         public async Task<IActionResult> Create()
         {
             List<SelectListItem> listGenre = new List<SelectListItem>();
