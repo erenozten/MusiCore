@@ -8,7 +8,6 @@
 @*@Html.Partial("PartialViews/_PartialViewForCreateTextTop")*@
 @await Html.PartialAsync("PartialViews/_PartialViewForCreateTextTop")
 
-
 <ul id="ulId" class="gigs">
     @foreach (var item in Model.UpcomingConcerts)
     {
@@ -31,49 +30,29 @@
                         </div>
                     </div>
                 </div>
-                <div id="followOrUnfollowDiv" class="thirdDiv i-display-inline-block" style="position: absolute; left: 206px; top: 1px;">
-                    <div id="followDiv" class="followDiv">
-                        @*btn-sm çıkarıldı   btn-sm-for-follow eklendi*@
-                        <button id="followOrUnfollowButton" onclick="followOrUnfollow(this)"
-                                class="followOrUnfollowButton btn btn-link js-toggle-follow gigHub-followLabel gigHub-followLabelNotFollowing followOrUnfollowButton btn-sm-for-follow" style="" data-gig-id=@item.Id value="Takip et">
-                            Takip Et
-                        </button>
+                @if (Model.ShowActions)
+                {
+                    <div id="followOrUnfollowDiv" class="thirdDiv i-display-inline-block" style="position: absolute; left: 206px; top: 1px;">
+                        <div id="followDiv" class="followDiv">
+                            @*btn-sm çıkarıldı   btn-sm-for-follow eklendi*@
+                            <button id="followOrUnfollowButton" onclick="followOrUnfollow(this)"
+                                    class="followOrUnfollowButton btn btn-link js-toggle-follow gigHub-followLabel gigHub-followLabelNotFollowing followOrUnfollowButton btn-sm-for-follow" style="" data-gig-id=@item.Id value="Takip et">
+                                Takip Et
+                            </button>
+                        </div>
+                        <div id="goingDiv">
+                            <button onclick="attendToConcertFunc(this)" id="goingButtonId" data-gig-id=@item.Id data-artist-id=@item.Artist.Id 
+                                    value="Katıl" style="position: absolute; left: 1px; top: 29px; width: 109px;" 
+                                    class="gigHub-goingButton btn btn-default btn-sm pull-right btnGoing gigHub-goingButtonPassive" data-artist-id="d3aa7f47-959e-414a-a467-2da769a92cc6">
+                                Katıl
+                            </button>
+                        </div>
                     </div>
-                    <div id="goingDiv">
-                        <button onclick="attendToConcertFunc(this)" id="goingButtonId" data-gig-id=@item.Id data-artist-id=@item.Artist.Id 
-                                value="Katıl" style="position: absolute; left: 1px; top: 29px; width: 109px;" 
-                                class="gigHub-goingButton btn btn-default btn-sm pull-right btnGoing gigHub-goingButtonPassive" data-artist-id="d3aa7f47-959e-414a-a467-2da769a92cc6">
-                            Katıl
-                        </button>
-                    </div>
-                </div>
+                }
             </div>
         </li>
     }
 </ul>
-
-@*<ul id="ornekUl">
-    <li>
-        <div>
-            <div>
-                <div class="artistNameDiv" id="artistNameDiv">art1s</div>
-            </div>
-            <div>
-                gereksiz
-            </div>
-        </div>
-    </li>
-    <li>
-        <div>
-            <div>
-                <div id="artistNameDiv">art2</div>
-            </div>
-            <div>
-                gereksiz
-            </div>
-        </div>
-    </li>
-</ul>*@
 
 @section scripts
 {
