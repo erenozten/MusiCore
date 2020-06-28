@@ -1,16 +1,14 @@
-﻿
+﻿@model IEnumerable<MusiCore.Models.Concert>
+
 @{
     ViewData["Title"] = "Mine";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<h1>Mine</h1>*@
-
 @await Html.PartialAsync("PartialViews/_PartialViewForCreateTextTop")
 
-
 <ul id="ulId" class="gigs">
-    @foreach (var item in Model.UpcomingConcerts)
+    @foreach (var item in Model)
     {
         // <li> <div id="MainDiv"> <div id="followOrUnfollowDiv"> <div id="followDiv"> <button id="followOrUnfollowButton">
         <li>
@@ -24,7 +22,7 @@
                     </div>
                 </div>
                 <div id="ArtistNameAndGenreDiv" class="secondDiv ArtistNameAndGenreDiv i-display-inline-block">
-                    <div id="artistNameDiv" class="artist artistNameDiv gigHub-artistLabel" val="@item.Artist.Name" style="">@item.Artist.Name</div>
+                    <div id="artistNameDiv" class="artist artistNameDiv gigHub-artistLabel" val="@item.Venue" style=""></div>
                     <div>
                         <div class="gigHub-genreLabel" style="">
                             @item.Genre.Name
@@ -40,7 +38,7 @@
                         </button>
                     </div>
                     <div id="goingDiv">
-                        <button onclick="attendToConcertFunc(this)" id="goingButtonId" data-gig-id=@item.Id data-artist-id=@item.Artist.Id
+                        <button onclick="attendToConcertFunc(this)" id="goingButtonId" data-gig-id=@item.Id
                                 value="Katıl" style="position: absolute; left: 1px; top: 29px; width: 109px;"
                                 class="gigHub-goingButton btn btn-default btn-sm pull-right btnGoing gigHub-goingButtonPassive" data-artist-id="d3aa7f47-959e-414a-a467-2da769a92cc6">
                             Katıl
