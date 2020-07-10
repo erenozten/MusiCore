@@ -32,8 +32,9 @@ namespace MusiCore.Controllers
             // SQL Injection casusluğu önleniyor. Projede Entity Framework kullanılıyor, dolayısıyla SQL sorguları Runtime'da değil, compile-time'da oluşturuluyor //db'ye eklendi
 
             // BURAYA KADAR OK!
-
-            // Data Annotations (bunu sonlara ekle)
+            //View Model Pattern kullandık
+            // Object-oriented Design
+            // Data Annotations ve Fluent API (bunu sonlara ekle)
 
             return View();
         }
@@ -53,7 +54,7 @@ namespace MusiCore.Controllers
             return View();
         }
 
-        public IActionResult LogOfEverything() //ok
+        public IActionResult LogOfEverything() //Sistemde yapılan her şeyin log'u burada tutuluyor
         {
             // Projeye eklenen çıkarılan her şeyin log'landığı ActionResult
 
@@ -119,10 +120,12 @@ namespace MusiCore.Controllers
             // Takip etme, takibi bırakma işlemlerini gerçekleştirebilmek için FollowOrUnfollow JsonResult'ı oluşturuldu
             // Takip etme, takibi bırakma işlemi için script yazılıyor
             // ConcertsViewModel isminde bir viewmodel oluşturduk. Anasayfada listelenen concert'leri bu viewmodel aracılığıyla gösteriyoruz. Bunu kullandık çünkü view'a yollanan modelin içerisinde, kullanıcının giriş yapıp yapmadığı bilgisini de bulundurmamız gerekiyordu (User.Identity.IsAuthenticated)
+            // AlertifyJs CSS class'ları override edildi, override'ler Site.css dosyasına eklendi
+
             return View();
         }
 
-        public IActionResult CampaignOfAddingNewModule()
+        public IActionResult CampaignOfAddingNewModule() // Projeye eklenecek olan modülleri burada belirtiyoruz. Eğer modülü projeye dahil etmişsek, görevin edit sayfasına gidip "bu görev yapıldı" şeklinde işaretliyoruz.
         {
             // TextController'da bulunan tüm ActionResult'lar için bir tablo oluşturalım, görev yapıldıysa true yapalım property'sini, değilse false //db'ye eklendi
             // Yapılmış olan görevler yeşil, yapılmamışlar kırmızı renk ile gösterilsin, bu iki işlemi göstermek için icon'lar kullanalım //db'ye eklendi
@@ -186,11 +189,12 @@ namespace MusiCore.Controllers
             //Bootstrap bazı sayfalarda bozuk çalışıyor, görev sayfalarının indexlerinde problem var, let them be fixed!
             // Bir konsere katıldığında, sağ altta bildirim çıksın. Bunun için AlertifyJs kullanılabilir
             // AlertifyJs projeye eklendi. Katılım eklenmesi ve silinmesi sürecinde ekranın sağ altında bildirim beliriyor. Başarılı, başarısız işlem şeklinde
-            // AlertifyJs CSS class'ları override edildi, override'ler Site.css dosyasına eklendi
+            // Katılacağım konserleri ayrı bir sayfada görüntülensin
+            // Katılacağım konserler sayfasındaki konser listesinde; bir row'a hover yapıldığında 'edit' sayfasının linki gösterilsin. Hover'dan çıkıldığında link silinsin.
             return View();
-        }
+        } 
 
-        public IActionResult CampaignOfFixation() //ok
+        public IActionResult CampaignOfFixation() //Düzeltilen bug lar burada bulunuyor
         {
             // Index sayfalarında tablo çok genişleyebiliyor property'lerin uzunluğuna göre. Bunlar düzenlenmeli. Trim metotları kullanılmalı //db'ye eklendi
             // Create Concert sayfasıdaki dropdown çalışmasına çalışıyor lakin görsel olarak dropdown'un içinde seçilen şey görünmüyor, dropdown'ın içi boş görünüyor //db'ye eklendi
@@ -210,15 +214,7 @@ namespace MusiCore.Controllers
             return View();
         }
 
-        public IActionResult DigerHicbirYereEklenmemis()
-        {
-            //View Model Pattern kullanmışız
-            // Object-oriented Design
-            // Restful APIs
-            return View();
-        }
-
-        public IActionResult NOT()
+        public IActionResult Notlar()
         {
             //nav-bar ın background-color'unu kırmızıdan #1b1313 siyaha çevirince süper oluyor. dropdown hover için açık ve koyu mavi renkler über manyak: #00c4ff   #004eff #0846d2
             return View();
