@@ -11,7 +11,10 @@
                 @User.Identity.Name
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Katılacağım Konserler</a> @*Concerts I'm Goings*@
+
+                <a class="dropdown-item" asp-area="" asp-controller="Concert" asp-action="Mine">
+                    Katılacağım Konserler
+                </a>
                 <a class="dropdown-item" href="#">Takip Ettiğim Sanatçılar</a> @*Artists I'm Following*@
 
                 <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="About">
@@ -38,8 +41,8 @@
                     Log'lar
                 </a>
 
-                <a class="dropdown-item" href="#" onmouseover="this.style.color='white'">
-                    <form class="" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <a class="dropdown-item" href="#" onmouseover="this.style.color = 'white'">
+                    <form class="" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})">
                         <button type="submit" class="pseudoButton">Logout</button>
                     </form>
                 </a>
