@@ -53,11 +53,22 @@ namespace MusiCore.Controllers
         [Authorize]
         public ActionResult Mine()
         {
+            //üst kısım için --> _PartialViewForCreateTextTop
+            ViewData["ViewDataForFirstHeader"] = "Verdiğim Konserler";
+            ViewData["ViewDataForSecondHeader"] = "Katılacağın konserleri burada görebilirsin!";
+
+            //alt kısım için --> _PartialViewForCreateTextBottom
+            ViewData["ViewDataForCSSClassForEkleButton"] = "btn btn-green";
+            ViewData["ViewDataForActionNameForGeriDonLink"] = "Index";
+            ViewData["ViewDataForSaveButtonsValue"] = "Kaydet!";
+
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
             var concerts = _context.Concerts
                 .Where(c => c.ArtistId == currentUserId && c.DateTime > DateTime.Now)
+                .Include(g=>g.Genre)
+                .Include(g=>g.Artist)
                 .ToList();
-            return View();
+            return View(concerts);
         }
 
         [Authorize]
@@ -107,7 +118,7 @@ namespace MusiCore.Controllers
             _context.Concerts.Add(concert);
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Concert");
+            return RedirectToAction("Mine", "Concert");
         }
     }
 }
