@@ -34,5 +34,29 @@ namespace MusiCore.Models
         // ben ekledim
         // Attendance'ların içinden ConcertId'si Concert'in Id değerine eşit olan tüm attendance'ları aşağıdaki property sayesinde çekebiliyoruz sorguyla.
         public ICollection<Attendance> Attendances { get; set; }
+
+        public string GetCroppedVenue
+        {
+            get
+            {
+                if (Venue.Length > 8)
+                {
+                    try
+                    {
+                        string subString = Venue.Substring(0, 5);
+                        string newString = subString + "...";
+                        return newString;
+                    }
+                    catch (Exception e)
+                    {
+                        return Venue;
+                    }
+                }
+                else
+                {
+                    return Venue;
+                }
+            }
+        }
     }
 }
