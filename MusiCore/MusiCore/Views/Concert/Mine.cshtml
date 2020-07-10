@@ -22,10 +22,13 @@
                     </div>
                 </div>
                 <div id="ArtistNameAndGenreDiv" class="secondDiv ArtistNameAndGenreDiv i-display-inline-block">
-                    <div id="artistNameDiv" class="artist artistNameDiv gigHub-artistLabel" val="@item.Venue" style=""></div>
+                    <div id="artistNameDiv" class="artist artistNameDiv gigHub-artistLabel" val="@item.GetCroppedVenue" style="">@item.GetCroppedVenue</div>
                     <div>
                         <div class="gigHub-genreLabel" style="">
                             @item.Genre.Name
+                        </div>
+                        <div class="actions">
+                            <a href="">Edit</a>
                         </div>
                     </div>
                 </div>

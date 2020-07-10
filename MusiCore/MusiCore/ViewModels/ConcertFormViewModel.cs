@@ -12,12 +12,10 @@ namespace MusiCore.ViewModels
     {
         // property'leri string olarak oluşturduğumuza dikkat:
 
-
         //[MinLength(2, ErrorMessage = "Bu alan en az 2 karakterden oluşmalıdı.")]
         //[StringLength(3000, ErrorMessage = "Bu alan en fazla 100 karakterden oluşmalıdı.")]
         //[DisplayFormat(NullDisplayText = "Veri yok")]
         //[Display(Name="Yer")]
-
 
         [Required(ErrorMessage = "Bu alan boş bırakılamaz")]
         [Display(Name = "Yer", Prompt = "Kadıköy")]
