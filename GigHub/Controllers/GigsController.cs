@@ -71,6 +71,8 @@ namespace GigHub.Controllers
         [HttpPost]
         public ActionResult Search(GigsViewModel viewModel)
         {
+            // Search işlemleri HomeController'da, Index Action'ında yapılıyor. 
+            // Argument olarak kullanıcının girdiği text yollanıyor.
             return RedirectToAction("Index", "Home", new { query = viewModel.SearchTerm });
         }
 

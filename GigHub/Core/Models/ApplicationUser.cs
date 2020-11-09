@@ -12,27 +12,36 @@ namespace GigHub.Core.Models
     {
         public string Name { get; set; }
 
+        // Kullanıcının takipçileri
         public ICollection<Following> Followers { get; set; }
+        
+        // Kullanıcıyı takip edenler
         public ICollection<Following> Followees { get; set; }
+        
+        // Kullanıcı bildirimleri
         public ICollection<UserNotification> UserNotifications { get; set; }
 
         public ApplicationUser()
         {
+            // Followers ICollection'ının itinialization'ı:
             Followers = new Collection<Following>();
+
+            // Followees ICollection'ının itinialization'ı:
             Followees = new Collection<Following>();
+
+            // UserNotifications ICollection'ının initialization'ı
             UserNotifications = new Collection<UserNotification>(); 
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
-            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add custom user claims here
             return userIdentity;
         }
 
         public void Notify(Notification notification)
         {
+            //Kullanıcı bilgilendirme:
             UserNotifications.Add(new UserNotification(this, notification));
         }
     }

@@ -5,17 +5,17 @@ using System.Linq;
 
 namespace GigHub.Core.Models
 {
-    // Gig: Konser
+    // Konser
     public class Gig
     {
         public int Id { get; set; }
 
         public bool IsCanceled { get; private set; }
 
-        // Sisteme giriş yapan kullanıcı
+        // Konseri veren Kullanıcı
         public ApplicationUser Artist { get; set; }
 
-        // Sisteme giriş yapan kullanıcının id değeri (string tipini kullanıyoruz)
+        // Konseri veren kullanıcının Id'si
         public string ArtistId { get; set; }
 
         // Konserin verilme zamanı
@@ -30,16 +30,18 @@ namespace GigHub.Core.Models
         // Konserin türünün id değeri
         public byte GenreId { get; set; }
 
-        // Konsere yapılan katılımlar. Dışarıdan bir liste set edilmesin diye private set olarak ayarlandı. Dolayısıyla eski liste, yeni bir listeyle değiştirilemeyecektir.
+        // Konsere yapılan katılımlar. Dışarıdan bir liste set edilmesin diye private set olarak ayarlandı. 
+        // Dolayısıyla eski liste, yeni bir listeyle değiştirilemeyecektir.
         public ICollection<Attendance> Attendances { get; private set; }
 
-        // ctor. Konser oluşturulduğu anda yeni bir Attendances initialize etmemiz gerekiyor. Bunu yaptık.
+        // Default constructor. Konser initialize edildiği anda yeni bir Attendance listesi initialize etmemiz gerekiyor. Bunu yaptık.
         public Gig()
         {
             Attendances = new Collection<Attendance>();
         }
 
-        // Konser iptal edilirse Iscanceled = true olsun. Çünkü iptal edilen konseri sistemden silmeyeceğiz.
+        // Konser iptal edilirse Iscanceled = true olsun. 
+        // Çünkü iptal edilen konseri sistemden silmeyeceğiz.
         public void Cancel()
         {
             IsCanceled = true;

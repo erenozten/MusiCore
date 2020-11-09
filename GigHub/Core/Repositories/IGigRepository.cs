@@ -13,4 +13,3 @@ namespace GigHub.Core.Repositories
         IEnumerable<Gig> GetUpcomingGigs(string searchTerm = null);
     }
 }
-}

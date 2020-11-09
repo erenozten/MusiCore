@@ -3,7 +3,7 @@ using GigHub.Core.Models;
 
 namespace GigHub.Core.Repositories
 {
-    public interface IApplicationUserRepository
+       public interface IApplicationUserRepository
     {
         IEnumerable<ApplicationUser> GetArtistsFollowedBy(string userId);
     }
