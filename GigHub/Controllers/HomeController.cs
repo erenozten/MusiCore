@@ -24,7 +24,6 @@ namespace GigHub.Controllers
             // kullanıcı id'sini aldık.
             var userId = User.Identity.GetUserId();
 
-
             var attendances = _unitOfWork.Attendances.GetFutureAttendances(userId)
                 .ToLookup(a => a.GigId);
 

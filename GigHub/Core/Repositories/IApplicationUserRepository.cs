@@ -8,3 +8,4 @@ namespace GigHub.Core.Repositories
         IEnumerable<ApplicationUser> GetArtistsFollowedBy(string userId);
     }
 }
+

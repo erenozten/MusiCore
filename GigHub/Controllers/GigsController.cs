@@ -39,7 +39,6 @@ namespace GigHub.Controllers
             return View("Details", viewModel);
         }
 
-
         [Authorize]
         public ViewResult Mine()
         {
